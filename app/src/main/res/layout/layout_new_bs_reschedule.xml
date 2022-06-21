@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cns_restl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/white_upper_corners"
+        android:elevation="@dimen/_6sdp"
+        android:paddingTop="@dimen/dp24"
+        android:paddingBottom="@dimen/dp10"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/dp16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gr"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/dimen_16dp" />
+
+        <TextView
+            android:id="@+id/n1"
+            style="@style/AppTheme.TextMedium"
+            android:layout_width="0dp"
+            android:text="@string/reschedule"
+            android:textColor="@color/txt_dash_heading"
+            android:textSize="@dimen/dp16"
+            app:layout_constraintEnd_toStartOf="@+id/tv_orderId"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_orderId"
+            style="@style/AppTheme.TextMedium"
+            android:layout_marginEnd="@dimen/dp10"
+            android:gravity="center_vertical"
+            android:textAllCaps="true"
+            android:textColor="@color/indicator_color"
+            android:textSize="@dimen/dp14"
+            app:layout_constraintBottom_toBottomOf="@+id/n1"
+            app:layout_constraintEnd_toStartOf="@+id/iv_cross"
+            app:layout_constraintTop_toTopOf="@+id/n1"
+            tools:text="ORD876543" />
+
+        <ImageView
+            android:id="@+id/iv_cross"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp5"
+            android:src="@drawable/ic_cross_"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_orderId"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintTop_toTopOf="@+id/tv_orderId" />
+
+        <View
+            android:id="@+id/vn1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dp5"
+            android:background="@color/divider_support_more"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toBottomOf="@+id/n1"
+            app:layout_goneMarginTop="@dimen/dp10" />
+
+        <TextView
+            android:id="@+id/tvh_slot_type"
+            style="@style/AppTheme.TextMedium"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginEnd="@dimen/dp10"
+            android:gravity="center_vertical"
+            android:textColor="@color/indicator_color"
+            android:textSize="@dimen/dp14"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toBottomOf="@+id/vn1"
+            tools:text="Hourly Booking" />
+
+        <View
+            android:id="@+id/vn2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dp8"
+            android:background="@color/divider_support_more"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toBottomOf="@+id/tvh_slot_type"
+            app:layout_goneMarginTop="@dimen/dp10" />
+
+        <FrameLayout
+            android:id="@+id/frame_task"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp8"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toBottomOf="@+id/vn2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/crd_hour_slot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/dp8"
+                android:visibility="gone"
+                app:cardElevation="@dimen/dp2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txt_hour"
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/dp24"
+                        android:paddingVertical="@dimen/dp5"
+                        android:text="12 Hours"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dp11" />
+
+                    <TextView
+                        android:id="@+id/txt_price"
+                        style="@style/AppTheme.TextMedium"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/sq_top_round_bttom_border_blue"
+                        android:gravity="center"
+                        android:padding="@dimen/dp8"
+                        android:singleLine="true"
+                        android:text="10 SAR"
+
+                        android:textColor="@color/txt_dash_heading"
+                        android:textSize="@dimen/dp12" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_tasks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dp8"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="2"
+                tools:listitem="@layout/layout_new_item_payment_splitting" />
+
+        </FrameLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:paddingVertical="@dimen/dp10"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toBottomOf="@+id/frame_task">
+
+            <TextView
+                android:id="@+id/nh2"
+                style="@style/AppTheme.TextMedium"
+                android:layout_width="0dp"
+                android:paddingVertical="@dimen/dp10"
+                android:text="@string/appointment_schedule"
+                android:textColor="@color/txt_color_profile_desc"
+                android:textSize="@dimen/dp14"
+                app:layout_constraintEnd_toStartOf="@+id/tv_select_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_select_date"
+                style="@style/AppTheme.TextMedium"
+                android:clickable="false"
+                android:enabled="false"
+                android:drawablePadding="@dimen/dp8"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingVertical="@dimen/dp5"
+                android:textAllCaps="true"
+                android:textColor="@color/indicator_color"
+                android:textSize="@dimen/dp14"
+                app:drawableStartCompat="@drawable/ic_dob_"
+                app:layout_constraintBottom_toBottomOf="@+id/nh2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/nh2"
+                tools:text="01 DEC 2021" />
+
+            <View
+                android:id="@+id/vsep2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dp5"
+                android:background="@color/divider_support_more"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nh2" />
+            <androidx.constraintlayout.widget.Group
+                android:layout_width="wrap_content"
+                android:visibility="visible"
+                app:constraint_referenced_ids="vsep2,nh_sel_date,rv_date_slots"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/nh_sel_date"
+                style="@style/AppTheme.TextRegular"
+                android:layout_marginTop="@dimen/dp10"
+                android:text="@string/select_date"
+                android:textColor="@color/txt_color_profile_desc"
+                android:textSize="@dimen/dp14"
+                app:layout_constraintStart_toStartOf="@+id/nh2"
+                app:layout_constraintTop_toBottomOf="@+id/vsep2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_date_slots"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp8"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nh_sel_date"
+                tools:itemCount="7"
+                tools:listitem="@layout/layout_new_item_row_date_slot" />
+
+            <View
+                android:id="@+id/vsep21"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@color/divider_support_more"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_date_slots" />
+
+            <TextView
+                android:id="@+id/nh_sel_slot"
+                style="@style/AppTheme.TextRegular"
+                android:layout_marginTop="@dimen/dp10"
+                android:text="@string/select_start_time"
+                android:textColor="@color/txt_color_profile_desc"
+                android:textSize="@dimen/dp14"
+                app:layout_constraintStart_toStartOf="@+id/nh2"
+                app:layout_constraintTop_toBottomOf="@+id/vsep21" />
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/tv_sel_slot"-->
+            <!--                style="@style/AppTheme.TextRegular"-->
+            <!--                android:layout_marginStart="@dimen/dp10"-->
+            <!--                android:text="@string/all_slots_for_30_mins"-->
+            <!--                android:textColor="@color/indicator_color"-->
+            <!--                android:textSize="@dimen/dp12"-->
+            <!--                app:layout_constraintBottom_toBottomOf="@+id/nh_sel_slot"-->
+            <!--                app:layout_constraintStart_toEndOf="@+id/nh_sel_slot"-->
+            <!--                app:layout_constraintTop_toTopOf="@+id/nh_sel_slot" />-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_time_slots"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/dp8"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/nh_sel_slot"
+                app:layout_constraintBottom_toTopOf="@+id/btn_submit"
+                app:spanCount="2"
+                tools:itemCount="10"
+                tools:listitem="@layout/layout_new_item_row_times" />
+
+            <TextView
+                android:id="@+id/tv_no_found_slot_timing"
+                style="@style/AppTheme.TextMedium"
+                android:layout_alignParentStart="true"
+                android:layout_margin="@dimen/dp30"
+                android:gravity="center"
+                android:text="@string/no_data"
+                android:textColor="@color/txt_color_profile_desc"
+                android:textStyle="italic"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/btn_submit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nh_sel_slot" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_submit"
+                style="@style/AppTheme.BtnMediumBlue"
+                android:layout_height="48dp"
+                android:layout_marginTop="@dimen/dp30"
+                android:layout_marginBottom="@dimen/dp6"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="@string/save_change_amp_reschedule"
+                android:textAllCaps="true"
+                android:textSize="@dimen/dp14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_time_slots" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

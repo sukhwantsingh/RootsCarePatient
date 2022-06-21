@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/profile_header_bg"
+                android:orientation="vertical">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tablayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    app:tabIndicatorColor="@null"
+                    app:tabMode="scrollable"
+                    app:tabSelectedTextColor="@color/modified_black_1"
+                    app:tabTextAppearance="@style/CustomTabText" />
+            </LinearLayout>
+
+            <com.rootscare.utils.WorkaroundNestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+                    <!-- All Recyclerview-->
+                    <LinearLayout
+                        android:id="@+id/ll_all_appointment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <include
+                            android:id="@+id/layout_all_list"
+                            layout="@layout/fragment_doctor_appointment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <!-- Doctor Recyclerview-->
+                    <LinearLayout
+                        android:id="@+id/ll_doctor_appointment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <include
+                            android:id="@+id/layout_doctor_list"
+                            layout="@layout/fragment_doctor_appointment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                    <!--                Nurses Recyclerview-->
+
+                    <LinearLayout
+                        android:id="@+id/ll_nurses_appointment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <include
+                            android:id="@+id/layout_nurses_list"
+                            layout="@layout/fragment_nurses_appointment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                    <!--                Hospital Recyclerview-->
+
+                    <LinearLayout
+                        android:id="@+id/ll_hospital_appointment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <include
+                            android:id="@+id/layout_hospital_list"
+                            layout="@layout/fragment_hospital_appointment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <!--                Physiotherapy Recyclerview-->
+
+                    <LinearLayout
+                        android:id="@+id/ll_physitherapy_appointment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <include
+                            android:id="@+id/layout_physitherapy_list"
+                            layout="@layout/fragment_physitherapy_appointment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <!--                Caregiver Recyclerview-->
+                    <LinearLayout
+                        android:id="@+id/ll_caregiver_appointment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <include
+                            android:id="@+id/layout_caregiver_list"
+                            layout="@layout/fragment_caregiver_appointment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                    <!--                Babysitter Recyclerview-->
+                    <LinearLayout
+                        android:id="@+id/ll_babysitter_appointment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <include
+                            android:id="@+id/layout_babysitter_list"
+                            layout="@layout/fragment_babysitter_appointment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.rootscare.utils.WorkaroundNestedScrollView>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</layout>

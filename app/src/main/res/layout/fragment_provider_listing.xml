@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/reltop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dp8">
+
+        <include
+            android:id="@+id/incl_search"
+            layout="@layout/layout_new_search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp16" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_providers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tvBottomLoadMore"
+            android:layout_below="@+id/incl_search"
+            android:layout_marginTop="@dimen/dp4"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp8"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="2"
+            tools:listitem="@layout/layout_item_new_providers_" />
+
+        <TextView
+            android:id="@+id/tvBottomLoadMore"
+            style="@style/AppTheme.TextMedium"
+            android:background="@drawable/round_square_border_schedule_type_blue"
+            android:paddingHorizontal="@dimen/dp8"
+            android:paddingVertical="@dimen/dp5"
+            android:text="••• Load More"
+            android:layout_margin="@dimen/dp8"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:textAllCaps="true"
+            android:visibility="gone"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/dp10" />
+        <TextView
+            android:id="@+id/tv_no_date"
+            style="@style/AppTheme.TextRegular"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/_3sdp"
+            android:gravity="center"
+            android:text="@string/no_data"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/dp16"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edt_profile_personal_fname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/white_rectangle"
+                android:focusable="true"
+                android:hint="First Name"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/txt_color"
+                android:textColorHint="@color/modified_black_1"
+                android:textSize="@dimen/_10ssp" />
+
+            <EditText
+                android:id="@+id/edt_profile_personal_lname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/white_rectangle"
+                android:focusable="true"
+                android:hint="Last Name"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/txt_color"
+                android:textColorHint="@color/modified_black_1"
+                android:textSize="@dimen/_10ssp" />
+
+            <com.customview.MyTextView
+                android:id="@+id/txt_profile_personal_phonenumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/white_rectangle"
+                android:hint="Phone Number"
+                android:inputType="number"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/modified_black_1"
+                android:textColorHint="@color/modified_black_1"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="gone" />
+
+            <com.customview.MyTextView
+                android:id="@+id/txt_profile_personal_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/white_rectangle"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/modified_black_1"
+
+
+                android:textColorHint="@color/modified_black_1"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="gone" />
+
+            <com.customview.MyEditTextView
+                android:id="@+id/edt_profile_personal_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/white_rectangle"
+                android:hint="Location"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/txt_color"
+                android:textColorHint="@color/modified_black_1"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="gone" />
+
+
+            <com.customview.MyEditTextView
+                android:id="@+id/edt_profile_personal_idnumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/white_rectangle"
+                android:focusable="true"
+                android:hint="Id Number"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/txt_color"
+                android:textColorHint="@color/modified_black_1"
+                android:textSize="@dimen/_10ssp" />
+
+            <com.customview.MyTextView
+                android:id="@+id/txt_profile_personal_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/white_rectangle"
+                android:drawableEnd="@drawable/back"
+                android:hint="Status"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/txt_color"
+                android:textColorHint="@color/modified_black_1"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="gone" />
+
+            <com.customview.MyTextView
+                android:id="@+id/txt_profile_personal_dob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/white_rectangle"
+                android:drawableEnd="@drawable/calendar_month"
+                android:hint="Dob"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/txt_color"
+                android:textColorHint="@color/modified_black_1"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="gone" />
+
+            <com.customview.MyEditTextView
+                android:id="@+id/edt_profile_personal_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/white_rectangle"
+                android:hint="Age"
+                android:inputType="number"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/txt_color"
+                android:textColorHint="@color/modified_black_1"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="visible" />
+
+            <com.customview.MyEditTextView
+                android:id="@+id/edt_profile_personal_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/white_rectangle"
+                android:hint="Address"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/txt_color"
+                android:textColorHint="@color/modified_black_1"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="visible" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/places_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:orientation="vertical"
+                android:visibility="visible"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/white_rectangle"
+                android:orientation="vertical"
+                android:padding="@dimen/_7sdp"
+                android:visibility="visible">
+
+                <RadioGroup
+                    android:id="@+id/radioMaleOrFemale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_profile_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Male"
+                        android:textColor="@color/txt_color"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <RadioButton
+                        android:id="@+id/radio_profile_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:checked="true"
+                        android:text="Female"
+                        android:textColor="@color/txt_color"
+                        android:textSize="@dimen/_10ssp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <com.customview.MyTextView
+                android:id="@+id/edt_profile_personal_nationality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/white_rectangle"
+                android:drawableEnd="@drawable/down_arrow"
+                android:hint="Nationality"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/txt_color"
+                android:textColorHint="@color/modified_black_1"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/white_rectangle"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <com.customview.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/white_rectangle"
+                    android:hint="Height"
+                    android:inputType="text"
+                    android:padding="@dimen/_7sdp"
+                    android:textColor="@color/modified_black_1"
+                    android:textColorHint="@color/modified_black_1"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="visible" />
+
+                <com.customview.MyEditTextView
+                    android:id="@+id/edt_profile_personal_height"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp20"
+                    android:layout_marginEnd="@dimen/dp20"
+                    android:background="@drawable/edit_comm_bg"
+                    android:hint="560 cm"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="@color/txt_color"
+                    android:textColorHint="@color/modified_black_1"
+                    android:textSize="@dimen/dp8"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/white_rectangle"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <com.customview.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/white_rectangle"
+                    android:hint="Weight"
+                    android:inputType="text"
+                    android:padding="@dimen/_7sdp"
+                    android:textColor="@color/modified_black_1"
+                    android:textColorHint="@color/modified_black_1"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="visible" />
+
+                <com.customview.MyEditTextView
+                    android:id="@+id/edt_profile_personal_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp20"
+                    android:layout_marginEnd="@dimen/dp20"
+                    android:background="@drawable/edit_comm_bg"
+                    android:hint="62 Kg"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="@color/txt_color"
+                    android:textColorHint="@color/modified_black_1"
+                    android:textSize="@dimen/dp8"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+
+            <com.customview.MyTextView
+                android:id="@+id/edt_profile_personal_material_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/white_rectangle"
+                android:drawableEnd="@drawable/down_arrow"
+                android:hint="Marital Status"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/txt_color"
+                android:textColorHint="@color/modified_black_1"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="visible" />
+
+
+            <com.customview.MyCustomButton
+                android:id="@+id/btn_patient_profile_personal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginEnd="@dimen/_50sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:background="@drawable/booking_new_bg"
+                android:drawableEnd="@drawable/white_arrow_circle"
+                android:drawablePadding="@dimen/dp10"
+                android:padding="@dimen/_5sdp"
+                android:text="Save"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

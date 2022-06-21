@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/crdview_appoitment_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/dp10"
+        android:elevation="@dimen/dp20">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp">
+<!--            app:civ_border_width="2dp"-->
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:id="@+id/img_review_profile_photo"
+                android:layout_margin="@dimen/_8sdp"
+                android:src="@drawable/profile_no_image"
+               />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toEndOf="@+id/img_review_profile_photo"
+                android:layout_alignParentEnd="true"
+                android:orientation="vertical">
+                <RatingBar
+                    android:id="@+id/ratingbar"
+                    style="@style/customRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_alignParentEnd="true"
+                    android:numStars="5"
+                    android:isIndicator="true"
+                    android:rating="5.0"
+                    android:progressTint="@color/review_star"
+                    android:stepSize="1.0" />
+                <com.customview.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12sdp"
+
+                    android:id="@+id/txt_review_name"
+                    android:textColor="#0467bc"
+                    android:text="Good Work"/>
+
+                <com.customview.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_review_and_rating"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textSize="@dimen/_8sdp"
+                    android:textColor="@color/txt_color"
+                    android:text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

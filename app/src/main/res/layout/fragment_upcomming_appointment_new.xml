@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/profile_header_bg"
+                android:orientation="vertical">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tablayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:tabIndicatorColor="@null"
+                    app:tabMode="scrollable"
+                    app:tabSelectedTextColor="@color/modified_black_1"
+                    app:tabTextAppearance="@style/CustomTabText" />
+            </LinearLayout>
+
+            <com.rootscare.utils.WorkaroundNestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <RadioGroup
+                        android:id="@+id/rg_all"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        android:weightSum="6">
+
+                        <RadioButton
+                            android:id="@+id/rb_doctor"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_weight="1"
+                            android:background="@drawable/radio_button_background"
+                            android:button="@null"
+                            android:checked="true"
+                            android:gravity="center"
+                            android:text="Doctor"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/dp8" />
+
+                        <RadioButton
+                            android:id="@+id/rb_nurse"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_weight="1"
+                            android:background="@drawable/radio_button_background"
+                            android:button="@null"
+                            android:checked="false"
+                            android:gravity="center"
+                            android:text="Nurse"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dp8" />
+
+                        <RadioButton
+                            android:id="@+id/rb_hospital"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_weight="1"
+                            android:background="@drawable/radio_button_background"
+                            android:button="@null"
+                            android:checked="false"
+                            android:gravity="center"
+                            android:text="Hospital"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dp8" />
+
+                        <RadioButton
+                            android:id="@+id/rb_babysitter"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_weight="1"
+                            android:background="@drawable/radio_button_background"
+                            android:button="@null"
+                            android:checked="false"
+                            android:gravity="center"
+                            android:text="BabySitter"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dp8" />
+
+                        <RadioButton
+                            android:id="@+id/rb_caregiver"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_weight="1"
+                            android:background="@drawable/radio_button_background"
+                            android:button="@null"
+                            android:checked="false"
+                            android:gravity="center"
+                            android:text="Caregiver"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dp8" />
+
+                        <RadioButton
+                            android:id="@+id/rb_physiotherapist"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_weight="1"
+                            android:background="@drawable/radio_button_background"
+                            android:button="@null"
+                            android:checked="false"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:maxLength="7"
+                            android:text="Physiotherapist"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dp8" />
+                    </RadioGroup>
+                    <!-- All Recyclerview-->
+                    <LinearLayout
+                        android:id="@+id/ll_all_appointment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <include
+                            android:id="@+id/layout_all_list"
+                            layout="@layout/fragment_doctor_appointment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                    <!-- Doctor Recyclerview-->
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_doctor_appointment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <include
+                            android:id="@+id/layout_doctor_list"
+                            layout="@layout/fragment_doctor_appointment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                    <!--                Nurses Recyclerview-->
+
+                    <LinearLayout
+                        android:id="@+id/ll_nurses_appointment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <include
+                            android:id="@+id/layout_nurses_list"
+                            layout="@layout/fragment_nurses_appointment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                    <!--                Hospital Recyclerview-->
+
+                    <LinearLayout
+                        android:id="@+id/ll_hospital_appointment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <include
+                            android:id="@+id/layout_hospital_list"
+                            layout="@layout/fragment_hospital_appointment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <!--                Babysitter Recyclerview-->
+                    <LinearLayout
+                        android:id="@+id/ll_babysitter_appointment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <include
+                            android:id="@+id/layout_babysitter_list"
+                            layout="@layout/fragment_babysitter_appointment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <!--                Caregiver Recyclerview-->
+                    <LinearLayout
+                        android:id="@+id/ll_caregiver_appointment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <include
+                            android:id="@+id/layout_caregiver_list"
+                            layout="@layout/fragment_caregiver_appointment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <!--                Physiotherapy Recyclerview-->
+
+                    <LinearLayout
+                        android:id="@+id/ll_physitherapy_appointment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <include
+                            android:id="@+id/layout_physitherapy_list"
+                            layout="@layout/fragment_physitherapy_appointment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </com.rootscare.utils.WorkaroundNestedScrollView>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</layout>

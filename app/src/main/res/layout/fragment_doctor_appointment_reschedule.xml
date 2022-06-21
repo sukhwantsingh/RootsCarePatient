@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_bg"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdview_doctorappoitment_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp10"
+                    android:elevation="@dimen/dp20"
+                    app:cardCornerRadius="@dimen/dp10">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dp20"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:id="@+id/img_appointment_details_profile"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/no_image" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp10"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_toEndOf="@+id/img_appointment_details_profile"
+                                android:orientation="vertical">
+
+                                <com.customview.MyTextView
+                                    android:id="@+id/txt_doctor_name"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/profile_header_bg"
+                                    android:textSize="@dimen/_12sdp"
+                                    android:textStyle="bold" />
+
+                                <com.customview.MyTextView
+                                    android:id="@+id/txt_doctor_experience"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_3sdp"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="@dimen/dp10"
+                                    android:visibility="gone" />
+                            </LinearLayout>
+
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dp10"
+
+                            android:orientation="vertical">
+
+                            <com.customview.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Patient Name : "
+                                android:textSize="@dimen/_12ssp" />
+
+                            <com.customview.MyEditTextView
+                                android:id="@+id/edt_reschedule_patientname"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_weight="1"
+                                android:background="@drawable/commonbg_edit"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:padding="@dimen/_3sdp"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <com.customview.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="Appointment Date : "
+                                android:textSize="@dimen/_12ssp" />
+
+                            <com.customview.MyTextView
+                                android:id="@+id/edt_reschedule_appointmentdate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/commonbg_edit"
+                                android:drawableEnd="@drawable/calendar_month"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:padding="@dimen/_3sdp"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <com.customview.MyTextView
+                                android:id="@+id/et_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="Clinic Name : "
+                                android:textSize="@dimen/_12ssp" />
+
+                            <com.customview.MyEditTextView
+                                android:id="@+id/edt_reschedule_clinic_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/commonbg_edit"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:padding="@dimen/_3sdp"
+                                android:textSize="@dimen/_12sdp" />
+
+                            <com.customview.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="Start Time : "
+                                android:textSize="@dimen/_12ssp"
+                                android:visibility="gone" />
+
+                            <com.customview.MyEditTextView
+                                android:id="@+id/edt_reschedule_start_time"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/commonbg_edit"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:padding="@dimen/_3sdp"
+                                android:textSize="@dimen/_12sdp"
+                                android:visibility="gone" />
+
+                            <com.customview.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="End Time : "
+                                android:textSize="@dimen/_12ssp"
+                                android:visibility="gone" />
+
+                            <com.customview.MyEditTextView
+                                android:id="@+id/edt_reschedule_end_time"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/commonbg_edit"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:padding="@dimen/_3sdp"
+                                android:textSize="@dimen/_12sdp"
+                                android:visibility="gone" />
+
+                            <com.customview.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="Select Slot"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_13ssp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+
+                                android:orientation="vertical">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recyclerView_doctorslot"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+
+                                <com.customview.MyTextView
+                                    android:id="@+id/tv_select_doctor_slot_no_date"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:layout_margin="@dimen/_3sdp"
+                                    android:gravity="center"
+                                    android:text="@string/no_data"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:visibility="gone" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:orientation="vertical">
+
+                                <com.customview.MyTextView
+                                    android:id="@+id/txt_slot_heading"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Available Slots:"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="@dimen/_13ssp"
+                                    android:textStyle="bold" />
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recyclerView_timeslotby30minute"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/txt_slot_heading"
+                                    android:layout_marginTop="@dimen/_5sdp" />
+
+                                <com.customview.MyTextView
+                                    android:id="@+id/tv_select_timeslotby30minute_no_date"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:layout_margin="@dimen/_3sdp"
+                                    android:gravity="center"
+                                    android:text="@string/no_data"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:visibility="gone" />
+                            </RelativeLayout>
+
+                            <com.customview.MyCustomButton
+                                android:id="@+id/btn_appointment_booking"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginStart="@dimen/_50sdp"
+                                android:layout_marginTop="@dimen/dp20"
+                                android:layout_marginEnd="@dimen/_50sdp"
+                                android:layout_marginBottom="@dimen/dp20"
+                                android:background="@drawable/booking_new_bg"
+                                android:drawableEnd="@drawable/white_arrow_circle"
+                                android:padding="@dimen/_5sdp"
+                                android:paddingBottom="@dimen/_5sdp"
+                                android:text="Reschedule"
+                                android:textAllCaps="false"
+                                android:textColor="@color/text_hint_color"
+                                android:textSize="@dimen/_12ssp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_item_"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp1"
+        android:background="@color/price_bg_item"
+        android:paddingEnd="@dimen/dp16"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/llsw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:textColor="@color/txt_color_profile_desc"
+            app:layout_constraintEnd_toStartOf="@+id/label_rate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <CheckBox
+                android:id="@+id/cb_task"
+                style="@style/AppTheme.TextRegular"
+                android:layout_gravity="center"
+                android:minHeight="36dp"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/txt_color_profile_desc"
+                android:textSize="@dimen/dp14"
+                tools:text="Blood Test USG" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/label_rate"
+            style="@style/AppTheme.TextRegular"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dp5"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/dp14"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@+id/llsw"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/llsw"
+            tools:text="SAR 90" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

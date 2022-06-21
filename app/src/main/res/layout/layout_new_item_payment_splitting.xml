@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_item_"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+         android:paddingVertical="@dimen/dp5">
+
+        <TextView
+            android:id="@+id/tv_heading"
+            style="@style/AppTheme.TextRegular"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:gravity="start|center_vertical"
+            tools:text="Post surgical care"
+            android:textColor="@color/txt_color_profile_desc"
+            android:textSize="@dimen/dp14"
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toStartOf="@+id/tvPrice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            style="@style/AppTheme.TextRegular"
+            tools:text="650 SAR"
+            android:textColor="@color/txt_color_profile_desc"
+            android:textSize="@dimen/dp14"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_heading" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

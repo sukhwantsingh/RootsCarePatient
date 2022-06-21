@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_bg"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdview_order_medicine"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/dp10"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="@dimen/_12sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp10"
+                        android:orientation="vertical">
+
+                        <com.customview.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginEnd="@dimen/dp10"
+                            android:padding="@dimen/dp10"
+                            android:text="Please enter your card details"
+                            android:textColor="@color/txt_color"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp20"
+                                android:layout_marginEnd="@dimen/dp20"
+                                android:background="@drawable/commonbg_edit"
+                                android:hint="Card Number"
+                                android:padding="@dimen/_5sdp"
+                                android:textColor="@color/txt_color"
+                                android:textColorHint="@color/txt_color"
+                                android:textSize="@dimen/dp8" />
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp20"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginEnd="@dimen/dp20"
+                                android:background="@drawable/commonbg_edit"
+                                android:hint="Expiry Date"
+                                android:padding="@dimen/_5sdp"
+                                android:textColor="@color/txt_color"
+                                android:textColorHint="@color/txt_color"
+                                android:textSize="@dimen/dp8" />
+
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp20"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginEnd="@dimen/dp20"
+                                android:background="@drawable/commonbg_edit"
+                                android:hint="CVV"
+                                android:inputType="number"
+                                android:padding="@dimen/_5sdp"
+                                android:textColor="@color/txt_color"
+                                android:textColorHint="@color/txt_color"
+                                android:textSize="@dimen/dp8" />
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_50sdp"
+                                android:layout_marginStart="@dimen/dp20"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginEnd="@dimen/dp20"
+                                android:background="@drawable/commonbg_edit"
+                                android:gravity="top"
+                                android:hint="Billing Address Edit"
+                                android:inputType="text"
+                                android:padding="@dimen/_5sdp"
+                                android:textColor="@color/txt_color"
+                                android:textColorHint="@color/txt_color"
+                                android:textSize="@dimen/dp8" />
+
+                        </LinearLayout>
+
+                        <com.customview.MyCustomButton
+                            android:id="@+id/btn_booking_pay_now"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_60sdp"
+                            android:layout_marginTop="@dimen/dp20"
+                            android:layout_marginRight="@dimen/_60sdp"
+                            android:background="@drawable/square_bg"
+                            android:padding="@dimen/dp10"
+                            android:paddingBottom="@dimen/_5sdp"
+                            android:text="Pay SR400"
+                            android:textColor="@color/text_hint_color"
+                            android:textSize="@dimen/_14sdp" />
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

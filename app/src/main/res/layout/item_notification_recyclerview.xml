@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/crdview_notification_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/dp10"
+        android:elevation="@dimen/dp20">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp10">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:id="@+id/img_review_profile_photo"
+                android:layout_margin="@dimen/_8sdp"
+                android:src="@drawable/notification_data"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/ll_content"
+                android:layout_toEndOf="@+id/img_review_profile_photo"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:orientation="vertical">
+
+                <com.customview.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="BOOK AN APPOINTMENT"/>
+
+                <com.customview.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:textSize="@dimen/_8sdp"
+                    android:textColor="@color/txt_color"
+                    android:text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"/>
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_toStartOf="@+id/ll_content"
+                android:src="@drawable/notification_back"/>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

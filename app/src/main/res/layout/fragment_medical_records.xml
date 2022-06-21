@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+    </data>
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@color/common_bg"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rl_add">
+            <com.customview.MyCustomButton
+                android:id="@+id/btn_add_medical_record"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/dp20"
+                android:background="@drawable/blue_booking_bg"
+                android:drawableEnd="@drawable/white_arrow_circle"
+                android:drawablePadding="@dimen/dp10"
+                android:padding="@dimen/_5sdp"
+                android:layout_centerInParent="true"
+                android:text="Add medical record"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp" />
+        </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@+id/rl_add"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/recyclerView_rootscare_medicalrecord"/>
+        <com.customview.MyTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/_16ssp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/no_data"
+            android:layout_margin="@dimen/_3sdp"
+            android:id="@+id/tv_no_date"/>
+    </RelativeLayout>
+</layout>

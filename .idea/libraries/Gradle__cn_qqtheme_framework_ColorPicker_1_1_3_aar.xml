@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="Gradle: cn.qqtheme.framework:ColorPicker:1.1.3@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ccd3c9b5de68f918db175a48a09c932a/transformed/jetified-ColorPicker-1.1.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ccd3c9b5de68f918db175a48a09c932a/transformed/jetified-ColorPicker-1.1.3/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/ccd3c9b5de68f918db175a48a09c932a/transformed/jetified-ColorPicker-1.1.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1fe3cafcfe995c364732514bcde34815/transformed/jetified-ColorPicker-1.1.3/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/1fe3cafcfe995c364732514bcde34815/transformed/jetified-ColorPicker-1.1.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1fe3cafcfe995c364732514bcde34815/transformed/jetified-ColorPicker-1.1.3/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.qqtheme.framework/ColorPicker/1.1.3/daae1f34b3fcd3bf1d74078be820508bbd3f5b1b/ColorPicker-1.1.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.qqtheme.framework/ColorPicker/1.1.3/41e6a4a238d74428f31b0710a9003f876575702a/ColorPicker-1.1.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

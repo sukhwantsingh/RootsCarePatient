@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cns_restl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/white_upper_corners"
+        android:elevation="@dimen/dp5"
+        android:paddingTop="@dimen/dp24"
+        android:paddingBottom="@dimen/dp10"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/dp16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gr"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/dimen_16dp" />
+
+        <TextView
+            android:id="@+id/n1"
+            style="@style/AppTheme.TextRegular"
+            android:layout_width="0dp"
+            android:text="@string/rate_appointment"
+            android:textColor="@color/txt_dash_heading"
+            android:textSize="@dimen/dp18"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize=".5"
+            android:layout_marginTop="@dimen/dp16"
+            android:theme="@style/fooRatingBar2"
+            android:isIndicator="false"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toBottomOf="@+id/n1" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_review"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            app:counterEnabled="true"
+            app:counterMaxLength="200"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ed_review"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_regular"
+                android:hint="@string/write_a_review"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLength="200"
+                android:singleLine="true"
+                android:textColor="@color/txt_dash_heading"
+                android:textSize="@dimen/dp15" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="@dimen/dp30"
+            android:layout_marginEnd="@dimen/dp8"
+            android:layout_marginBottom="@dimen/dp6"
+            android:background="@drawable/round_rect_grey_border"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/cancel"
+            android:textAllCaps="true"
+            android:textColor="@color/indicator_color"
+            android:textSize="@dimen/dp14"
+            app:layout_constraintEnd_toStartOf="@+id/btn_submit"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toBottomOf="@+id/til_review" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_submit"
+            style="@style/AppTheme.BtnMediumBlue"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="@dimen/dp8"
+            android:layout_marginTop="@dimen/dp30"
+            android:layout_marginBottom="@dimen/dp6"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/submit"
+            android:textAllCaps="true"
+            android:textSize="@dimen/dp14"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintStart_toEndOf="@+id/btn_cancel"
+            app:layout_constraintTop_toBottomOf="@+id/til_review" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

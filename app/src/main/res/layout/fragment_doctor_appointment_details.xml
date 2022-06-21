@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EBF8F5"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crdview_doctorappoitment_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp10"
+                    android:elevation="@dimen/dp20"
+                    android:visibility="visible"
+                    app:cardCornerRadius="@dimen/dp10">
+
+                    <LinearLayout
+                        android:id="@+id/ll_mainlayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="120dp"
+                                android:layout_height="100dp"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/dp20"
+                                android:contentDescription="@null"
+                                android:src="@drawable/no_image" />
+
+                            <com.customview.MyTextView
+                                android:id="@+id/tvDoctorName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:text=""
+                                android:textColor="#00A3F6"
+                                android:textSize="@dimen/_14ssp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <com.customview.MyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:text="Booking Details"
+                            android:textColor="@color/txt_color"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:orientation="horizontal">
+
+                            <com.customview.MyTextView
+                                android:id="@+id/tv_orderId"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_18ssp"
+                                android:textStyle="bold" />
+
+                            <com.customview.MyTextView
+                                android:id="@+id/tv_status"
+                                android:layout_width="@dimen/_72sdp"
+                                android:layout_height="@dimen/_18sdp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_48sdp"
+                                android:gravity="center"
+                                android:paddingLeft="@dimen/_5sdp"
+                                android:paddingRight="@dimen/_5sdp"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_10ssp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:orientation="horizontal">
+
+                            <com.customview.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Patient Name : "
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_12ssp"
+                                android:textStyle="bold" />
+
+                            <com.customview.MyTextView
+                                android:id="@+id/txt_patient_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:lines="1"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:orientation="horizontal">
+
+                            <com.customview.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Booking Date : "
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_12ssp"
+                                android:textStyle="bold" />
+
+                            <com.customview.MyTextView
+                                android:id="@+id/txt_booking_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:orientation="horizontal">
+
+                            <com.customview.MyTextView
+                                android:id="@+id/tv_addressName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Address : "
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_12ssp"
+                                android:textStyle="bold" />
+
+                            <com.customview.MyTextView
+                                android:id="@+id/tv_address"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:orientation="horizontal"
+                            android:visibility="gone"
+                            android:weightSum="2">
+
+                            <com.customview.MyTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Address : "
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_12ssp"
+                                android:textStyle="bold" />
+
+                            <com.customview.MyTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:orientation="horizontal">
+
+                            <com.customview.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Appointment Date : "
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_12ssp"
+                                android:textStyle="bold" />
+
+                            <com.customview.MyTextView
+                                android:id="@+id/tvAppointmentDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llAppointmentTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:orientation="horizontal"
+                            android:visibility="visible">
+
+                            <com.customview.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Appointment Time : "
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_12ssp"
+                                android:textStyle="bold" />
+
+                            <com.customview.MyTextView
+                                android:id="@+id/tvAppointmentTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:orientation="horizontal">
+
+                            <com.customview.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Phone Number : "
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_12ssp"
+                                android:textStyle="bold" />
+
+                            <com.customview.MyTextView
+                                android:id="@+id/tvPhoneNumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:orientation="horizontal"
+                            android:visibility="gone"
+                            android:weightSum="2">
+
+                            <com.customview.MyTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Appointment Status : "
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_12ssp"
+                                android:textStyle="bold" />
+
+                            <com.customview.MyTextView
+                                android:id="@+id/tvAppointmentStatus"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:orientation="horizontal"
+                            android:visibility="gone"
+                            android:weightSum="2">
+
+                            <com.customview.MyTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Acceptance Status "
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_12ssp"
+                                android:textStyle="bold" />
+
+                            <com.customview.MyTextView
+                                android:id="@+id/tvAcceptanceStatus"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llAboutSymptoms"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <com.customview.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="About Symptom :"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_12ssp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:id="@+id/llRecording"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10">
+
+                                <ImageView
+                                    android:id="@+id/img_play"
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/play" />
+
+                                <Chronometer
+                                    android:id="@+id/txt_elaspsed_time"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toStartOf="@+id/img_slash"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="@dimen/_12sdp" />
+
+                                <ImageView
+                                    android:id="@+id/img_slash"
+                                    android:layout_width="10dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginTop="@dimen/dimen_10dp"
+                                    android:layout_toStartOf="@+id/txt_time"
+                                    android:contentDescription="@null"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/slash" />
+
+                                <com.customview.MyTextView
+                                    android:id="@+id/txt_time"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0dp"
+                                    android:layout_alignTop="@+id/txt_elaspsed_time"
+                                    android:layout_alignBottom="@+id/txt_elaspsed_time"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:minWidth="50dp"
+                                    android:text=""
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="@dimen/_12sdp" />
+
+                                <SeekBar
+                                    android:id="@+id/seekBar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0dp"
+                                    android:layout_alignTop="@+id/txt_elaspsed_time"
+                                    android:layout_alignBottom="@+id/txt_elaspsed_time"
+                                    android:layout_centerInParent="true"
+                                    android:layout_toStartOf="@+id/txt_elaspsed_time"
+                                    android:layout_toEndOf="@+id/img_play"
+                                    android:src="@drawable/recording_line" />
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                android:id="@+id/llOrPortion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/txt_or_bg" />
+
+                            </RelativeLayout>
+
+                            <com.customview.MyTextView
+                                android:id="@+id/tvSymptoms"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:text=""
+                                android:textSize="@dimen/_12ssp"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iv_prescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:contentDescription="@null"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/prescription"
+                            android:transitionName="@string/transition_string"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_prescriptionText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <com.customview.MyTextView
+                                android:id="@+id/tv_prescriptionStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Wait for Prescription to be uploaded"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_11ssp"
+                                android:textStyle="bold" />
+
+                            <blink
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            <com.customview.MyTextView
+                                android:id="@+id/tv_blink"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_3sdp"
+                                android:text="..."
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_11ssp"
+                                android:textStyle="bold" />
+
+                            </blink>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llPrescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/dp20"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <com.customview.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Prescription"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_12ssp"
+                                android:textStyle="bold" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/prescriptionRecyclerView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/dp20"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/dp20"
+                            android:visibility="visible">
+
+                            <com.customview.MyCustomButton
+                                android:id="@+id/btn_cancel"
+                                android:layout_width="@dimen/_110sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:background="@drawable/square_bg_grey"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/dp10"
+                                android:paddingEnd="@dimen/dp10"
+                                android:text="Cancel"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_14ssp"
+                                android:textStyle="bold"
+                                android:visibility="invisible" />
+
+                            <com.customview.MyCustomButton
+                                android:id="@+id/btn_rootscare_doctor_consulting"
+                                android:layout_width="@dimen/_282sdp"
+                                android:layout_height="@dimen/_45sdp"
+                                android:background="@drawable/square_bg_green"
+                                android:drawableStart="@drawable/video_large"
+                                android:drawablePadding="@dimen/_15sdp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/dp10"
+                                android:paddingRight="@dimen/dp10"
+                                android:text="Start Video Consultation"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_14ssp"
+                                android:visibility="invisible" />
+
+                            <com.customview.MyCustomButton
+                                android:id="@+id/btn_review"
+                                android:layout_width="@dimen/_175sdp"
+                                android:layout_height="@dimen/_40sdp"
+                                android:background="@drawable/review_bg"
+                                android:drawableStart="@drawable/star"
+                                android:drawablePadding="@dimen/_15sdp"
+                                android:gravity="center_vertical"
+                                android:paddingStart="@dimen/dp10"
+                                android:paddingEnd="@dimen/dp10"
+                                android:text="Write a Review"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_14ssp"
+                                android:visibility="invisible" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_review"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp10"
+                            android:layout_marginRight="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/dp20"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_1sdp"
+                                android:layout_marginLeft="@dimen/dp10"
+                                android:layout_marginRight="@dimen/dp10"
+                                android:background="@color/home_page_view_color" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp10"
+                                android:layout_marginTop="@dimen/dp20"
+                                android:layout_marginEnd="@dimen/dp10">
+
+                                <com.customview.MyTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:text="Review &amp; Rating"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="@dimen/_11ssp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10">
+
+                                <TextView
+                                    android:id="@+id/txt_teacher_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp"
+                                    android:visibility="gone" />
+
+                                <androidx.appcompat.widget.AppCompatRatingBar
+                                    android:id="@+id/ratingBarDoctorFeedback"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_35sdp"
+                                    android:layout_alignParentStart="true"
+                                    android:backgroundTint="@color/review_star"
+                                    android:clickable="false"
+                                    android:isIndicator="false"
+                                    android:numStars="5"
+                                    android:progressTint="@color/review_star"
+                                    android:secondaryProgressTint="@android:color/transparent"
+                                    android:stepSize="1"
+                                    android:theme="@android:style/Widget.Holo.RatingBar" />
+
+                                <!--                                <RatingBar-->
+                                <!--                                    android:id="@+id/ratingBarDoctorFeedback"-->
+                                <!--                                    style="@style/CustomRatingBarSmall"-->
+                                <!--                                    android:layout_width="wrap_content"-->
+                                <!--                                    android:layout_height="wrap_content"-->
+                                <!--                                    android:layout_alignParentStart="true"-->
+                                <!--                                    android:clickable="false"-->
+                                <!--                                    android:isIndicator="true"-->
+                                <!--                                    android:numStars="5"-->
+                                <!--                                    android:stepSize="0.1" />-->
+
+                                <!--                                <RatingBar-->
+                                <!--                                    android:id="@+id/ratingBarDoctorFeedback"-->
+                                <!--                                    style="@style/CustomRatingBarSmall"-->
+                                <!--                                    android:layout_width="wrap_content"-->
+                                <!--                                    android:layout_height="wrap_content"-->
+                                <!--                                    android:layout_alignParentStart="true"-->
+                                <!--                                    android:isIndicator="true"-->
+                                <!--                                    android:numStars="5"-->
+                                <!--                                    android:rating="0"-->
+                                <!--                                    android:stepSize="1.0" />-->
+
+                            </RelativeLayout>
+
+                            <com.customview.MyEditTextView
+                                android:id="@+id/edt_rating_comment"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_60sdp"
+                                android:layout_marginLeft="@dimen/dp10"
+                                android:layout_marginRight="@dimen/dp10"
+                                android:background="@drawable/rounded_with_border"
+                                android:gravity="start"
+                                android:hint="Describe how you enjoyed the service? Write something which you did liked about your online appointment?"
+                                android:padding="@dimen/dp10"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <com.customview.MyCustomButton
+                                android:id="@+id/btn_submit_review"
+                                android:layout_width="@dimen/_150sdp"
+                                android:layout_height="@dimen/_40sdp"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/dp20"
+                                android:layout_marginBottom="@dimen/_25sdp"
+                                android:background="@drawable/review_bg"
+                                android:padding="@dimen/_5sdp"
+                                android:text="Submit Review"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_14ssp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/smiley" />
+
+                                <TextView
+                                    android:id="@+id/tv_review_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:text="Wow.. you have completed this appointment."
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="@dimen/dp8" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/llBottomAcceptReject"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginTop="@dimen/dp20"
+                            android:background="@drawable/appiontment_bg"
+                            android:visibility="gone">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dimen_10dp">
+
+                                <!--<com.rootscare.customview.MyCustomButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:layout_alignParentStart="true"
+                                    android:background="@drawable/rounded_green_btn"
+                                    android:text="Accept"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_10ssp" />-->
+
+                                <com.customview.MyCustomButton
+                                    android:id="@+id/btnAccept"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:layout_alignParentStart="true"
+                                    android:background="@drawable/rounded_green_btn"
+                                    android:paddingStart="@dimen/_5sdp"
+                                    android:paddingEnd="@dimen/_5sdp"
+                                    android:text="@string/accept"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_10ssp" />
+
+
+                                <com.customview.MyCustomButton
+                                    android:id="@+id/btn_rejectt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:layout_alignParentEnd="true"
+                                    android:background="@drawable/rounded_red_btn"
+                                    android:text="@string/reject"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_10ssp" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/llBottomUploadPrescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginTop="@dimen/dp20"
+                            android:background="@drawable/appiontment_bg"
+                            android:visibility="gone">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dimen_10dp">
+
+                                <!--<com.rootscare.customview.MyCustomButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:layout_alignParentStart="true"
+                                    android:background="@drawable/rounded_green_btn"
+                                    android:text="Accept"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_10ssp" />-->
+
+                                <com.customview.MyCustomButton
+                                    android:id="@+id/btnCompleted"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:layout_alignParentStart="true"
+                                    android:background="@drawable/rounded_green_btn"
+                                    android:paddingStart="@dimen/_5sdp"
+                                    android:paddingEnd="@dimen/_5sdp"
+                                    android:text="@string/complete"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_10ssp" />
+
+                                <com.customview.MyCustomButton
+                                    android:id="@+id/btnUploadPrescription"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:layout_alignParentEnd="true"
+                                    android:background="@drawable/rounded_green_btn"
+                                    android:paddingStart="@dimen/_5sdp"
+                                    android:paddingEnd="@dimen/_5sdp"
+                                    android:text="@string/upload_prescription"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_10ssp" />
+
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+</layout>

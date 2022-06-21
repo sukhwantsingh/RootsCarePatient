@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tvh_bank"
+    style="@style/AppTheme.TextMedium"
+    android:background="@drawable/round_square_border_schedule_type_blue"
+    android:paddingHorizontal="@dimen/dp8"
+    android:paddingVertical="@dimen/dp5"
+    android:text="•••    Load More"
+    android:textAllCaps="true"
+    android:textColor="@color/colorPrimary"
+    android:textSize="@dimen/dp10"
+    app:layout_constraintBottom_toBottomOf="@+id/tv_rate"
+    app:layout_constraintStart_toEndOf="@+id/tv_rate"
+    app:layout_constraintTop_toTopOf="@+id/tv_rate" />
+

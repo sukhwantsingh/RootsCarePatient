@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="node"
+            type="com.rootscare.ui.newaddition.providerlisting.models.ModelProviderDetails.Result.AvailableProviders" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/crd_root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp6"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="@dimen/dp8"
+        app:cardElevation="@dimen/dp2">
+
+
+        <LinearLayout
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+
+                <ImageView
+                    android:id="@+id/img_provider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:layoutDirection="ltr"
+                    android:src="@color/colorTxtGrey1"
+                    app:setSquareRemoteImage="@{node.image}" />
+
+                <TextView
+                    android:id="@+id/tv_rate"
+                    style="@style/AppTheme.TextRegular"
+                    android:layout_width="42dp"
+                    android:layout_height="@dimen/dp18"
+                    android:layout_gravity="bottom|start"
+                    android:layout_margin="@dimen/dp5"
+                    android:background="@drawable/ic_back_green_rect"
+                    android:drawablePadding="@dimen/dp3"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp2"
+                    tools:text="0.0"
+                    app:setAvgRating="@{node.avg_rating}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp10"
+                    app:drawableStartCompat="@drawable/ico_star_white" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dp8"
+                android:paddingVertical="@dimen/dp10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvh1"
+                    style="@style/AppTheme.TextMedium"
+                    android:textAlignment="viewStart"
+                    tools:text="Dr. Maya Grey"
+                    android:text="@{node.provider_name}"
+                    android:singleLine="true"
+                    android:textColor="@color/txt_color_profile_desc"
+                    android:textSize="@dimen/dp12" />
+
+                <TextView
+                    android:id="@+id/tvsh1"
+                    style="@style/AppTheme.TextRegular"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:layout_marginTop="@dimen/dp2"
+                    tools:text="MBBS, MD"
+                    android:textAlignment="viewStart"
+                    android:text="@{node.qualification}"
+                    android:textColor="@color/colorTxtGrey1"
+                    android:textSize="@dimen/dp10" />
+
+                <TextView
+                    android:id="@+id/tvsh2"
+                    style="@style/AppTheme.TextMedium"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:textAlignment="viewStart"
+                    android:layout_marginTop="@dimen/dp2"
+                    android:text="@{node.speciality}"
+                    tools:text="General Physician"
+                    android:textColor="@color/indicator_color"
+                    android:textSize="@dimen/dp10" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

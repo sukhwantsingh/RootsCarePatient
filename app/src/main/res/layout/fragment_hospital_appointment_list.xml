@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RadioGroup
+            android:id="@+id/rg_hospital"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:weightSum="2">
+
+            <RadioButton
+                android:id="@+id/rb_hospital_doctor"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_weight="1"
+                android:background="@drawable/radio_button_background"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="Doctor"
+                android:textAllCaps="false"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_12ssp" />
+
+            <RadioButton
+                android:id="@+id/rb_hospital_lab"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_weight="1"
+                android:background="@drawable/radio_button_background"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:text="Lab"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+        </RadioGroup>
+
+        <RelativeLayout
+            android:id="@+id/rl_hospital_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rg_hospital"
+            android:layout_marginTop="@dimen/dp10"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_rootscare_hospital_appointmentlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.customview.MyTextView
+                android:id="@+id/tv_no_date_hospital"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_margin="@dimen/_3sdp"
+                android:gravity="center"
+                android:text="@string/no_data"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_hospital_lab_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_hospital_recyclerview"
+            android:layout_marginTop="@dimen/dp10"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_hospital_lab_appointmentList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.customview.MyTextView
+                android:id="@+id/tv_no_date_hospital_lab"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_margin="@dimen/_3sdp"
+                android:gravity="center"
+                android:text="@string/no_data"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="@dimen/dp16"
+        android:paddingStart="@dimen/dp8">
+
+        <TextView
+            android:id="@+id/h1"
+            style="@style/AppTheme.TextMedium"
+            android:layout_marginStart="@dimen/dp8"
+            android:text="@string/home_healthcare_service_appointments"
+            android:textColor="@color/txt_dash_heading"
+            android:textSize="@dimen/dp15"
+            android:textAlignment="viewStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <HorizontalScrollView
+            android:id="@+id/hsv_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:fillViewport="true"
+            android:orientation="horizontal"
+            android:scrollbars="none"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/h1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crd_nurse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp8"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/dp8"
+                    app:cardElevation="@dimen/dp2">
+
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="113dp">
+
+                            <ImageView
+                                android:id="@+id/img_nurse_"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_home_nurse" />
+
+                            <TextView
+                                android:id="@+id/tv_nurse_rate"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="48dp"
+                                android:layout_height="@dimen/dp20"
+                                android:layout_gravity="bottom"
+                                android:layout_margin="@dimen/dp5"
+                                android:background="@drawable/ic_back_green_rect"
+                                android:drawablePadding="@dimen/dp5"
+                                android:gravity="center_vertical"
+                                android:paddingStart="@dimen/dp2"
+                                android:text="5.0"
+                                android:visibility="gone"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp12"
+                                app:drawableStartCompat="@drawable/ico_star_white" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="@dimen/dp8"
+                            android:paddingVertical="@dimen/dp10">
+
+                            <TextView
+                                android:id="@+id/tv_nurseh1"
+                                style="@style/AppTheme.TextMedium"
+                                android:text="@string/book_a_nurse"
+                                android:textColor="@color/txt_dash_heading"
+                                android:textSize="@dimen/dp14" />
+
+                            <TextView
+                                android:id="@+id/tvnursesh1"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/dp4"
+                                android:text="@string/open_for_hourly_or_ntask_based_booking"
+                                android:textColor="@color/txt_color"
+                                android:maxLines="2"
+                                android:ellipsize="end"
+                                android:textSize="@dimen/dp12" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crd_phy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp8"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/dp8"
+                    app:cardElevation="@dimen/dp2">
+
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="113dp">
+
+                            <ImageView
+                                android:id="@+id/img_phy_"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_home_phy" />
+
+                            <TextView
+                                android:id="@+id/tv_phy_rate"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="48dp"
+                                android:layout_height="@dimen/dp20"
+                                android:layout_gravity="bottom"
+                                android:layout_margin="@dimen/dp5"
+                                android:background="@drawable/ic_back_green_rect"
+                                android:drawablePadding="@dimen/dp5"
+                                android:gravity="center_vertical"
+                                android:paddingStart="@dimen/dp2"
+                                android:text="5.0"
+                                android:visibility="gone"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp12"
+                                app:drawableStartCompat="@drawable/ico_star_white" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="@dimen/dp8"
+                            android:paddingVertical="@dimen/dp10">
+
+                            <TextView
+                                android:id="@+id/tv_phyh1"
+                                style="@style/AppTheme.TextMedium"
+                                android:text="@string/book_a_physiotherapist"
+                                android:textColor="@color/txt_dash_heading"
+                                android:textSize="@dimen/dp14" />
+
+                            <TextView
+                                android:id="@+id/tv_physh1"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/dp4"
+                                android:singleLine="true"
+                                android:text="@string/for_30_mins"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/dp12" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crd_na"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp8"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/dp8"
+                    app:cardElevation="@dimen/dp2">
+
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="113dp">
+
+                            <ImageView
+                                android:id="@+id/img_na_"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_home_caregiver" />
+
+                            <TextView
+                                android:id="@+id/tv_na_rate"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="48dp"
+                                android:layout_height="@dimen/dp20"
+                                android:layout_gravity="bottom"
+                                android:layout_margin="@dimen/dp5"
+                                android:background="@drawable/ic_back_green_rect"
+                                android:drawablePadding="@dimen/dp5"
+                                android:gravity="center_vertical"
+                                android:paddingStart="@dimen/dp2"
+                                android:text="5.0"
+                                android:visibility="gone"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp12"
+                                app:drawableStartCompat="@drawable/ico_star_white" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="@dimen/dp8"
+                            android:paddingVertical="@dimen/dp10">
+
+                            <TextView
+                                android:id="@+id/tv_nah1"
+                                style="@style/AppTheme.TextMedium"
+                                android:text="@string/book_nurse_assistant"
+                                android:textColor="@color/txt_dash_heading"
+                                android:textSize="@dimen/dp14" />
+
+                            <TextView
+                                android:id="@+id/tv_nash1"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/dp4"
+                                android:singleLine="true"
+                                android:text="@string/available_2_4_6_8_hrs"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/dp12" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crd_babysitter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp8"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/dp8"
+                    app:cardElevation="@dimen/dp2">
+
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="113dp">
+
+                            <ImageView
+                                android:id="@+id/img_baby_"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_home_babysitter" />
+
+                            <TextView
+                                android:id="@+id/tv_baby_rate"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="48dp"
+                                android:layout_height="@dimen/dp20"
+                                android:layout_gravity="bottom"
+                                android:layout_margin="@dimen/dp5"
+                                android:background="@drawable/ic_back_green_rect"
+                                android:drawablePadding="@dimen/dp5"
+                                android:gravity="center_vertical"
+                                android:paddingStart="@dimen/dp2"
+                                android:text="5.0"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp12"
+                                android:visibility="gone"
+                                app:drawableStartCompat="@drawable/ico_star_white" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="@dimen/dp8"
+                            android:paddingVertical="@dimen/dp10">
+
+                            <TextView
+                                android:id="@+id/tv_babyh1"
+                                style="@style/AppTheme.TextMedium"
+                                android:text="@string/book_a_nbabysitter"
+                                android:textColor="@color/txt_dash_heading"
+                                android:textSize="@dimen/dp14" />
+
+                            <TextView
+                                android:id="@+id/tv_babysh1"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/dp4"
+                                android:singleLine="true"
+                                android:text="@string/available_2_4_6_8_hrs"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/dp12" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/h2"
+            style="@style/AppTheme.TextMedium"
+            android:layout_marginStart="@dimen/dp8"
+            android:layout_marginTop="@dimen/dp20"
+            android:text="@string/doctor_appointment"
+            android:textColor="@color/txt_dash_heading"
+            android:textSize="@dimen/dp15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hsv_1" />
+
+
+        <HorizontalScrollView
+            android:id="@+id/hsv_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:fillViewport="true"
+            android:orientation="horizontal"
+            android:scrollbars="none"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/h2">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crd_doc_consult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp8"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/dp8"
+                    app:cardElevation="@dimen/dp2">
+
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="113dp">
+
+                            <ImageView
+                                android:id="@+id/img_doc_consult_"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_home_doc" />
+
+                            <TextView
+                                android:id="@+id/tv_doc_consult_rate"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="48dp"
+                                android:layout_height="@dimen/dp20"
+                                android:layout_gravity="bottom"
+                                android:layout_margin="@dimen/dp5"
+                                android:background="@drawable/ic_back_green_rect"
+                                android:drawablePadding="@dimen/dp5"
+                                android:gravity="center_vertical"
+                                android:paddingStart="@dimen/dp2"
+                                android:text="5.0"
+                                android:visibility="gone"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp12"
+                                app:drawableStartCompat="@drawable/ico_star_white" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="@dimen/dp8"
+                            android:paddingVertical="@dimen/dp10">
+
+                            <TextView
+                                android:id="@+id/tv_docconsult_h1"
+                                style="@style/AppTheme.TextMedium"
+                                android:text="@string/instant_video_consultation"
+                                android:textColor="@color/txt_dash_heading"
+                                android:textSize="@dimen/dp14" />
+
+                            <TextView
+                                android:id="@+id/tv_docconsult_sh1"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/dp4"
+                                android:singleLine="true"
+                                android:text="@string/_15_30_mins"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/dp12" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crd_doc_home_visit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp8"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/dp8"
+                    app:cardElevation="@dimen/dp2">
+
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="113dp">
+
+                            <ImageView
+                                android:id="@+id/img_doc_hv_"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_home_doc_visit" />
+
+                            <TextView
+                                android:id="@+id/tv_doc_hv_rate"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="48dp"
+                                android:layout_height="@dimen/dp20"
+                                android:layout_gravity="bottom"
+                                android:layout_margin="@dimen/dp5"
+                                android:background="@drawable/ic_back_green_rect"
+                                android:drawablePadding="@dimen/dp5"
+                                android:gravity="center_vertical"
+                                android:paddingStart="@dimen/dp2"
+                                android:text="5.0"
+                                android:visibility="gone"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp12"
+                                app:drawableStartCompat="@drawable/ico_star_white" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="@dimen/dp8"
+                            android:paddingVertical="@dimen/dp10">
+
+                            <TextView
+                                android:id="@+id/tv_doc_hv_h1"
+                                style="@style/AppTheme.TextMedium"
+                                android:text="@string/home_visit_consultation"
+                                android:textColor="@color/txt_dash_heading"
+                                android:textSize="@dimen/dp14" />
+
+                            <TextView
+                                android:id="@+id/tv_doc_hv_sh1"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/dp4"
+                                android:singleLine="true"
+                                android:text="@string/for_45_mins"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/dp12" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/h3"
+            style="@style/AppTheme.TextMedium"
+            android:layout_marginStart="@dimen/dp8"
+            android:layout_marginTop="@dimen/dp20"
+            android:text="@string/hospital_appointment"
+            android:textColor="@color/txt_dash_heading"
+            android:textSize="@dimen/dp15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hsv_2" />
+
+        <HorizontalScrollView
+            android:id="@+id/hsv_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:fillViewport="true"
+            android:orientation="horizontal"
+            android:scrollbars="none"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/h3">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crd_doc_hosp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp8"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/dp8"
+                    app:cardElevation="@dimen/dp2">
+
+
+                    <LinearLayout
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="113dp">
+                            <ImageView
+                                android:id="@+id/img_doc_hosp_"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_hosp_doc" />
+
+                            <TextView
+                                android:id="@+id/tv_doc_hosp_rate"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="48dp"
+                                android:layout_height="@dimen/dp20"
+                                android:layout_gravity="bottom"
+                                android:layout_margin="@dimen/dp5"
+                                android:background="@drawable/ic_back_green_rect"
+                                android:drawablePadding="@dimen/dp5"
+                                android:gravity="center_vertical"
+                                android:paddingStart="@dimen/dp2"
+                                android:text="5.0"
+                                android:visibility="gone"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp12"
+                                app:drawableStartCompat="@drawable/ico_star_white" />
+                            <TextView
+                                android:id="@+id/tv_doc_hosp_banner_yellow"
+                                style="@style/AppTheme.TextMedium"
+                                android:layout_gravity="top"
+                                android:background="@color/yellow_hosp_back"
+                                android:paddingHorizontal="@dimen/dp8"
+                                android:paddingVertical="@dimen/dp2"
+                                android:text="@string/hospital"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp10"
+                                />
+
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="@dimen/dp8"
+                            android:paddingVertical="@dimen/dp10">
+
+                            <TextView
+                                android:id="@+id/tv_doc_hosp_h1"
+                                style="@style/AppTheme.TextMedium"
+                                android:text="@string/instant_video_consultation"
+                                android:textColor="@color/txt_dash_heading"
+                                android:textSize="@dimen/dp14" />
+
+                            <TextView
+                                android:id="@+id/tv_doc_hosp_sh1"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/dp4"
+                                android:singleLine="true"
+                                android:text="@string/_15_30_mins"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/dp12" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crd_lab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp8"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/dp8"
+                    app:cardElevation="@dimen/dp2">
+
+
+                    <LinearLayout
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="113dp">
+
+                            <ImageView
+                                android:id="@+id/img_lab"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_home_lab" />
+
+                            <TextView
+                                android:id="@+id/tv_lab_rate"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="48dp"
+                                android:layout_height="@dimen/dp20"
+                                android:layout_gravity="bottom"
+                                android:layout_margin="@dimen/dp5"
+                                android:background="@drawable/ic_back_green_rect"
+                                android:drawablePadding="@dimen/dp5"
+                                android:gravity="center_vertical"
+                                android:paddingStart="@dimen/dp2"
+                                android:text="5.0"
+                                android:visibility="gone"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp12"
+                                app:drawableStartCompat="@drawable/ico_star_white" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="@dimen/dp8"
+                            android:paddingVertical="@dimen/dp10">
+
+                            <TextView
+                                android:id="@+id/tv_lab_h1"
+                                style="@style/AppTheme.TextMedium"
+                                android:text="@string/book_a_lab_test"
+                                android:textColor="@color/txt_dash_heading"
+                                android:textSize="@dimen/dp14" />
+
+                            <TextView
+                                android:id="@+id/tv_lab_sh1"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/dp4"
+                                android:singleLine="true"
+                                android:text="@string/get_the_sample_collected_today"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/dp12" />
+
+                            <TextView
+                                android:id="@+id/tv_lab_sh2"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/dp4"
+                                android:singleLine="true"
+                                android:text="@string/within_1_day_report_guaranteed"
+                                android:textColor="@color/indicator_color"
+                                android:textSize="@dimen/dp12" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
+

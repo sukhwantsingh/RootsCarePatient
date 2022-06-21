@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data></data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/sv_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:isScrollContainer="true"
+        android:measureAllChildren="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/ll_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp16">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_profile"
+                    android:layout_width="@dimen/dp77"
+                    android:layout_height="@dimen/dp77"
+                    app:civ_border_color="@color/indicator_color"
+                    app:civ_border_width="@dimen/dp1"
+                    android:src="@drawable/no_img_logo" />
+
+                <TextView
+                    android:id="@+id/tv_username"
+                    style="@style/AppTheme.TextMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_alignTop="@+id/img_profile"
+                    android:layout_marginStart="@dimen/dp16"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_toEndOf="@+id/img_profile"
+                    android:singleLine="true"
+                    android:textColor="@color/txt_color"
+                    android:textSize="@dimen/dp15"
+                    tools:text="Maya Grey" />
+
+                <TextView
+                    android:id="@+id/tvh_type_experience"
+                    style="@style/AppTheme.TextRegular"
+                    android:layout_below="@+id/tv_username"
+                    android:layout_alignStart="@+id/tv_username"
+                    android:layout_marginTop="@dimen/dp2"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    tools:text="Nurse - 8YR Exp."
+                    android:textColor="@color/indicator_color"
+                    android:textSize="@dimen/dp13" />
+
+                <TextView
+                    android:id="@+id/tvh_certificate_degree"
+                    style="@style/AppTheme.TextRegular"
+                    android:layout_below="@+id/tvh_type_experience"
+                    android:layout_alignStart="@+id/tv_username"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    tools:text="Certification/Dgree"
+                    android:textColor="@color/txt_color"
+                    android:textSize="@dimen/dp14" />
+
+
+            </RelativeLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/crdview_order_medicine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/dp8"
+                    android:layout_marginStart="@dimen/dp12">
+
+                    <LinearLayout
+                        android:id="@+id/ll_patient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/sq_back_patient_selected"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp8">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/crd_profile_image"
+                            android:layout_width="60dp"
+                            android:layout_height="55dp"
+                            android:gravity="center"
+                            android:padding="@dimen/dp3"
+                            app:cardCornerRadius="@dimen/dp6">
+
+                            <ImageView
+                                android:id="@+id/img_patient"
+                                android:layout_width="60dp"
+                                android:layout_height="55dp"
+                                android:clickable="true"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:scaleType="centerCrop"
+                                android:src="@color/grey" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/tv_patient_name"
+                            style="@style/AppTheme.TextMedium"
+                            android:layout_width="60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/dp8"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textColor="@color/txt_color_profile_desc"
+                            android:textSize="@dimen/dp12"
+                            tools:text="Mark Twainfg gr " />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_patient_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/ll_add_patient"
+                        android:layout_toEndOf="@+id/ll_patient"
+                        android:clipToPadding="false"
+                        android:orientation="horizontal"
+                        android:paddingEnd="@dimen/dp8"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="3"
+                        tools:listitem="@layout/item_add_patient" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_add_patient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/sq_right_round_left_add_back"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp8">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/img_add_patient"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:src="@drawable/ic_round_add_svg" />
+
+                        <TextView
+                            style="@style/AppTheme.TextRegular"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/dp8"
+                            android:gravity="center"
+                            android:text="@string/add"
+                            android:textColor="@color/txt_color_profile_desc"
+                            android:textSize="@dimen/dp12" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tablayout"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:background="@color/transparent"
+                app:tabGravity="fill"
+                app:tabIndicator="@drawable/tab_indicator"
+                app:tabIndicatorColor="@color/indicator_color"
+                app:tabIndicatorHeight="3dp"
+                app:tabMaxWidth="0dp"
+                app:tabMode="fixed"
+                app:tabPaddingEnd="10dp"
+                app:tabPaddingStart="10dp"
+                app:tabTextAppearance="@style/MosCustomTabText" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/dp16">
+
+                    <TextView
+                        android:id="@+id/hh1"
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_width="0dp"
+                        android:text="@string/tell_regarding_symptom"
+                        android:textColor="@color/txt_dash_heading"
+                        android:textSize="@dimen/dp14"
+                        android:layout_marginStart="@dimen/dp16"
+                        app:layout_constraintEnd_toStartOf="@+id/ll_record"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/hh2"
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_width="wrap_content"
+                        android:text="@string/optional"
+                        android:textColor="@color/colorTxtGrey1"
+                        android:singleLine="true"
+                        android:textSize="@dimen/dp14"
+                        app:layout_constraintTop_toBottomOf="@+id/hh1"
+                        app:layout_constraintStart_toStartOf="@+id/hh1"
+                         />
+
+                    <LinearLayout
+                        android:id="@+id/ll_record"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:background="@drawable/sq_right_round_left_add_back"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/dp12"
+                        android:paddingVertical="@dimen/dp8">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/imageViewRecord"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:visibility="visible"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:src="@drawable/btn_recording" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/imageViewStop"
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:visibility="gone"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:src="@drawable/stop_btn" />
+
+                    </LinearLayout>
+                    <Chronometer
+                        android:id="@+id/chronometerTimer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/txt_dash_heading"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="@dimen/dp16"
+                        app:layout_constraintTop_toBottomOf="@+id/ll_record"
+                        android:textSize="@dimen/dp12" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutPlay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/chronometerTimer"
+                        android:paddingEnd="10dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/imageViewPlay"
+                            android:layout_width="@dimen/dp30"
+                            android:layout_height="@dimen/dp30"
+                            android:layout_gravity="center_vertical"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:src="@drawable/play" />
+
+                        <SeekBar
+                            android:id="@+id/seekBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/l1"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:background="@color/divider_support_more"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayoutPlay" />
+
+
+                    <TextView
+                        android:id="@+id/hh3"
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_width="0dp"
+                        android:text="@string/tell_more_your_symptom"
+                        android:textColor="@color/txt_dash_heading"
+                        android:textSize="@dimen/dp14"
+                        android:layout_marginStart="@dimen/dp16"
+                        android:layout_marginTop="@dimen/dp16"
+                        app:layout_constraintEnd_toStartOf="@+id/ll_record"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/l1" />
+
+                    <TextView
+                        android:id="@+id/hh4"
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_width="wrap_content"
+                        android:text="@string/optional"
+                        android:textColor="@color/colorTxtGrey1"
+                        android:singleLine="true"
+                        android:textSize="@dimen/dp14"
+                        app:layout_constraintTop_toBottomOf="@+id/hh3"
+                        app:layout_constraintStart_toStartOf="@+id/hh3"
+                        />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_desc"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp8"
+                        app:layout_constraintStart_toStartOf="@+id/hh3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="@dimen/dp16"
+                        app:layout_constraintTop_toBottomOf="@+id/hh4">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_regular"
+                            android:gravity="start"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minHeight="@dimen/dp100"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/txt_dash_heading"
+                            android:textSize="@dimen/dp15" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:id="@+id/tv_upload_"
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_centerVertical="true"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:paddingVertical="@dimen/dp5"
+                        android:layout_marginTop="@dimen/dp8"
+                        android:text="@string/upload_pic_or_prev_prescription"
+                        android:textColor="@color/txt_dash_heading"
+                        android:drawableStart="@drawable/attachment"
+                        android:drawablePadding="@dimen/dp6"
+                        app:layout_constraintStart_toStartOf="@+id/hh3"
+                        app:layout_constraintTop_toBottomOf="@+id/til_desc"
+                        android:textSize="@dimen/dp12" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/dp10">
+
+                    <TextView
+                        android:id="@+id/nh2"
+                        style="@style/AppTheme.TextMedium"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="@dimen/dp16"
+                        android:paddingVertical="@dimen/dp10"
+                        android:text="@string/appointment_schedule"
+                        android:textColor="@color/txt_color_profile_desc"
+                        android:textSize="@dimen/dp14"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_select_date"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_select_date"
+                        style="@style/AppTheme.TextMedium"
+                        android:layout_marginEnd="@dimen/dp16"
+                        android:drawablePadding="@dimen/dp8"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/dp5"
+                        tools:text="01 DEC 2021"
+                        android:clickable="false"
+                        android:enabled="false"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:textAllCaps="true"
+                        android:textColor="@color/indicator_color"
+                        android:textSize="@dimen/dp14"
+                        app:drawableStartCompat="@drawable/ic_dob_"
+                        app:layout_constraintBottom_toBottomOf="@+id/nh2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/nh2" />
+
+                    <View
+                        android:id="@+id/vsep2"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:background="@color/divider_support_more"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/nh2" />
+
+                    <androidx.constraintlayout.widget.Group
+                        android:layout_width="wrap_content"
+                        android:visibility="visible"
+                        app:constraint_referenced_ids="vsep2,nh_sel_date,rv_date_slots"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/nh_sel_date"
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:text="@string/select_date"
+                        android:textColor="@color/txt_color_profile_desc"
+                        android:textSize="@dimen/dp14"
+                        app:layout_constraintStart_toStartOf="@+id/nh2"
+                        app:layout_constraintTop_toBottomOf="@+id/vsep2" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_date_slots"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp8"
+                        android:clipToPadding="false"
+                        android:nestedScrollingEnabled="false"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/dp8"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/nh_sel_date"
+                        tools:itemCount="7"
+                        tools:listitem="@layout/layout_new_item_row_date_slot" />
+
+                    <View
+                        android:id="@+id/vsep21"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:background="@color/divider_support_more"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rv_date_slots" />
+
+                    <TextView
+                        android:id="@+id/nh_sel_slot"
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:text="@string/select_start_time"
+                        android:textColor="@color/txt_color_profile_desc"
+                        android:textSize="@dimen/dp14"
+                        app:layout_constraintStart_toStartOf="@+id/nh2"
+                        app:layout_constraintTop_toBottomOf="@+id/vsep21" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_time_slots"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:clipToPadding="false"
+                        android:nestedScrollingEnabled="false"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/dp8"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:layout_constraintTop_toBottomOf="@+id/nh_sel_slot"
+                        app:spanCount="2"
+                        tools:itemCount="10"
+                        tools:listitem="@layout/layout_new_item_row_times" />
+
+                    <TextView
+                        android:id="@+id/tv_no_found_slot_timing"
+                        style="@style/AppTheme.TextMedium"
+                        android:layout_alignParentStart="true"
+                        android:gravity="center"
+                        android:text="@string/no_data"
+                        android:textColor="@color/txt_color_profile_desc"
+                        android:visibility="gone"
+                        android:layout_margin="@dimen/dp20"
+                        android:textStyle="italic"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/nh_sel_slot" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp16">
+
+                <RelativeLayout
+                    android:id="@+id/rel_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp16"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/tvh_payment"
+                        style="@style/AppTheme.TextMedium"
+                        android:text="@string/payment"
+                        android:textColor="@color/indicator_color"
+                        android:textSize="@dimen/dp16" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_payments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvh_payment"
+                        android:clipToPadding="false"
+                        android:nestedScrollingEnabled="false"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/dp8"
+                        android:visibility="visible"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="4"
+                        tools:listitem="@layout/layout_new_item_payment_splitting" />
+
+                    <View
+                        android:id="@+id/vcdiv"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/rv_payments"
+                        android:layout_marginTop="@dimen/dp4"
+                        android:background="@color/view_div_dk" />
+
+                    <TextView
+                        android:id="@+id/tvh_dis_fare"
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_below="@+id/vcdiv"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:text="@string/distance_fare"
+                        android:textColor="@color/txt_color_profile_desc"
+                        android:textSize="@dimen/dp14" />
+
+                    <TextView
+                        android:id="@+id/tv_dis_fare"
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_below="@+id/vcdiv"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/dp8"
+                        android:textColor="@color/txt_color_profile_desc"
+                        android:textSize="@dimen/dp14"
+                        tools:text="10 SAR" />
+
+                    <TextView
+                        android:id="@+id/tvh_vat"
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_below="@+id/tvh_dis_fare"
+                        android:layout_marginTop="@dimen/dp8"
+                        android:text="Vat(15%)"
+                        android:textColor="@color/txt_color_profile_desc"
+                        android:textSize="@dimen/dp14" />
+
+                    <TextView
+                        android:id="@+id/tv_vat"
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_below="@+id/tvh_dis_fare"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/dp8"
+                        android:textColor="@color/txt_color_profile_desc"
+                        android:textSize="@dimen/dp14"
+                        tools:text="67.5 SAR" />
+
+                    <View
+                        android:id="@+id/v_final"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/tvh_vat"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:background="@color/view_div_dk" />
+
+                    <TextView
+                        android:id="@+id/tvh_total"
+                        style="@style/AppTheme.TextMedium"
+                        android:layout_below="@+id/v_final"
+                        android:layout_marginTop="@dimen/dp12"
+                        android:text="@string/total"
+                        android:textColor="@color/indicator_color"
+                        android:textSize="@dimen/dp14" />
+
+                    <TextView
+                        android:id="@+id/tv_total_price"
+                        style="@style/AppTheme.TextMedium"
+                        android:layout_below="@+id/v_final"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/dp12"
+                        android:textColor="@color/indicator_color"
+                        android:textSize="@dimen/dp14"
+                        tools:text="517.5 SAR" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_submit"
+                        style="@style/AppTheme.BtnMediumBlue"
+                        android:layout_below="@+id/tvh_total"
+                        android:layout_marginTop="@dimen/dp24"
+                        android:layout_marginBottom="@dimen/dp6"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:text="@string/proceed_to_checkout"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/dp14" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

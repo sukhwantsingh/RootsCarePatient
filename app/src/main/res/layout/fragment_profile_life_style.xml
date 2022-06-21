@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp10"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/dp10">
+
+            <TextView
+                style="@style/AppTheme.TextRegular"
+                android:text="@string/smoking_habits"
+                android:textColor="@color/txt_dash_heading"
+                android:textSize="@dimen/dp15" />
+
+            <TextView
+                android:id="@+id/edt_lifestyle_smokinghabits"
+                style="@style/AppTheme.TextRegular"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50"
+                android:layout_marginTop="@dimen/dp8"
+                android:background="@drawable/round_dropdown_background"
+                android:gravity="center_vertical"
+                android:hint="@string/select"
+                android:padding="@dimen/dp12"
+                android:textAlignment="viewStart"
+                android:textColor="@color/txt_dash_heading"
+                android:textColorHint="@color/txt_dash_heading"
+                android:textSize="@dimen/dp15"
+                app:drawableEndCompat="@drawable/ic_dropdown_arrow" />
+
+            <TextView
+                style="@style/AppTheme.TextRegular"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="@string/alcohol_habits"
+                android:textColor="@color/txt_dash_heading"
+                android:textSize="@dimen/dp15" />
+
+            <TextView
+                android:id="@+id/edt_lifestyle_alcohol_habits"
+                style="@style/AppTheme.TextRegular"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50"
+                android:layout_marginTop="@dimen/dp8"
+                android:background="@drawable/round_dropdown_background"
+                android:gravity="center_vertical"
+                android:hint="@string/select"
+                android:padding="@dimen/dp12"
+                android:textAlignment="viewStart"
+                android:textColor="@color/txt_dash_heading"
+                android:textColorHint="@color/txt_dash_heading"
+                android:textSize="@dimen/dp15"
+                app:drawableEndCompat="@drawable/ic_dropdown_arrow" />
+
+            <TextView
+                style="@style/AppTheme.TextRegular"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="@string/blood_group"
+                android:textColor="@color/txt_dash_heading"
+                android:textSize="@dimen/dp15" />
+
+            <TextView
+                android:id="@+id/edt_lifestyle_blood_group"
+                style="@style/AppTheme.TextRegular"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50"
+                android:layout_marginTop="@dimen/dp8"
+                android:background="@drawable/round_dropdown_background"
+                android:gravity="center_vertical"
+                android:hint="@string/select"
+                android:padding="@dimen/dp12"
+                android:textAlignment="viewStart"
+                android:textColor="@color/txt_dash_heading"
+                android:textColorHint="@color/txt_dash_heading"
+                android:textSize="@dimen/dp15"
+                app:drawableEndCompat="@drawable/ic_dropdown_arrow" />
+
+
+            <TextView
+                style="@style/AppTheme.TextRegular"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="@string/activity_level"
+                android:textColor="@color/txt_dash_heading"
+                android:textSize="@dimen/dp15" />
+
+            <TextView
+                android:id="@+id/edt_lifestyle_activity_level"
+                style="@style/AppTheme.TextRegular"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50"
+                android:layout_marginTop="@dimen/dp8"
+                android:background="@drawable/round_dropdown_background"
+                android:gravity="center_vertical"
+                android:hint="@string/select"
+                android:padding="@dimen/dp12"
+                android:textAlignment="viewStart"
+                android:textColor="@color/txt_dash_heading"
+                android:textColorHint="@color/txt_dash_heading"
+                android:textSize="@dimen/dp15"
+                app:drawableEndCompat="@drawable/ic_dropdown_arrow" />
+
+            <TextView
+                style="@style/AppTheme.TextRegular"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="@string/food_preference"
+                android:textColor="@color/txt_dash_heading"
+                android:textSize="@dimen/dp15" />
+
+            <TextView
+                android:id="@+id/edt_lifestyle_food_preference"
+                style="@style/AppTheme.TextRegular"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50"
+                android:layout_marginTop="@dimen/dp8"
+                android:background="@drawable/round_dropdown_background"
+                android:gravity="center_vertical"
+                android:hint="@string/select"
+                android:padding="@dimen/dp12"
+                android:textAlignment="viewStart"
+                android:textColor="@color/txt_dash_heading"
+                android:textColorHint="@color/txt_dash_heading"
+                android:textSize="@dimen/dp15"
+                app:drawableEndCompat="@drawable/ic_dropdown_arrow" />
+
+            <TextView
+                style="@style/AppTheme.TextRegular"
+                android:layout_marginTop="@dimen/dp12"
+                android:text="@string/occupation"
+                android:textColor="@color/txt_dash_heading"
+                android:textSize="@dimen/dp15" />
+
+            <TextView
+                android:id="@+id/edt_lifestyle_occupation"
+                style="@style/AppTheme.TextRegular"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50"
+                android:layout_marginTop="@dimen/dp8"
+                android:background="@drawable/round_dropdown_background"
+                android:gravity="center_vertical"
+                android:hint="@string/select"
+                android:padding="@dimen/dp12"
+                android:textAlignment="viewStart"
+                android:textColor="@color/txt_dash_heading"
+                android:textColorHint="@color/txt_dash_heading"
+                android:textSize="@dimen/dp15"
+                app:drawableEndCompat="@drawable/ic_dropdown_arrow" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_patient_profile_lifestyle"
+                style="@style/AppTheme.BtnMediumBlue"
+                android:layout_marginVertical="@dimen/dp30"
+                android:text="@string/save"
+                android:textAllCaps="true"
+                android:textSize="@dimen/dp14" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EBF8F5"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_70sdp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_change_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@null"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:src="@drawable/ic_view_list_item" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:background="@drawable/search_for_common_bg"
+                    android:padding="@dimen/_8sdp"
+                    app:cardCornerRadius="@dimen/dp20"
+                    app:cardElevation="@dimen/_5sdp">
+
+                    <com.customview.MyEditTextView
+                        android:id="@+id/edt_search_doctor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/search_for_common_bg"
+                        android:drawableEnd="@drawable/search"
+                        android:hint="Search by doctor name"
+                        android:maxLines="1"
+                        android:paddingStart="@dimen/dp10"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:singleLine="true"
+                        android:textColorHint="@color/gray_light_dark"
+                        android:textSize="@dimen/_10ssp" />
+                </androidx.cardview.widget.CardView>
+
+                <com.customview.MyTextView
+                    android:id="@+id/txt_seeall_doctorSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:drawableStart="@drawable/filter"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:text="Filter"
+                    android:textColor="@color/txt_color"
+                    android:textSize="@dimen/_12ssp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp10"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="2">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Top department"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/_12ssp" />
+
+                <Button
+                    android:id="@+id/btn_rootscare_more_doctor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:text="More"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/_12ssp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
+                    android:id="@+id/transparent_black_view_for_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparentBlack"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="gone" />
+
+                <View
+                    android:id="@+id/transparent_black_view_for_search"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/transparentBlack"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/transparent_black_view_for_search_2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/transparentBlack"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/filter_menu_container_card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="5dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="invisible"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="5dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp">
+
+                        <com.customview.MyTextView
+                            android:id="@+id/tv_distance_filter"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center_vertical"
+                            android:text="Sort by name"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Spinner
+                            android:id="@+id/spinnerDistance"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:background="@null"
+                            android:minHeight="30dp"
+                            android:overlapAnchor="false"
+                            android:spinnerMode="dropdown"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_distance_filter" />
+
+                        <com.customview.MyTextView
+                            android:id="@+id/tv_speciality_filter"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center_vertical"
+                            android:text="By Speciality"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14ssp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/spinnerDistance" />
+
+                        <Spinner
+                            android:id="@+id/spinnerSpeciality"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:minHeight="30dp"
+                            android:overlapAnchor="false"
+                            android:spinnerMode="dropdown"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_speciality_filter" />
+
+
+                        <com.customview.MyTextView
+                            android:id="@+id/tv_filter_submit"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginEnd="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:background="@drawable/btn_sky_bg"
+                            android:gravity="center"
+                            android:padding="@dimen/_6sdp"
+                            android:text="Apply"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/tv_filter_clear"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/spinnerSpeciality" />
+
+                        <com.customview.MyTextView
+                            android:id="@+id/tv_filter_clear"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginEnd="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:background="@drawable/blue_btn_rectangle"
+                            android:gravity="center"
+                            android:padding="@dimen/_5sdp"
+                            android:text="Clear"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/tv_filter_submit"
+                            app:layout_constraintTop_toTopOf="@+id/tv_filter_submit" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView_rootscare_seealldoctors_by_grid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.customview.MyTextView
+                        android:id="@+id/tv_no_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="@dimen/_3sdp"
+                        android:gravity="center"
+                        android:text="@string/no_data"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_16ssp"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp10"
+                android:padding="@dimen/_8sdp"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/_16sdp"
+                app:cardElevation="@dimen/dp10">
+
+                <com.customview.MyTextView
+                    android:id="@+id/txt_select_doctor_department"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_search_bg"
+                    android:drawableEnd="@drawable/back"
+                    android:hint="Select department"
+                    android:padding="@dimen/dp10"
+                    android:textSize="@dimen/_10ssp" />
+            </androidx.cardview.widget.CardView>
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp20"
+                android:text="View All Doctors"
+                android:textAllCaps="false"
+                android:textColor="@color/colorAccent"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

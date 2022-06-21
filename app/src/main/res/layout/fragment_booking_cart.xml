@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_bg"
+        android:orientation="vertical">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_cart_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/common_bg"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView_rootscare_bookingcart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_3sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginEnd="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp" />
+
+                    <com.customview.MyTextView
+                        android:id="@+id/tv_no_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="@dimen/_3sdp"
+                        android:gravity="center"
+                        android:text="@string/no_data"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_16ssp"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView_pricetotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rl_cart_list"
+                    android:layout_margin="@dimen/dp10"
+                    android:visibility="gone"
+                    app:cardCornerRadius="@dimen/_12sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dp10"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@color/common_bg"
+                            android:padding="@dimen/dp10">
+
+                            <com.customview.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:text="Visit Fee"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_12ssp"
+                                android:visibility="gone" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:orientation="horizontal">
+
+                                <com.customview.MyTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sub Total : "
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="@dimen/_12ssp" />
+
+                                <com.customview.MyTextView
+                                    android:id="@+id/txt_subtotal_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dp10"
+                                    android:text="SAR 1200.00"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="@dimen/_12ssp" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/dp10"
+                            android:visibility="visible">
+
+                            <com.customview.MyTextView
+                                android:id="@+id/txt_task"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:text="Task"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_12ssp"
+                                android:visibility="gone" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:orientation="horizontal">
+
+                                <com.customview.MyTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Vat(20%) : "
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="@dimen/_12ssp" />
+
+                                <com.customview.MyTextView
+                                    android:id="@+id/txt_vat_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dp10"
+                                    android:text="SAR 240.00"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="@dimen/_12ssp" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@color/common_bg"
+                            android:padding="@dimen/dp10">
+
+                            <com.customview.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:text="Visit Fee"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/_12ssp"
+                                android:visibility="gone" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:orientation="horizontal">
+
+                                <com.customview.MyTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total : "
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="@dimen/_12ssp" />
+
+                                <com.customview.MyTextView
+                                    android:id="@+id/txt_totalpaid_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dp10"
+                                    android:text="SAR 1440.00"
+                                    android:textColor="@color/txt_color"
+                                    android:textSize="@dimen/_12ssp" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <RelativeLayout
+                    android:id="@+id/rl_radiogroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cardView_pricetotal"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <com.customview.MyTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="Payment Method : "
+                            android:textColor="@color/txt_color"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:id="@+id/radiopatientgender"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:visibility="visible">
+
+                            <RadioButton
+                                android:id="@+id/radio_patient_gender_female"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Online"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/dp10" />
+
+                            <RadioButton
+                                android:id="@+id/radio_patient_gender_male"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="Offline"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/dp10" />
+
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <com.customview.MyTextView
+                    android:id="@+id/txt_static_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rl_radiogroup"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:text="Price inclusive of all taxes."
+                    android:textColor="@color/txt_color"
+                    android:textSize="@dimen/dp8"
+                    android:textStyle="bold" />
+
+                <!--                <company.tap.gosellapi.open.buttons.PayButtonView-->
+                <!--                    android:id="@+id/btn_cart_checkout"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="@dimen/_30sdp"-->
+                <!--                    android:layout_below="@+id/txt_static_text"-->
+                <!--                    android:layout_gravity="center"-->
+                <!--                    android:layout_marginStart="@dimen/_60sdp"-->
+                <!--                    android:layout_marginTop="@dimen/dp20"-->
+                <!--                    android:layout_marginEnd="@dimen/_60sdp"-->
+                <!--                    android:layout_marginBottom="@dimen/_30sdp" />-->
+
+                <com.customview.MyCustomButton
+                    android:id="@+id/btn_cart_checkout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_below="@+id/txt_static_text"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_60sdp"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginEnd="@dimen/_60sdp"
+                    android:layout_marginBottom="@dimen/_30sdp"
+                    android:background="@drawable/booking_new_bg"
+                    android:drawableEnd="@drawable/white_arrow_circle"
+                    android:drawablePadding="@dimen/dp10"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Continue To Checkout"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10ssp" />
+
+            </RelativeLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+</layout>

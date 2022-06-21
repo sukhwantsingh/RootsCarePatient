@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp10">
+
+            <LinearLayout
+                android:id="@+id/ll_mainlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp16"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:id="@+id/rl1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_rootscare_patient_profile_image"
+                        android:layout_width="@dimen/dp90"
+                        android:layout_height="@dimen/dp90"
+                        android:src="@drawable/profile_no_image"
+                        app:civ_border_color="@color/indicator_color"
+                        app:civ_border_width="@dimen/dp1" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/edt_patient_profile_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/img_rootscare_patient_profile_image"
+                        android:layout_alignBottom="@+id/img_rootscare_patient_profile_image"
+                        android:layout_marginBottom="@dimen/dp2"
+                        android:src="@drawable/ic_na_camera_round"
+                        app:civ_border_color="@color/circle_img_border"
+                        app:civ_border_width="@dimen/dp1" />
+
+                </RelativeLayout>
+             <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp16">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_addpatient_fname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_regular"
+                        android:hint="@string/patient_first_name"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textColor="@color/txt_dash_heading"
+                        android:textSize="@dimen/dp15" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+             <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp8">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_addpatient_lname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_regular"
+                        android:hint="@string/patient_last_name"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textColor="@color/txt_dash_heading"
+                        android:textSize="@dimen/dp15" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+             <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp8">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_addpatient_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_regular"
+                        android:hint="@string/patient_email"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textColor="@color/txt_dash_heading"
+                        android:textSize="@dimen/dp15" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+               <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     android:visibility="gone"
+                    android:layout_marginTop="@dimen/dp8">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_addpatient_phonenumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_regular"
+                        android:hint="@string/mobile_number"
+                        android:imeOptions="actionDone"
+                        android:inputType="phone"
+                        android:singleLine="true"
+                        android:maxLength="10"
+                        android:textColor="@color/txt_dash_heading"
+                        android:textSize="@dimen/dp15" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp8">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_addpatient_age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                       android:fontFamily="@font/rubik_regular"
+                        android:hint="@string/patient_age"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:maxLength="3"
+                        android:textColor="@color/txt_dash_heading"
+                        android:textSize="@dimen/dp15" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/AppTheme.TextRegular"
+                        android:text="@string/gender"
+                        android:textColor="@color/txt_color"
+                        android:textSize="@dimen/dp14" />
+
+                    <RadioGroup
+                        android:id="@+id/radiopatientgender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton
+                            android:id="@+id/radio_patient_gender_female"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp20"
+                            android:fontFamily="@font/rubik_regular"
+                            android:text="@string/female"
+                            android:textColor="@color/txt_color"
+                            android:textSize="@dimen/dp14" />
+
+                        <RadioButton
+                            android:id="@+id/radio_patient_gender_male"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp20"
+                            android:fontFamily="@font/rubik_regular"
+                            android:text="@string/male"
+                            android:textColor="@color/txt_color"
+                            android:textSize="@dimen/dp14" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_rootscare_addpatient_for_doctor_booking"
+                    style="@style/AppTheme.BtnMediumBlue"
+                    android:layout_marginVertical="@dimen/dp16"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:text="@string/save_patient"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/dp14" />
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

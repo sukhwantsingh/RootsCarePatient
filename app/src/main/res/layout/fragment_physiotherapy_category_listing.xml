@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EBF8F5"
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="@dimen/_200sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/dp20"
+                        android:background="@drawable/search_for_common_bg"
+                        app:cardCornerRadius="@dimen/dp20"
+                        android:padding="@dimen/_8sdp"
+                        app:cardElevation="@dimen/_5sdp">
+
+                        <com.customview.MyEditTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/search_for_common_bg"
+                            android:drawableEnd="@drawable/search"
+                            android:hint="Physiotherapy"
+                            android:maxLines="1"
+                            android:paddingStart="@dimen/dp10"
+                            android:paddingEnd="@dimen/_8sdp"
+                            android:paddingTop="@dimen/_6sdp"
+                            android:paddingBottom="@dimen/_6sdp"
+
+                            android:singleLine="true"
+                            android:textColorHint="@color/gray_light_dark"
+                            android:textSize="@dimen/_10ssp" />
+                    </androidx.cardview.widget.CardView>
+
+                    <com.customview.MyTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/dp20"
+                        android:drawableStart="@drawable/filter"
+                        android:drawablePadding="@dimen/_5sdp"
+
+                        android:text="Filter"
+                        android:textColor="@color/txt_color"
+                        android:textSize="@dimen/_12ssp" />
+
+                </LinearLayout>
+                <RelativeLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:background="@color/common_bg"
+                    android:layout_height="match_parent">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:id="@+id/recyclerView_rootscare_nursescategorieslisting"/>
+                    <com.customview.MyTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/_10ssp"
+                        android:layout_centerInParent="true"
+                        android:visibility="gone"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/no_data"
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/tv_no_date"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cns_restl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_white_bg"
+        android:elevation="@dimen/dp6"
+        android:paddingTop="@dimen/dp16"
+        android:paddingBottom="@dimen/dp10"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/dp16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gr"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/dimen_16dp" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_top"
+            android:layout_width="@dimen/dp80"
+            android:layout_height="@dimen/dp80"
+            android:padding="@dimen/dp5"
+            android:src="@drawable/app_icon"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/n1"
+            style="@style/AppTheme.TextRegular"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/dp12"
+            android:gravity="center"
+            android:text="@string/we_will_be_right_back"
+            android:textColor="@color/indicator_color"
+            android:textSize="@dimen/dp24"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toBottomOf="@+id/iv_top" />
+
+        <TextView
+            android:id="@+id/tvh_slot_type"
+            style="@style/AppTheme.TextRegular"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginEnd="@dimen/dp10"
+            android:gravity="center"
+            android:text="@string/right_back_desc"
+            android:textColor="@color/txt_color"
+            android:textSize="@dimen/dp14"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toBottomOf="@+id/n1" />
+
+        <TextView
+            android:id="@+id/n12"
+            style="@style/AppTheme.TextRegular"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/dp20"
+            android:gravity="center"
+            android:text="@string/bad_gateway"
+            android:textColor="@color/txt_dash_heading"
+            android:textSize="@dimen/dp24"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toBottomOf="@+id/tvh_slot_type" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:paddingVertical="@dimen/dp10"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintTop_toBottomOf="@+id/n12">
+
+
+            <TextView
+                android:id="@+id/btn_go_back"
+                style="@style/AppTheme.TextRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_marginTop="@dimen/dp30"
+                android:layout_marginBottom="@dimen/dp6"
+                android:background="@drawable/round_rect_grey_border"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/dp16"
+                android:text="@string/go_back"
+                android:textAllCaps="true"
+                android:textSize="@dimen/dp14"
+                app:layout_constraintEnd_toStartOf="@+id/btn_submit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_submit"
+                style="@style/AppTheme.BtnRegularBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:visibility="gone"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="@string/try_again"
+                android:textAllCaps="true"
+                android:textSize="@dimen/dp14"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_go_back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_go_back"
+                app:layout_constraintTop_toTopOf="@+id/btn_go_back" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

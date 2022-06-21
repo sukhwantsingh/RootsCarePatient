@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: io.branch.sdk.android:library:5.0.15@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/485f58c038f6386d68614a72bb1ebb07/transformed/jetified-library-5.0.15/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/485f58c038f6386d68614a72bb1ebb07/transformed/jetified-library-5.0.15/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/485f58c038f6386d68614a72bb1ebb07/transformed/jetified-library-5.0.15/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.branch.sdk.android/library/5.0.15/be7eadde9af95e6bee4ec4720d7a2a623f29be71/library-5.0.15-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.branch.sdk.android/library/5.0.15/b1672ca33b036b59f897f57a7632e8f8d6b0fdd6/library-5.0.15-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

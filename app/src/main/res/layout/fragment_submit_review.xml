@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@color/common_bg"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_400sdp"
+                android:layout_marginLeft="@dimen/dp10"
+
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp10"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginEnd="@dimen/dp10">
+                    <com.customview.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:textSize="@dimen/_14ssp"
+                        android:textStyle="bold"
+                        android:textColor="@color/txt_color"
+                        android:text="Your Review"/>
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_below="@+id/check"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:background="@color/home_page_view_color" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_margin="@dimen/dp10">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_teacher_name"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/black"
+                        android:layout_alignParentStart="true"
+                        android:text=""/>
+
+                    <RatingBar
+                        android:id="@+id/ratingBarteacherFeedback"
+                        style="@style/customRatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:numStars="5"
+                        android:isIndicator="false"
+                        android:rating="5.0"
+                        android:progressTint="@color/review_star"
+                        android:stepSize="1.0" />
+
+                </RelativeLayout>
+                <com.customview.MyEditTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_80sdp"
+                    android:id="@+id/edt_reatting_comment"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:textSize="@dimen/_12sdp"
+                    android:padding="@dimen/dp10"
+                    android:hint="Comment.."
+                    android:background="@drawable/white_rectangle"/>
+
+                <com.customview.MyCustomButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30sdp"
+                    android:id="@+id/btn_submit_review"
+                    android:text="Submit Review"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginBottom="@dimen/_50sdp"
+                    android:background="@drawable/booking_new_bg"
+                    android:drawableEnd="@drawable/white_arrow_circle"
+                    android:drawablePadding="@dimen/dp10"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10ssp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_bot_home_20"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/navigation_appointment"
+        android:icon="@drawable/ic_nav_calendar"
+        android:title="@string/appointments" />
+
+    <item
+        android:id="@+id/navigation_cart"
+        android:icon="@drawable/ic_cart_svg"
+        android:title="@string/cart" />
+
+    <item
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/ic_more_dots"
+        android:title="@string/more_" />
+
+
+</menu>

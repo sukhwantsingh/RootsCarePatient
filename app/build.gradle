@@ -1,0 +1,178 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
+
+// Apply the Crashlytics Gradle plugin
+apply plugin: 'com.google.firebase.crashlytics'
+
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+    defaultConfig {
+        applicationId "com.rootscare"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 12
+        versionName "2.4"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            shrinkResources false
+            minifyEnabled true
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    bundle {
+        language {
+            // Specifies that the app bundle should not support
+            // configuration APKs for language resources. These
+            // resources are instead packaged with each base and
+            // dynamic feature APK.
+            enableSplit = false
+        }
+    }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "androidx.vectordrawable:vectordrawable:1.1.0"
+    implementation "androidx.vectordrawable:vectordrawable-animated:1.1.0"
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+    // view model
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    // reactive
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    // Room DB
+    implementation 'androidx.room:room-runtime:2.3.0'
+    kapt 'androidx.room:room-compiler:2.3.0'
+    // Retrofit
+    implementation 'com.androidisland.ezpermission:ezpermission:0.1.4'
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    // this is needed to use RxAndroid with retrofit.
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    // Gson
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    implementation "androidx.core:core-ktx:1.6.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+    implementation 'androidx.cardview:cardview:1.0.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:28.0.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    //    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation('com.github.bumptech.glide:glide:4.12.0@aar') {
+        transitive = true
+    }
+
+    // Runtime permission
+    implementation 'pub.devrel:easypermissions:3.0.0'
+    implementation 'me.relex:circleindicator:2.1.6@aar'
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.wang.avi:library:2.1.3'
+
+    implementation 'com.github.iwgang:familiarrecyclerview:1.3.5'
+    implementation 'cn.qqtheme.framework:ColorPicker:1.1.3'
+
+    implementation 'de.codecrafters.tableview:tableview:2.8.0'
+    implementation 'com.evrencoskun.library:tableview:0.8.8'
+
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    //  PAY U MONEY
+    implementation 'com.payumoney.sdkui:plug-n-play:1.6.0'
+
+
+    implementation 'com.chaos.view:pinview:1.4.3'
+
+    implementation('com.github.ozodrukh:CircularReveal:1.1.1@aar') {
+        transitive = true
+    }
+
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.jsibbold:zoomage:1.3.1'
+
+    // view pdf
+    //    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+
+    // Add the Firebase Crashlytics SDK.
+    implementation 'com.google.firebase:firebase-crashlytics:18.2.1'
+
+    implementation 'com.google.firebase:firebase-core:19.0.1'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'com.google.android.libraries.places:places:2.4.0'
+    implementation platform('com.google.firebase:firebase-bom:25.12.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+
+    //twilio
+    implementation 'com.twilio:video-android:7.0.3'
+    implementation 'com.koushikdutta.ion:ion:3.1.0'
+    implementation 'com.nabinbhandari.android:permissions:3.8'
+
+    // map
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+
+    //Tap payment
+    implementation 'com.github.Tap-Payments:goSellSDK-Android:2.15.4'
+    implementation 'com.github.mumayank:AirLocation:2.5.2'
+    implementation 'com.facebook.android:facebook-android-sdk:latest.release'
+
+    // exo player
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.12.0'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.12.0'
+    implementation 'com.github.mukeshsolanki:Google-Places-AutoComplete-EditText:0.0.8'
+
+    implementation ('io.branch.sdk.android:library:5.0.15')
+    implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
+
+}
+repositories {
+    mavenCentral()
+}

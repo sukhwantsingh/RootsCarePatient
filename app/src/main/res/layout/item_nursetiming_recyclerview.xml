@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_nurse_slot_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_3sdp"
+        android:orientation="vertical">
+
+        <com.customview.MyTextView
+            android:id="@+id/txt_nurse_view_timings"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_blue_broder"
+            android:gravity="center"
+
+            android:padding="@dimen/_5sdp"
+            android:textColor="@color/txt_color"
+            android:textSize="@dimen/dp8" />
+
+    </LinearLayout>
+
+
+</layout>

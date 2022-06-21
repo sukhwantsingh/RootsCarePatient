@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cns_restl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_white_bg"
+        android:elevation="@dimen/dp4"
+        android:paddingBottom="@dimen/dp5"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/dp16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gr"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/dimen_16dp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/ns_1"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+            app:layout_constraintStart_toEndOf="@+id/gl"
+            app:layout_constraintBottom_toTopOf="@+id/tv_close"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0dp"
+            android:layout_marginBottom="@dimen/dp5"
+            android:layout_height="0dp">
+
+            <TextView
+                android:id="@+id/tvh_text"
+                style="@style/AppTheme.TextRegular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/dp14"
+                tools:text="Choose from wide range of providers list available on home/dashboard window. (You can chose among Nurse, Nurse Assistant, Babysitter, Physiotherapi)"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp14"/>
+        </androidx.core.widget.NestedScrollView>
+
+
+        <TextView
+            android:id="@+id/tv_close"
+            style="@style/AppTheme.TextMedium"
+            android:layout_width="wrap_content"
+            android:layout_marginVertical="@dimen/dp12"
+            android:background="@drawable/round_border_nav_menu"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/dp12"
+            android:paddingVertical="@dimen/dp8"
+            android:text="@string/close"
+            android:textColor="@color/indicator_color"
+            android:textSize="@dimen/dp12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/gr"
+
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

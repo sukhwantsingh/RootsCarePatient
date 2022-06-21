@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+    </data>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/crdview_caregiver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_12sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:elevation="@dimen/_30sdp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/_73sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_height="@dimen/_75sdp"
+                    app:cardCornerRadius="@dimen/_7sdp"
+                    >
+
+                        <ImageView
+                            android:layout_width="@dimen/_73sdp"
+                            android:layout_height="@dimen/_75sdp"
+                            android:id="@+id/img_caregiver_profile"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/nursesphoto"/>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:orientation="vertical">
+                    >
+                    <com.customview.MyTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_7ssp"
+                        android:textStyle="bold"
+                        android:id="@+id/txt_home_caregiver_name"
+                        />
+                    <com.customview.MyTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_6ssp"
+                        android:maxLines="1"
+                        android:id="@+id/txt_home_caregiver_qualification"
+                        android:textColor="@color/txt_color"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+</layout>
