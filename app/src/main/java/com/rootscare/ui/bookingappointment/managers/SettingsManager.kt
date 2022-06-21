@@ -10,19 +10,15 @@ import com.google.gson.reflect.TypeToken
 import company.tap.gosellapi.R
 import company.tap.gosellapi.internal.api.enums.AmountModificatorType
 import company.tap.gosellapi.internal.api.enums.AuthorizeActionType
-import company.tap.gosellapi.internal.api.enums.measurements.Mass
 import company.tap.gosellapi.internal.api.models.AmountModificator
 import company.tap.gosellapi.internal.api.models.PhoneNumber
-import company.tap.gosellapi.internal.api.models.Quantity
 import company.tap.gosellapi.open.enums.AppearanceMode
 import company.tap.gosellapi.open.enums.OperationMode
 import company.tap.gosellapi.open.enums.TransactionMode
 import company.tap.gosellapi.open.models.*
 import company.tap.gosellapi.open.models.Customer.CustomerBuilder
-import company.tap.gosellapi.open.models.PaymentItem.PaymentItemBuilder
 import company.tap.gosellapi.open.viewmodel.CustomerViewModel
 import java.math.BigDecimal
-import java.util.*
 
 class SettingsManager {
     private var pref: SharedPreferences? = null
@@ -152,7 +148,8 @@ class SettingsManager {
             }
             return customer
         }
-//    val paymentItems: ArrayList<PaymentItem>
+
+    //    val paymentItems: ArrayList<PaymentItem>
 //        get() {
 //            val items = ArrayList<PaymentItem>()
 //            items.add(

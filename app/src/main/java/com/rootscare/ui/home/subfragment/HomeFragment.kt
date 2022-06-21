@@ -5,26 +5,17 @@ import android.view.View
 import androidx.lifecycle.ViewModelProviders
 import com.rootscare.BR
 import com.rootscare.R
-import com.rootscare.data.model.api.response.patienthome.*
 import com.rootscare.databinding.FragmentHomeBinding
 import com.rootscare.ui.base.BaseFragment
 import com.rootscare.ui.home.HomeActivity
-import com.rootscare.ui.home.subfragment.adapter.*
-import com.rootscare.ui.newaddition.providerlisting.FragmentProvderBooking
-import com.rootscare.ui.newaddition.providerlisting.FragmentProvderBookingForDoctor
 import com.rootscare.ui.newaddition.providerlisting.FragmentProviderListing
 import com.rootscare.utilitycommon.DoctorEnabledFor
 import com.rootscare.utilitycommon.ProviderTypes
-import com.rootscare.utilitycommon.getBookingTypeFromProviderType
-import com.rootscare.utils.ManagePermissions
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>(),
     HomeFragmentNavigator {
     private var fragmentHomeBinding: FragmentHomeBinding? = null
     private var homeFragmentViewModel: HomeFragmentViewModel? = null
-
-    private val REQUEST_PERMISSIONS_REQUEST_CODE = 34
-    private var managePermissions: ManagePermissions? = null
 
     override val bindingVariable: Int
         get() = BR.viewModel
@@ -117,18 +108,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>(),
             }
         } else {
             showToast("Coming Soon")
-        }
-    }
-
-
-    override fun successPatientHomeApiResponse(patientHomeApiResponse: PatientHomeApiResponse?) {
-        baseActivity?.hideLoading()
-    }
-
-    override fun errorPatientHomeApiResponse(throwable: Throwable?) {
-        baseActivity?.hideLoading()
-        if (throwable?.message != null) {
-            getString(R.string.something_went_wrong)
         }
     }
 

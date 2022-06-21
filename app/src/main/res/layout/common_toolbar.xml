@@ -150,7 +150,6 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/_5sdp"
                         android:contentDescription="@null"
-                        android:src="@drawable/cards"
                         android:visibility="gone" />
 
 

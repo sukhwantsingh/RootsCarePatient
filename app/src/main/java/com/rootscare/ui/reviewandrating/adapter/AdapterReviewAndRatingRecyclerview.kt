@@ -11,21 +11,11 @@ import com.rootscare.R
 import com.rootscare.data.model.api.response.patientreviewandratingresponse.ResultItem
 import com.rootscare.databinding.ItemReviewAndRatingRecyclerviewBinding
 import com.interfaces.OnItemClikWithIdListener
-import com.rootscare.ui.home.subfragment.adapter.AdapterHospitalRecyclerviw
 import com.rootscare.utilitycommon.BaseMediaUrls
 import kotlinx.android.synthetic.main.item_review_and_rating_recyclerview.view.*
-import kotlinx.android.synthetic.main.item_rootscare_doctor_categorilisting_recyclerview.view.*
 
-class AdapterReviewAndRatingRecyclerview(
-    val reviewandratinglist: ArrayList<ResultItem?>?,
-    internal var context: Context
-) : RecyclerView.Adapter<AdapterReviewAndRatingRecyclerview.ViewHolder>() {
-    //    val trainerList: ArrayList<TrainerListItem?>?,
-    companion object {
-        val TAG: String = AdapterHospitalRecyclerviw::class.java.simpleName
-    }
-
-    //
+class AdapterReviewAndRatingRecyclerview( val reviewandratinglist: ArrayList<ResultItem?>?, internal var context: Context) : RecyclerView.Adapter<AdapterReviewAndRatingRecyclerview.ViewHolder>() {
+ 
     internal lateinit var recyclerViewItemClickWithView: OnItemClikWithIdListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -52,14 +42,8 @@ class AdapterReviewAndRatingRecyclerview(
 
         private var local_position: Int = 0
 
-        init {
-            itemView.root.crdview_doctor_category_list?.setOnClickListener {
-                recyclerViewItemClickWithView.onItemClick(1)
-            }
-        }
 
         fun onBind(pos: Int) {
-            Log.d(TAG, " true")
             local_position = pos
 
             itemView.rootView?.txt_review_name?.text = reviewandratinglist?.get(pos)?.reviewTo

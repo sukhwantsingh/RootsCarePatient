@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.interfaces.OnMedicalRecordFileDeleteListner
 import java.util.ArrayList
 import java.util.HashMap
 

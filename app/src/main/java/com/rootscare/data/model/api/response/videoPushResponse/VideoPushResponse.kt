@@ -3,13 +3,12 @@ package com.rootscare.data.model.api.response.videoPushResponse
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.google.gson.annotations.SerializedName
-import com.rootscare.data.model.api.response.appointmentdetails.Result
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class VideoPushResponse(
     @field:JsonProperty("result")
     @field:SerializedName("result")
-    val result: Result? = null,
+    val result: Any? = null,
     @field:JsonProperty("code")
     @field:SerializedName("code")
     val code: String? = null,

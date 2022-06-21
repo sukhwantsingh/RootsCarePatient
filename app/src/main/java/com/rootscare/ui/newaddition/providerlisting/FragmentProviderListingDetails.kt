@@ -16,7 +16,6 @@ import com.rootscare.ui.home.HomeActivity
 import com.rootscare.ui.newaddition.providerlisting.adapter.AdapterAvailableProviderListing
 import com.rootscare.ui.newaddition.providerlisting.adapter.OnProviderAvailableListingCallback
 import com.rootscare.ui.newaddition.providerlisting.models.ModelProviderDetails
-import com.rootscare.ui.nurses.nursesbookingappointment.FragmentNursesBookingAppointment
 import com.rootscare.utilitycommon.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody

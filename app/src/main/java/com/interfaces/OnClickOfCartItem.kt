@@ -1,6 +1,5 @@
 package com.interfaces
 
-import com.rootscare.data.model.api.response.doctorallapiresponse.doctorbooking.bookingcartresponse.ResultItem
 import com.rootscare.ui.bookingcart.models.ModelPatientCartNew
 
 interface OnClickOfCartItem {

@@ -9,24 +9,19 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.interfaces.OnClickOfCartItem
-import com.rootscare.BR
 import com.rootscare.R
-import com.rootscare.data.model.api.response.nurses.nurselist.GetNurseListResponse
-import com.rootscare.data.model.api.response.nurses.nurselist.ResultItem
-import com.rootscare.databinding.LayoutItemNewAppointmentsBinding
 import com.rootscare.databinding.LayoutItemNewCartitemsBinding
-import com.rootscare.databinding.LayoutItemNewProvidersBinding
-import com.rootscare.databinding.LayoutNewRowItemCartBinding
 import com.rootscare.ui.bookingcart.models.ModelPatientCartNew
 import com.rootscare.ui.newaddition.appointments.ModelAppointmentDetails
-import com.rootscare.ui.newaddition.appointments.ModelAppointmentsListing
 import com.rootscare.ui.newaddition.appointments.adapter.AdapterPaymentSplitting
-import com.rootscare.ui.newaddition.providerlisting.models.ModelProviderListing
-import com.rootscare.utilitycommon.*
-import java.util.*
+import com.rootscare.utilitycommon.BookingTypes
+import com.rootscare.utilitycommon.setAmount
+import com.rootscare.utilitycommon.setAmountWithCurrency
 
 class AdapterCartListingNew(internal var context: Context) :
-    ListAdapter<ModelPatientCartNew.Result, AdapterCartListingNew.ViewHolder>(AdaptercartListingDiffUtil()) {
+    ListAdapter<ModelPatientCartNew.Result, AdapterCartListingNew.ViewHolder>(
+        AdaptercartListingDiffUtil()
+    ) {
 
     val updatedArrayList = ArrayList<ModelPatientCartNew.Result?>()
 
@@ -57,7 +52,8 @@ class AdapterCartListingNew(internal var context: Context) :
         submitList(updatedArrayList)
     }
 
-  inner class ViewHolder(val binding: LayoutItemNewCartitemsBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: LayoutItemNewCartitemsBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         init {
             binding.ivCross.setOnClickListener {
                 mCallback.onFirstItemClick(updatedArrayList.get(absoluteAdapterPosition)?.id?.toInt()!!)
@@ -66,8 +62,12 @@ class AdapterCartListingNew(internal var context: Context) :
 
         fun onBindView(item: ModelPatientCartNew.Result?) {
             binding.run {
-                item?.let{
-                    if(it.booking_type.equals(BookingTypes.ONLINE_CONS.getApiType(), ignoreCase = true)){
+                item?.let {
+                    if (it.booking_type.equals(
+                            BookingTypes.ONLINE_CONS.getApiType(),
+                            ignoreCase = true
+                        )
+                    ) {
                         tvhDisFare.visibility = View.GONE
                         tvDisFare.visibility = View.GONE
                         tvhDisFare.text = ""
@@ -91,7 +91,7 @@ class AdapterCartListingNew(internal var context: Context) :
                     setupTaksListing(binding, it.task_details)
                     tvhVat.text = it.vat_text
                     tvVat.setAmount(it.vat_price)
-                    if(mCurrency.isNullOrBlank()) {
+                    if (mCurrency.isNullOrBlank()) {
                         tvTotalPrice.setAmount(it.total_price)
                     } else tvTotalPrice.setAmountWithCurrency(it.total_price, mCurrency)
                     executePendingBindings()
@@ -100,15 +100,19 @@ class AdapterCartListingNew(internal var context: Context) :
         }
 
 
-  }
-    fun setupTaksListing(binding: LayoutItemNewCartitemsBinding, taskDetails: List<ModelPatientCartNew.Result.TaskDetail?>?
+    }
+
+    fun setupTaksListing(
+        binding: LayoutItemNewCartitemsBinding,
+        taskDetails: List<ModelPatientCartNew.Result.TaskDetail?>?
     ) {
         val mAdapPayment = AdapterPaymentSplitting()
         val mArrList = ArrayList<ModelAppointmentDetails.Result.TaskDetail>()
         binding.rvPayments.adapter = mAdapPayment
         taskDetails?.forEach { node ->
             val mNode = ModelAppointmentDetails.Result.TaskDetail(
-                node?.id ?: "",node?.name ?: "", node?.price ?: "0")
+                node?.id ?: "", node?.name ?: "", node?.price ?: "0"
+            )
             mArrList.add(mNode)
         }
         mAdapPayment.submitList(mArrList)
@@ -116,11 +120,17 @@ class AdapterCartListingNew(internal var context: Context) :
 }
 
 class AdaptercartListingDiffUtil : DiffUtil.ItemCallback<ModelPatientCartNew.Result>() {
-    override fun areItemsTheSame(oldItem: ModelPatientCartNew.Result, newItem: ModelPatientCartNew.Result): Boolean {
+    override fun areItemsTheSame(
+        oldItem: ModelPatientCartNew.Result,
+        newItem: ModelPatientCartNew.Result
+    ): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: ModelPatientCartNew.Result, newItem: ModelPatientCartNew.Result): Boolean {
+    override fun areContentsTheSame(
+        oldItem: ModelPatientCartNew.Result,
+        newItem: ModelPatientCartNew.Result
+    ): Boolean {
         return oldItem == newItem
 
     }

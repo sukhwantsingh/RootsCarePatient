@@ -9,7 +9,6 @@ import okhttp3.RequestBody
 class HomeActivityViewModel : BaseViewModel<HomeActivityNavigator>() {
 
     fun apiLogout(appointmentRequest: AppointmentRequest) {
-//        val body = RequestBody.create(MediaType.parse("application/json"), "")
         val disposable = apiServiceWithGsonFactory.apiLogoutUser(appointmentRequest)
             .subscribeOn(_scheduler_io)
             .observeOn(_scheduler_ui)

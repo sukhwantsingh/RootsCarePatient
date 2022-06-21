@@ -57,7 +57,6 @@ import company.tap.gosellapi.open.models.Customer
 import company.tap.gosellapi.open.models.Receipt
 import company.tap.gosellapi.open.models.TapCurrency
 import company.tap.gosellapi.open.viewmodel.CustomerViewModel
-import kotlinx.android.synthetic.main.common_toolbar.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.math.BigDecimal
@@ -69,7 +68,6 @@ class FragmentBookingCart: BaseFragment<LayoutNewCartScreenBinding, FragmentBook
     private var fragmentBookingCartBinding: LayoutNewCartScreenBinding? = null
     private var fragmentBookingCartViewModel: FragmentBookingCartViewModel? = null
 
-  //  var adapterBookingCartRecyclerview: AdapterBookingCartRecyclerview? = null
     var adapterBookingCartRecyclerview: AdapterCartListingNew? = null
 
     var subTotalPrice: Double = 0.0

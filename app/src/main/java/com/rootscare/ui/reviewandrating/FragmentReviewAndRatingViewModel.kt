@@ -2,10 +2,9 @@ package com.rootscare.ui.reviewandrating
 
 import android.util.Log
 import com.google.gson.Gson
-import com.rootscare.data.model.api.request.patientprofilerequest.PatientProfileRequest
 import com.rootscare.data.model.api.request.patientreviewandratingrequest.PatientReviewAndRatingRequest
 import com.rootscare.ui.base.BaseViewModel
-import com.rootscare.ui.doctorlistingdetails.FragmentDoctorListingDetailsNavigator
+
 
     class FragmentReviewAndRatingViewModel  : BaseViewModel<FragmentReviewAndRatingNavigator>() {
 

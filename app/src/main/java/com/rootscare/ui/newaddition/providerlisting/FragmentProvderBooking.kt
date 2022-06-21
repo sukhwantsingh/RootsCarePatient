@@ -28,7 +28,7 @@ import com.rootscare.ui.newaddition.appointments.ModelAppointmentDetails
 import com.rootscare.ui.newaddition.appointments.adapter.AdapterPaymentSplitting
 import com.rootscare.ui.newaddition.providerlisting.adapter.*
 import com.rootscare.ui.newaddition.providerlisting.models.*
-import com.rootscare.ui.nurses.addpatient.FragmentNurseAddPatient
+import com.rootscare.ui.newaddition.providerlisting.patientaddition.FragmentAddPatient
 import com.rootscare.ui.supportmore.bottomsheet.OnBottomSheetCallback
 import com.rootscare.utilitycommon.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -269,14 +269,19 @@ class FragmentProvderBooking : BaseFragment<LayoutNewProviderBookingBinding, Pro
             tvPatientName.text = mViewModel?.appSharedPref?.userName
             tvSelectDate.text = if (dateSelected.isBlank()) { dateSelected = getCurrentAppDate(); dateSelected } else dateSelected
 
-            mViewModel?.mlFamilyMemberId?.observe(viewLifecycleOwner, {
-                binding?.llPatient?.setBackgroundResource(if (it.isBlank()) { R.drawable.sq_back_patient_selected } else 0)
-            })
+            mViewModel?.mlFamilyMemberId?.observe(viewLifecycleOwner) {
+                binding?.llPatient?.setBackgroundResource(
+                    if (it.isBlank()) {
+                        R.drawable.sq_back_patient_selected
+                    } else 0
+                )
+            }
             imgPatient.setOnClickListener {
                 mViewModel?.mlFamilyMemberId?.value = ""
                 mAdapterFamilyMembers.updateStatus(-1, true)
             }
-            imgAddPatient.setOnClickListener {(activity as? HomeActivity)?.checkInBackstack(FragmentNurseAddPatient.newInstance(providerId))}
+            imgAddPatient.setOnClickListener {(activity as? HomeActivity)?.checkInBackstack(
+                FragmentAddPatient.newInstance(providerId))}
             tvSelectDate.setOnClickListener {
                 val c = Calendar.getInstance()
                 val year = c.get(Calendar.YEAR)

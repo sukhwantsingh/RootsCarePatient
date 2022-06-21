@@ -2,7 +2,6 @@ package com.rootscare.ui.addmedicalrecords
 
 import android.util.Log
 import com.google.gson.Gson
-import com.rootscare.ui.appointment.FragmentAppointmentNavigator
 import com.rootscare.ui.base.BaseViewModel
 import io.reactivex.disposables.Disposable
 import okhttp3.MultipartBody

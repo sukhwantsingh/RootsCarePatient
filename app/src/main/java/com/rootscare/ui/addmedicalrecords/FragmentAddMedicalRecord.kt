@@ -26,8 +26,6 @@ import com.rootscare.ui.addmedicalrecords.adapter.FilesListingAdapter
 import com.rootscare.ui.base.BaseFragment
 import com.rootscare.ui.home.HomeActivity
 import com.rootscare.ui.home.subfragment.HomeFragment
-import com.rootscare.ui.medicalrecords.FragmentMedicalRecords
-import com.rootscare.ui.medicalrecords.adapter.AdapterMedicalRecordsRecyclerview.Companion.TAG
 import com.rootscare.utils.*
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
@@ -88,7 +86,7 @@ class FragmentAddMedicalRecord :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fragmentAddMedicalRecordsBinding = viewDataBinding
-        permissionUtils = PermissionUtils(this.activity!!)
+        permissionUtils = PermissionUtils(requireActivity())
         fragmentAddMedicalRecordsBinding?.tvSelectTestDate?.setOnClickListener {
             // TODO Auto-generated method stub
             val c = Calendar.getInstance()
@@ -99,7 +97,7 @@ class FragmentAddMedicalRecord :
 
 
             val dpd = DatePickerDialog(
-                this.activity!!,
+                requireActivity(),
                 DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
 
                     // Display Selected date in textbox
@@ -223,7 +221,7 @@ class FragmentAddMedicalRecord :
             resources.getString(R.string.select_pdf),
             resources.getString(R.string.capture_or_select_image)
         )
-        val builder: AlertDialog.Builder = AlertDialog.Builder(this.activity!!)
+        val builder: AlertDialog.Builder = AlertDialog.Builder(requireActivity())
         builder.setItems(items) { _, which ->
             if (which == 0) {
                 isImageCaptureFlow = false
@@ -304,7 +302,7 @@ class FragmentAddMedicalRecord :
             .setGuidelines(CropImageView.Guidelines.ON)
             .setActivityTitle("Crop")
             .setOutputCompressQuality(50)
-            .start(this.activity!!)
+            .start(requireActivity())
     }
 
 
@@ -354,7 +352,7 @@ class FragmentAddMedicalRecord :
                         var file: File? = File(resultUri?.path)
                         if (resultUri != null) {
                             FileNameInputDialog(
-                                this.activity!!,
+                                requireActivity(),
                                 object : FileNameInputDialog.CallbackAfterDateTimeSelect {
                                     override fun selectDateTime(dateTime: String) {
                                         val imageSelectionModel = AddlabTestImageSelectionModel()
@@ -413,9 +411,8 @@ class FragmentAddMedicalRecord :
                         imageSelectionModel.imageDataFromCropLibrary = result
                         val resultUri = result.uri
                         if (resultUri != null) { // Get file from cache directory
-                            Log.d(TAG, "--check_urii--  $resultUri")
                             FileNameInputDialog(
-                                this.activity!!,
+                                requireActivity(),
                                 object : FileNameInputDialog.CallbackAfterDateTimeSelect {
                                     override fun selectDateTime(dateTime: String) {
                                         val fileCacheDir =
@@ -543,10 +540,10 @@ class FragmentAddMedicalRecord :
     override fun successMedicalFileDeleteResponse(medicalFileDeleteResponse: MedicalRecordListResponse?) {
         baseActivity?.hideLoading()
         if (medicalFileDeleteResponse?.code.equals("200")) {
-            (activity as HomeActivity).checkInBackstack(FragmentMedicalRecords.newInstance())
+          //  (activity as HomeActivity).checkInBackstack(FragmentMedicalRecords.newInstance())
         } else {
             Toast.makeText(activity, medicalFileDeleteResponse?.message, Toast.LENGTH_SHORT).show()
-            (activity as HomeActivity).checkInBackstack(FragmentMedicalRecords.newInstance())
+         //   (activity as HomeActivity).checkInBackstack(FragmentMedicalRecords.newInstance())
         }
     }
 
@@ -555,7 +552,7 @@ class FragmentAddMedicalRecord :
         if (throwable?.message != null) {
             Log.d(HomeFragment.TAG, "--ERROR-Throwable:-- ${throwable.message}")
             Toast.makeText(activity, "Something went wrong", Toast.LENGTH_SHORT).show()
-            (activity as HomeActivity).checkInBackstack(FragmentMedicalRecords.newInstance())
+          //  (activity as HomeActivity).checkInBackstack(FragmentMedicalRecords.newInstance())
         }
     }
 
@@ -591,7 +588,6 @@ class FragmentAddMedicalRecord :
             val title = titleString.toRequestBody("multipart/form-data".toMediaTypeOrNull())
             for (i in data.indices) {
                 val file: File = data[i].file!!
-                Log.d(TAG, "uploadImages_name: " + file.name)
                 var requestFile: RequestBody?
                 /*if ((data[i].fileName.toLowerCase().contains("pdf"))) {
                     requestFile = RequestBody.create(MediaType.parse(contentResolver.getType(data[i].filePath)), file)

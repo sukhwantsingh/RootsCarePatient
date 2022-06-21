@@ -23,7 +23,7 @@ class MyCustomButton : AppCompatButton {
     }
 
     fun init() {
-        val tf = Typeface.createFromAsset(context.assets, "font/century_gothic.ttf")
+        val tf = Typeface.createFromAsset(context.assets, "font/rubik_regular.ttf.ttf")
         setTypeface(tf, Typeface.BOLD)
     }
 

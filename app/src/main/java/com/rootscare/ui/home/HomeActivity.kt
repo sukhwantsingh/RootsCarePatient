@@ -7,8 +7,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageManager
-import android.location.Address
-import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import android.os.Handler
@@ -40,41 +38,25 @@ import com.rootscare.data.model.api.request.appointmentrequest.AppointmentReques
 import com.rootscare.data.model.api.response.CommonResponse
 import com.rootscare.data.model.api.response.NotificationCountResponse
 import com.rootscare.ui.base.BaseActivity
-import com.rootscare.ui.bookingappointment.FragmentBookingAppointment
-import com.rootscare.ui.bookingappointment.subfragment.FragmentAddPatientForDoctorBooking
 import com.rootscare.ui.bookingcart.FragmentBookingCart
 import com.rootscare.ui.home.model.ModelUpdateCurrentLocation
 import com.rootscare.ui.home.subfragment.HomeFragment
 import com.rootscare.ui.login.LoginActivity
-import com.rootscare.ui.medicalrecords.FragmentMedicalRecords
 import com.rootscare.ui.newaddition.appointments.FragNewAppointmentListing
 import com.rootscare.ui.newaddition.providerlisting.FragmentProvderBooking
 import com.rootscare.ui.newaddition.providerlisting.FragmentProviderListing
 import com.rootscare.ui.newaddition.providerlisting.FragmentProviderListingDetails
 import com.rootscare.ui.notification.FragmentNotification
-import com.rootscare.ui.nurses.addpatient.FragmentNurseAddPatient
-import com.rootscare.ui.nurses.editpatient.FragmentNurseEditPatient
-import com.rootscare.ui.nurses.review.FragmentNurseReviewSubmit
-import com.rootscare.ui.patientbookpaynow.FragmentPatientbookPayNow
-import com.rootscare.ui.patientprofilrsetting.FragmentPatientProfileSetting
-import com.rootscare.ui.paymenthistory.FragmentPaymentHistory
 import com.rootscare.ui.profile.FragmentProfile
-import com.rootscare.ui.reviewandrating.FragmentReviewAndRating
-import com.rootscare.ui.submitfeedback.FragmentSubmitReview
 import com.rootscare.ui.supportmore.FragmentSupportMore
 import com.rootscare.ui.supportmore.SupportAndMore
-import com.rootscare.ui.viewPathologyReport.FragmentViewReport
-import com.rootscare.ui.viewprescription.FragmnetViewPrespriction
 import com.rootscare.utilitycommon.*
-import com.rootscare.utils.BottomNavigationViewHelper
 import com.rootscare.databinding.ActivityHomeBinding
 import com.rootscare.ui.newaddition.providerlisting.FragmentProvderBookingForDoctor
+import com.rootscare.ui.newaddition.providerlisting.patientaddition.FragmentAddPatient
 import com.rootscare.utils.firebase.Config
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.common_toolbar.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import mumayank.com.airlocationlibrary.AirLocation
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -533,86 +515,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
                 toolbar_back?.visibility = View.VISIBLE
                 toolbar_menu?.visibility = View.GONE
             }
-            is FragmentBookingAppointment -> {
-                tootbar_text.text = resources.getString(R.string.roots_care)
-
-                tootlebar_notification?.visibility = View.VISIBLE
-                toolbar_back?.visibility = View.VISIBLE
-                toolbar_menu?.visibility = View.GONE
-
-            }
-
-            is FragmentPatientbookPayNow -> {
-               tootbar_text.text = "Roots Care"
-
-
-                tootlebar_notification?.visibility = View.VISIBLE
-                toolbar_back?.visibility = View.VISIBLE
-                toolbar_menu?.visibility = View.GONE
-
-
-            }
-            is FragmentMedicalRecords -> {
-               tootbar_text.text = getString(R.string.roots_care)
-
-
-                tootlebar_notification?.visibility = View.VISIBLE
-                toolbar_back?.visibility = View.VISIBLE
-                toolbar_menu?.visibility = View.GONE
-
-
-            }
-            is FragmnetViewPrespriction -> {
-                tootbar_text.text = "View Prescription"
-
-
-                tootlebar_notification?.visibility = View.VISIBLE
-                toolbar_back?.visibility = View.VISIBLE
-                toolbar_menu?.visibility = View.GONE
-
-            }
-            is FragmentViewReport -> {
-                tootbar_text.text = "View Report"
-
-
-                tootlebar_notification?.visibility = View.VISIBLE
-                toolbar_back?.visibility = View.VISIBLE
-                toolbar_menu?.visibility = View.GONE
-
-
-            }
-            is FragmentPaymentHistory -> {
-                tootbar_text.text = "Payment History"
-
-
-                tootlebar_notification?.visibility = View.VISIBLE
-                toolbar_back?.visibility = View.VISIBLE
-                toolbar_menu?.visibility = View.GONE
-
-            }
-            is FragmentPatientProfileSetting -> {
-
-                tootbar_text.text = "Profile Setting"
-
-
-                tootlebar_notification?.visibility = View.VISIBLE
-                toolbar_back?.visibility = View.VISIBLE
-                toolbar_menu?.visibility = View.GONE
-
-
-            }
-            is FragmentReviewAndRating -> {
-
-                tootbar_text.text = getString(R.string.review_and_rating)
-
-
-                tootlebar_notification?.visibility = View.VISIBLE
-                toolbar_back?.visibility = View.VISIBLE
-                toolbar_menu?.visibility = View.GONE
-
-
-            }
-            is FragmentAddPatientForDoctorBooking -> {
+            is FragmentAddPatient -> {
                 //   drawerAdapter!!.selectItem(3)
                 tootbar_text.text = getString(R.string.add_patient)
 
@@ -630,16 +533,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
                 toolbar_menu?.visibility = View.GONE
 
             }
-            is FragmentSubmitReview -> {
-                tootbar_text.text = getString(R.string.submit_review)
 
-
-                tootlebar_notification?.visibility = View.VISIBLE
-                toolbar_back?.visibility = View.VISIBLE
-                toolbar_menu?.visibility = View.GONE
-
-
-            }
             is FragmentNotification -> {
                 tootbar_text.text = getString(R.string.notification)
 
@@ -650,36 +544,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
 
             }
 
-            is FragmentNurseReviewSubmit -> {
-                tootbar_text.text = getString(R.string.review)
 
-
-                tootlebar_notification?.visibility = View.VISIBLE
-                toolbar_back?.visibility = View.VISIBLE
-                toolbar_menu?.visibility = View.GONE
-
-
-            }
-            is FragmentNurseAddPatient -> {
-                tootbar_text.text = getString(R.string.add_patient)
-
-
-                tootlebar_notification?.visibility = View.VISIBLE
-                toolbar_back?.visibility = View.VISIBLE
-                toolbar_menu?.visibility = View.GONE
-
-
-            }
-            is FragmentNurseEditPatient -> {
-                tootbar_text.text = "Edit Patient"
-
-
-                tootlebar_notification?.visibility = View.VISIBLE
-                toolbar_back?.visibility = View.VISIBLE
-                toolbar_menu?.visibility = View.GONE
-
-
-            }
 
         }
 

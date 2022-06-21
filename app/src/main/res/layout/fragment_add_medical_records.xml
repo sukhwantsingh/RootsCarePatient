@@ -56,8 +56,9 @@
                                 android:gravity="center"
                                 android:lines="1"
                                 android:layout_weight="1"
-                                android:drawableEnd="@drawable/calendar_month"
+                                android:drawableEnd="@drawable/ic_nav_calendar"
                                 android:background="@drawable/edittextview_bg"
+                                app:drawableTint="@color/grey"
                                 android:padding="@dimen/_5sdp"
                                 android:hint="Select date"
                                 android:textSize="@dimen/dimen_14sp"
@@ -92,7 +93,9 @@
                             android:layout_marginTop="@dimen/dp10"
                             android:layout_marginStart="@dimen/dp10"
                             android:padding="@dimen/_5sdp"
-                            android:src="@drawable/blue_upload_btn"
+                            app:tint="@color/blue"
+                            android:rotation="270"
+                            android:src="@drawable/ic_nav_logout"
                           />
                     </LinearLayout>
 
@@ -117,7 +120,7 @@
                                 android:layout_height="30dp"
                                 android:paddingTop="@dimen/_4sdp"
                                 android:visibility="gone"
-                                android:src="@drawable/add_icon_square_red"
+                                android:src="@drawable/ic_add_round_svg"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 android:id="@+id/img_add_test_result"/>

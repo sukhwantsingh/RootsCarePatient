@@ -3,9 +3,7 @@ package com.rootscare.ui.bookingcart
 import android.util.Log
 import com.google.gson.Gson
 import com.rootscare.data.model.api.request.cartitemdeleterequest.CartItemDeleteRequest
-import com.rootscare.data.model.api.request.checkoutdoctorbookingrequest.CheckoutDoctorBookingRequest
 import com.rootscare.data.model.api.request.doctorrequest.bookingcartrequests.BookingCartRequest
-import com.rootscare.data.model.api.request.pushNotificationRequest.PushNotificationRequest
 import com.rootscare.ui.base.BaseViewModel
 import okhttp3.RequestBody
 

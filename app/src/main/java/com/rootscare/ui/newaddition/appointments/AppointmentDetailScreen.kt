@@ -25,14 +25,13 @@ import com.rootscare.utilitycommon.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import android.app.DownloadManager
-import android.R.attr.name
 import android.content.Intent
 import android.net.Uri
 import android.os.Environment
 import com.rootscare.data.model.api.request.videoPushRequest.VideoPushRequest
 import com.rootscare.data.model.api.response.videoPushResponse.VideoPushResponse
 import com.rootscare.twilio.VideoCallActivity
-import com.rootscare.ui.todaysappointment.FragmentTodaysAppointment
+
 
 
 class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding, ViewModelMyAppointments>(),
@@ -427,7 +426,7 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
 
     override fun successVideoPushResponse(videoPushResponse: VideoPushResponse?) {
         hideLoading()
-        if (videoPushResponse?.status==true && videoPushResponse.code.equals(SUCCESS_CODE, ignoreCase = true)) {
+        if (videoPushResponse?.status == true && videoPushResponse.code.equals(SUCCESS_CODE, ignoreCase = true)) {
             val bundle = Bundle()
             bundle.putString("roomName", roomName)
             bundle.putString("fromUserId", mViewModel?.appSharedPref?.userId.orEmpty())
@@ -439,9 +438,9 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
 
             val intent = Intent(this, VideoCallActivity::class.java)
             intent.putExtras(bundle)
-            startActivityForResult(intent, FragmentTodaysAppointment.VIDEO_CALL_REQUEST)
+            startActivity(intent)
 
-//          activity?.finish()
+        //    activity?.finish()
         } else {
            showToast(videoPushResponse?.message?: getString(R.string.something_went_wrong))
         }

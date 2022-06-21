@@ -68,9 +68,6 @@ class ProviderListingViewModel : BaseViewModel<ProviderListingNavigator>() {
                         Log.d("check_response", ": " + Gson().toJson(response))
                         navigator.successGetPatientFamilyListResponse(response)
                         /* Saving access token after singup or login */
-                        if (response.result != null) {
-                        }
-
                     } else {
                         Log.d("check_response", ": null response")
                     }

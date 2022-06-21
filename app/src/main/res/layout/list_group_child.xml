@@ -8,7 +8,7 @@
         android:id="@+id/lblListItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:text="bcbchbxhcb"
         android:drawablePadding="@dimen/dp10"
         android:paddingLeft="@dimen/_15sdp" />

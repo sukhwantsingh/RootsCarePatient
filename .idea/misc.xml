@@ -11,18 +11,38 @@
         <entry key="../../../../../.gradle/caches/transforms-3/a8f1d174186ed5a0f105b86e33144e3f/transformed/jetified-plug-n-play-1.6.0/res/drawable/bg_rounded_white.xml" value="0.23020833333333332" />
         <entry key="../../../../../.gradle/caches/transforms-3/a8f1d174186ed5a0f105b86e33144e3f/transformed/jetified-plug-n-play-1.6.0/res/drawable/round_rect_grey_border.xml" value="0.23020833333333332" />
         <entry key="../../../../../.gradle/caches/transforms-3/a8f1d174186ed5a0f105b86e33144e3f/transformed/jetified-plug-n-play-1.6.0/res/layout/wallet_view_upi_layout.xml" value="0.18" />
+        <entry key="../../../../../.gradle/caches/transforms-3/cf99a9d311617a1c2a16d5982998455f/transformed/jetified-plug-n-play-1.6.0/res/layout/emi_tenure_screen.xml" value="0.335" />
+        <entry key="../../../../../.gradle/caches/transforms-3/d488ce688b7557b88830faadcecbe53b/transformed/jetified-goSellSDK-Android-2.15.4/res/layout/charge_status_expandable_layout.xml" value="0.335" />
         <entry key="app/src/main/res/drawable-hdpi/bottom_nav_textview_selected_color.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable-ldpi/ic_need_support.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable-ldpi/ic_presc.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable-ldpi/round_dropdown_background.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable-ldpi/white_upper_corners.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/drawable-mdpi/circle_white_for_cross_background.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable-mdpi/commonbg_edit.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable-mdpi/oval_textview_blue_solid_background.xml" value="0.11875" />
+        <entry key="app/src/main/res/drawable-v24/background_green_stroke_box.xml" value="0.2265" />
+        <entry key="app/src/main/res/drawable-xhdpi/edit_comm_bg.xml" value="0.2185" />
         <entry key="app/src/main/res/drawable-xxhdpi/rounded_blue_broder_disabled.xml" value="0.20555555555555555" />
         <entry key="app/src/main/res/drawable-xxhdpi/rounded_blue_broder_filled.xml" value="0.21203703703703702" />
+        <entry key="app/src/main/res/drawable-xxhdpi/tab_background_selected.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable-xxhdpi/tab_background_unselected.xml" value="0.21384615384615385" />
+        <entry key="app/src/main/res/drawable-xxxhdpi/rounded_green_btn.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable-xxxhdpi/rounded_white_btn.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/drawable/accptance_pending_bg.xml" value="0.2245" />
         <entry key="app/src/main/res/drawable/app_icon.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/drawable/background_green_stroke_box.xml" value="0.2265" />
+        <entry key="app/src/main/res/drawable/bg_rounded_corner_light.xml" value="0.1785" />
+        <entry key="app/src/main/res/drawable/blue_btn_rectangle.xml" value="0.1785" />
+        <entry key="app/src/main/res/drawable/border_with_green_bg.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/btn_bg_primarydark.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/btn_yellow_rounded_bg.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/drawable/cancel_btn_rectangle.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/checkbox_background.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/custom_progressbar_drawable.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/edittext_background_with_rounded_yellow_stroke_10dp.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/edittextview_bg.xml" value="0.2185" />
+        <entry key="app/src/main/res/drawable/end.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/ic_add_round_svg.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/ic_arrow_back_black.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/ic_arrow_down_24.xml" value="0.23020833333333332" />
@@ -37,7 +57,9 @@
         <entry key="app/src/main/res/drawable/ic_cross_.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/ic_dropdown_arrow.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/ic_empty_cart.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/ic_mic_green_24px.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/drawable/ic_mic_off_red_24px.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/ic_more_dots.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/ic_na_camera_round.xml" value="0.11875" />
         <entry key="app/src/main/res/drawable/ic_nav_calendar.xml" value="0.23020833333333332" />
@@ -68,63 +90,101 @@
         <entry key="app/src/main/res/drawable/image_border_bg.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/order_approved_bg.xml" value="0.11875" />
         <entry key="app/src/main/res/drawable/order_pending_bg.xml" value="0.11875" />
+        <entry key="app/src/main/res/drawable/radio_button_background.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/rating_bar_small.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/rating_bar_small_empty.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/rating_bar_small_filled.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/rbc_dialog_dropdown.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/drawable/rd_border_grey_edit_profle.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/reject_bg.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/review_disabled_bg.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/round_border_nav_menu.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/round_dropdown_background.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/round_square_border_schedule_type_blue.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/rounded_bg_without_border.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/rounded_blue_broder.xml" value="0.21203703703703702" />
         <entry key="app/src/main/res/drawable/rounded_blue_btn.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/drawable/rounded_edittext.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/rounded_green_button.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/rounded_grey_bg_search_loc.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/drawable/rounded_red_btn.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/rounded_red_btn_bg.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/rounded_reject_btn.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/rounded_search_bg.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/rounded_service_bg.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/rounded_time_slot_bg.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/rounded_white_bg.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/drawable/rounded_white_green_buttom.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/rounded_with_border.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/scrollbar_gradient.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/search_new.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/search_new_white.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/drawable/smiley.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/sq_back_patient_selected.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/sq_right_round_left_add_back.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/sq_top_round_bttom_border_blue.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/square_bg.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/square_bg_green.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/square_bg_grey.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/drawable/square_bg_red.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/star_blank.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/star_filled.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/tab_indicator.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/tab_indicator_white.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/upper_round_video_call_controller.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/drawable/white_rectangle.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/white_upper_corners.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/activity_need_support_screen.xml" value="0.2140625" />
+        <entry key="app/src/main/res/layout/activity_no_internet.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/activity_support_and_more.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_toolbar.xml" value="0.2140625" />
+        <entry key="app/src/main/res/layout/activity_transaprent_pop_up_for_image_show.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_transparent_for_show.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/activity_video.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/app_bar_homepage.xml" value="0.2140625" />
+        <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/cards_layout.xml" value="0.335" />
         <entry key="app/src/main/res/layout/common_header.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/common_toolbar.xml" value="0.25" />
         <entry key="app/src/main/res/layout/common_webview_screen.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/content_video.xml" value="0.1" />
         <entry key="app/src/main/res/layout/custom_playback_control.xml" value="0.2140625" />
+        <entry key="app/src/main/res/layout/dialog_add_patient.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/dialog_dropdown.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/exo_full_controller_layout.xml" value="0.2140625" />
-        <entry key="app/src/main/res/layout/file_input_dialog_layout.xml" value="0.2140625" />
+        <entry key="app/src/main/res/layout/file_input_dialog_layout.xml" value="0.335" />
         <entry key="app/src/main/res/layout/frag_new_appointment_listing.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_add_medical_records.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_add_patient_for_doctor_booking.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_appiontment_details.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_appiontment_details.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_appointment.xml" value="0.17962962962962964" />
-        <entry key="app/src/main/res/layout/fragment_babysitter_booking_appointment.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_babysitter_update_booking_appointment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_babysitter_appointment_list.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_babysitter_booking_appointment.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_babysitter_booking_details.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_babysitter_categorylisting.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_babysitter_listing_details.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_babysitter_update_booking_appointment.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_booking.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_booking_cart.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_booking_lab.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_caregiver_booking_appointment.xml" value="0.16111111111111112" />
+        <entry key="app/src/main/res/layout/fragment_booking_lab.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_cancel_my_upcoming_appointment.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_cancell_my_upcoming_appointment.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_caregiver_appointment_list.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_caregiver_booking_appointment.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_caregiver_booking_details.xml" value="0.10260416666666666" />
-        <entry key="app/src/main/res/layout/fragment_caregiver_listing_details.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/fragment_caregiver_categorylisting.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_caregiver_listing_details.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_caregiver_update_booking_appointment.xml" value="0.16111111111111112" />
         <entry key="app/src/main/res/layout/fragment_doctor_appointment_details.xml" value="0.20104166666666667" />
-        <entry key="app/src/main/res/layout/fragment_doctor_appointment_list.xml" value="0.20104166666666667" />
-        <entry key="app/src/main/res/layout/fragment_doctor_appointment_reschedule.xml" value="0.17" />
-        <entry key="app/src/main/res/layout/fragment_doctor_booking_details.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/fragment_doctor_appointment_list.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_doctor_appointment_reschedule.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_doctor_booking_details.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_doctor_categories_listing.xml" value="0.20104166666666667" />
-        <entry key="app/src/main/res/layout/fragment_doctor_listing_details.xml" value="0.15462962962962962" />
-        <entry key="app/src/main/res/layout/fragment_edit_patient_family_member.xml" value="0.20104166666666667" />
+        <entry key="app/src/main/res/layout/fragment_doctor_listing_details.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_edit_patient_family_member.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_forgot_password.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_hospital_appointment_list.xml" value="0.20104166666666667" />
@@ -134,14 +194,23 @@
         <entry key="app/src/main/res/layout/fragment_hospital_list_details.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_map.xml" value="0.20104166666666667" />
-        <entry key="app/src/main/res/layout/fragment_medical_records.xml" value="0.20104166666666667" />
+        <entry key="app/src/main/res/layout/fragment_medical_records.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_my_upcomming_appointment.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_notification.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/fragment_nurse_appointment_reschedule.xml" value="0.16" />
         <entry key="app/src/main/res/layout/fragment_nurses_appointment_booking_details.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_nurses_appointment_list.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_nurses_booking_appointment.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_nurses_categorylisting.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_nurses_listing_details.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_patient_booking_paynow.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_patient_profile_setting.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_payment_history.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_physiotherapy_booking_appiontment.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/fragment_physiotherapy_booking_details.xml" value="0.20104166666666667" />
+        <entry key="app/src/main/res/layout/fragment_physiotherapy_category_listing.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_physiotherapy_listing_details.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_physitherapy_appointment_list.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_priovider_listing.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile_life_style.xml" value="0.25" />
@@ -151,43 +220,70 @@
         <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_registration_otp.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_review_and_rating.xml" value="0.2140625" />
-        <entry key="app/src/main/res/layout/fragment_see_all_hospital_list.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_see_all_babysitter_list.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_see_all_caregiver_list_by_grid.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_see_all_doctor_by_grid.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_see_all_hospital_list.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_see_all_nurses_list_by_grid.xml" value="0.2140625" />
-        <entry key="app/src/main/res/layout/fragment_setting_profile.xml" value="0.10260416666666666" />
-        <entry key="app/src/main/res/layout/fragment_submit_feedback.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_see_all_physiotherapy_listing.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_setting_profile.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_submit_feedback.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_submit_review.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_upcomming_appointment_new.xml" value="0.20104166666666667" />
+        <entry key="app/src/main/res/layout/fragment_view_prescription.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/item_add_patient.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/item_appointmentlist_recyclerview.xml" value="0.20555555555555555" />
+        <entry key="app/src/main/res/layout/item_appointmentlist_recyclerview.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/item_babysitter_categorylisting_recyclerview.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/item_booking_cart_recyclerview.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_booking_hourly_time_recyclerview.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/item_cancell_appointment.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/item_caregiver_category_listing_recyclerview.xml" value="0.2140625" />
-        <entry key="app/src/main/res/layout/item_common_dropdown_list.xml" value="0.2140625" />
-        <entry key="app/src/main/res/layout/item_home_doctor_recyclerview.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/item_common_dropdown_list.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/item_doctor_slot_divission.xml" value="0.55" />
+        <entry key="app/src/main/res/layout/item_doctor_slots_recyclerview.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/item_doctorldetails_educationlist_recyclerview.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/item_doctorldetails_reviewlist_recyclewview.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/item_doctorldetails_specilitylist_recyclerview.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/item_from_time_recyclerview.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/item_home_babysitter_recyclerviewlist.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/item_home_caregiver_recyclerviewlist.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/item_home_doctor_recyclerview.xml" value="0.375" />
         <entry key="app/src/main/res/layout/item_home_hospital_recyclerview.xml" value="0.20104166666666667" />
+        <entry key="app/src/main/res/layout/item_home_nurses_recyclerview.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/item_home_physiotherapy_recyclerview.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/item_hospital_categorylist_recyclerview.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/item_hospital_photo_recyclerview.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/item_hospital_service_recyclerview.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/item_medical_records_file_upload.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/item_medical_records_recyclerview_list.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/item_my_upcoming_appointment_list_new.xml" value="0.2" />
         <entry key="app/src/main/res/layout/item_my_upcomingappointment_recyclerview.xml" value="0.20104166666666667" />
+        <entry key="app/src/main/res/layout/item_news.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/item_notification_recyclerview.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/item_nurse_hourly_slot.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_nurse_task_slots.xml" value="0.2" />
         <entry key="app/src/main/res/layout/item_nurses_booking_addpatient_recyclerview.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/item_nurses_categorylisting_recyclerview.xml" value="0.20104166666666667" />
+        <entry key="app/src/main/res/layout/item_nurses_fees_listing_recyclerview.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/item_nursetiming_recyclerview.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_physiotherapy_category_listing_recyclerview.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/item_physiotherapy_slot_recyclerview.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_review_and_rating_recyclerview.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/item_rootscare_doctor_categorilisting_recyclerview.xml" value="0.20104166666666667" />
+        <entry key="app/src/main/res/layout/item_rootscare_payment_history_recyclerview.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/item_see_all_babysitter_list_recyclerview.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/item_see_all_caregiver_list_recyclerview.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/item_see_all_doctor_by_grid_recyclerview.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/item_see_all_nurses_by_grid_recyclerview.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/item_see_all_physiotherapy_list_recyclerview.xml" value="0.10260416666666666" />
-        <entry key="app/src/main/res/layout/lab_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_to_time_recyclerview.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/item_view_prespriction_recyclerview.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/lab_layout.xml" value="0.375" />
         <entry key="app/src/main/res/layout/layout_bs_thankyou_success.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_item_new_appointment_fixed.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_item_new_appointments.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_item_new_cartitems.xml" value="0.2140625" />
-        <entry key="app/src/main/res/layout/layout_item_new_notifications.xml" value="0.2140625" />
+        <entry key="app/src/main/res/layout/layout_item_new_notifications.xml" value="0.335" />
         <entry key="app/src/main/res/layout/layout_item_new_providers_.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_item_new_row_home_.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_location_chooser.xml" value="0.25" />
@@ -219,11 +315,23 @@
         <entry key="app/src/main/res/layout/layout_new_search_bar_appointment.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/layout_row_item_new_home_.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/list_custom_row_layout.xml" value="0.20104166666666667" />
+        <entry key="app/src/main/res/layout/list_group_child.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/list_group_header.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/navigation_drawer_single_item.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/payment_activity.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/place_recycler_item_layout.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/progress_dialog.xml" value="0.2140625" />
+        <entry key="app/src/main/res/layout/single_item_file_listing.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/singlenursetask.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/tab_item_appointment_layout.xml" value="0.20104166666666667" />
+        <entry key="app/src/main/res/layout/tab_item_layout.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/tag_layout_item.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/toolbae_bottombar.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/view_custom_marker.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/view_drop_down_menu.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/menu/navigation.xml" value="0.2140625" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.214" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.214" />
       </map>
     </option>
   </component>

@@ -11,7 +11,7 @@
         android:drawablePadding="@dimen/dp10"
         android:paddingLeft="@dimen/dp10"
         android:paddingRight="?attr/listPreferredItemPaddingRight"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:text="jhdgfhgdfhg"
         android:textSize="14sp" />
 </LinearLayout>

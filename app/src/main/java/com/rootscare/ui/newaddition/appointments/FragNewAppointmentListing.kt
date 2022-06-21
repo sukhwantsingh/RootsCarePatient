@@ -26,9 +26,7 @@ import com.rootscare.ui.newaddition.appointments.models.ModelRescheduleDetail
 import com.rootscare.ui.newaddition.providerlisting.DialogBadGateway
 import com.rootscare.ui.newaddition.providerlisting.models.ModelNetworkTimeSlots
 import com.rootscare.ui.newaddition.providerlisting.models.ModelTImeSlotsForDoctor
-import com.rootscare.ui.newaddition.providerlisting.models.ModelTaskListWithPrice
 import com.rootscare.ui.supportmore.bottomsheet.OnBottomSheetCallback
-import com.rootscare.ui.todaysappointment.FragmentTodaysAppointment
 import com.rootscare.utilitycommon.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -188,7 +186,7 @@ class FragNewAppointmentListing : BaseFragment<FragNewAppointmentListingBinding,
 
             val intent = Intent(activity, VideoCallActivity::class.java)
             intent.putExtras(bundle)
-            startActivityForResult(intent, FragmentTodaysAppointment.VIDEO_CALL_REQUEST)
+            startActivity(intent)
 
 //          activity?.finish()
         } else {

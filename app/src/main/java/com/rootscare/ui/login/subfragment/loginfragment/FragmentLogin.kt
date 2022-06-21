@@ -5,7 +5,6 @@ import android.text.TextUtils
 import android.util.Log
 import android.util.Patterns
 import android.view.View
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
 import com.dialog.CommonDialog
@@ -13,18 +12,14 @@ import com.interfaces.DialogClickCallback
 import com.rootscare.BR
 import com.rootscare.R
 import com.rootscare.data.model.api.request.loginrequest.LoginRequest
-import com.rootscare.data.model.api.response.loginresponse.LoginResponse
 import com.rootscare.databinding.FragmentLoginBinding
 import com.rootscare.ui.base.BaseFragment
 import com.rootscare.ui.home.HomeActivity
 import com.rootscare.ui.login.LoginActivity
 import com.rootscare.ui.login.ModelLoginResponse
-import com.rootscare.ui.login.subfragment.registrationfragment.FragmentRegistration
-import com.rootscare.ui.splash.SplashActivity
 import com.rootscare.utilitycommon.LanguageModes
 import com.rootscare.utilitycommon.SUCCESS_CODE
 import com.rootscare.utilitycommon.navigate
-import com.rootscare.utils.PreferenceUtility
 import java.util.regex.Pattern
 
 class FragmentLogin : BaseFragment<FragmentLoginBinding, FragmentLoginViewModel>(),

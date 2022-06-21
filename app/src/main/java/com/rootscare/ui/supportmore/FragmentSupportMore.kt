@@ -15,17 +15,7 @@ import com.rootscare.databinding.ActivitySupportAndMoreBinding
 import com.rootscare.databinding.FragmentProviderListingBinding
 import com.rootscare.databinding.LayoutNewFragmentSupportAndMoreBinding
 import com.rootscare.ui.base.BaseFragment
-import com.rootscare.ui.home.HomeActivity
-import com.rootscare.ui.newaddition.providerlisting.*
-import com.rootscare.ui.newaddition.providerlisting.adapter.AdapterProviderListing
-import com.rootscare.ui.newaddition.providerlisting.adapter.OnProviderListingCallback
-import com.rootscare.ui.newaddition.providerlisting.models.ModelProviderListing
-import com.rootscare.ui.nurses.nursesbookingappointment.FragmentNursesBookingAppointment
-import com.rootscare.ui.supportmore.bottomsheet.OnBottomSheetCallback
 import com.rootscare.utilitycommon.*
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.RequestBody.Companion.toRequestBody
-
 
 class FragmentSupportMore : BaseFragment<LayoutNewFragmentSupportAndMoreBinding, CommonViewModel>(){
     private var binding: LayoutNewFragmentSupportAndMoreBinding? = null
