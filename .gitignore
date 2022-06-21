@@ -1,2 +1,12 @@
 # Project exclude paths
 /.gradle/
+.idea/
+app/build/
+
+app/release/output.json
+.gradle/
+
+*.apk
+*.aab
+app/libs/*.aar
+
