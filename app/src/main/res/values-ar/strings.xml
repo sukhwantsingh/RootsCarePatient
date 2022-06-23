@@ -106,6 +106,7 @@
     <string name="identity_number">رقم الهوية</string>
     <string name="provide_id_number">أدخل رقم الهوية</string>
     <string name="provide_national_id_starts_with_1_or_2">ادخل رقم الهوية الوطنية تبدأ برقم (1) أو رقم هوية مقيم تبدأ برقم (2)</string>
+    <string name="provide_national_id_starts_with_7">أدخل رقم الهوية الاماراتية يبدأ برقم (7)</string>
     <string name="registration">التسجيل</string>
     <string name="notification">الاشعارات</string>
     <string name="create_new_password">إنشاء كلمة مرور جديدة</string>
@@ -280,6 +281,7 @@
     <string name="invalid_mobile_number">رقم الهاتف المحمول غير صالح</string>
     <string name="plz_provide_idnumber">الرجاء ادخال رقم الهوية</string>
     <string name="id_must_start_from_1_or_2">يجب أن يبدأ رقم الهوية من 1 أو 2</string>
+    <string name="id_must_start_from_7">يجب أن يبدأ رقم الهوية بالرقم 7</string>
     <string name="plz_enter_cnf_pwd">الرجاء إدخال تأكيد كلمة المرور</string>
     <string name="plz_enter_otp">الرجاء إدخال كلمة المرور لمرة واحدة</string>
     <string name="cart_item">عربة التسوق</string>
@@ -324,9 +326,9 @@
     <string name="current_location">الموقع الحالي</string>
     <string name="using_gps_of_your_device">استخدام نظام تحديد المواقع بجهازك</string>
     <string name="video_consultation">استشارة عبر الفيديو</string>
-
     <string name="search_by_order_id">Search by Order ID</string>
     <string name="where_you_want_service">Where do you want the Medical service?</string>
     <string name="use_mobile_number_note">Please enter valid mobile number</string>
     <string name="required_service_area">Provide required service area</string>
+    <string name="update">Update</string>
 </resources>

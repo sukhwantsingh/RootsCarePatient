@@ -49,6 +49,7 @@ import com.rootscare.ui.newaddition.appointments.models.ModelRescheduleDetail
 import com.rootscare.ui.newaddition.providerlisting.models.*
 import com.rootscare.ui.notification.models.ModelNotificationResponse
 import com.rootscare.ui.notification.models.ModelUpdateRead
+import com.rootscare.ui.splash.model.NetworkAppCheck
 import com.rootscare.ui.supportmore.models.ModelIssueTypes
 import com.rootscare.ui.utilitycommon.NeedSupportRequest
 import io.reactivex.Single
@@ -282,6 +283,10 @@ interface ApiService {
         @Part symptom_recording: MultipartBody.Part?,
         @Part upload_prescription: MultipartBody.Part?
     ): Single<CommonResponse>
+
+    @GET("api-android-patient-update")
+    fun apiVersionCheck(): Single<NetworkAppCheck>
+
 
 
 }

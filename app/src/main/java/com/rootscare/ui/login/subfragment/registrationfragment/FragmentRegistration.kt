@@ -30,6 +30,7 @@ import com.rootscare.ui.supportmore.OPEN_FOR_PRIVACY
 import com.rootscare.ui.supportmore.OPEN_FOR_TERMS
 import com.rootscare.utilitycommon.*
 import com.rootscare.utils.PreferenceUtility
+import kotlinx.android.synthetic.main.fragment_registration.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -134,6 +135,17 @@ class FragmentRegistration : BaseFragment<FragmentRegistrationBinding, FragmentR
                             }
                             val mCode = workFromListMap[text].orEmpty()
                             edtCc.setText(mCode)
+
+                            when {
+                                mCode.equals(CurrencyTypes.SAR.getCc(),ignoreCase = true) -> {
+                                    tvIdNumberNote.text = getString(R.string.provide_national_id_starts_with_1_or_2)
+                                }
+                                mCode.equals(CurrencyTypes.AED.getCc(),ignoreCase = true) -> {
+                                    tvIdNumberNote.text = getString(R.string.provide_national_id_starts_with_7)
+                                }
+                                else -> Unit
+                            }
+                            //
                         }
                     }
                 })
@@ -226,8 +238,14 @@ class FragmentRegistration : BaseFragment<FragmentRegistrationBinding, FragmentR
                 false
             }
 
-            isStartWithIdExact().not() -> {
+            binding?.edtCc?.text.toString().trim().equals(CurrencyTypes.SAR.getCc(),ignoreCase = true) && isStartWithIdExact().not()-> {
                 binding?.edtNationalId?.error = getString(R.string.id_must_start_from_1_or_2)
+                binding?.edtNationalId?.requestFocus()
+                false
+            }
+
+            binding?.edtCc?.text.toString().trim().equals(CurrencyTypes.AED.getCc(),ignoreCase = true) && isStartWithIdExact7().not() -> {
+                binding?.edtNationalId?.error = getString(R.string.id_must_start_from_7)
                 binding?.edtNationalId?.requestFocus()
                 false
             }
@@ -273,7 +291,8 @@ class FragmentRegistration : BaseFragment<FragmentRegistrationBinding, FragmentR
         }
     }
 
-    private fun isStartWithIdExact() = binding?.edtNationalId?.text.toString().startsWith("1") || binding?.edtNationalId?.text.toString().startsWith("2")
+    private fun isStartWithIdExact() = binding?.edtNationalId?.text.toString().trim().startsWith("1") || binding?.edtNationalId?.text.toString().trim().startsWith("2")
+    private fun isStartWithIdExact7() = binding?.edtNationalId?.text.toString().trim().startsWith("7")
 
     private fun fetchServiceForApi() {
         if (isNetworkConnected) {
@@ -328,6 +347,8 @@ class FragmentRegistration : BaseFragment<FragmentRegistrationBinding, FragmentR
             edtNationalId.setText("")
             edtRegPassword.setText("")
             edtRegConfirmPassword.setText("")
+            tvWorkFrom.text = ""
+            edtCc.setText("")
 //            txtRegDob.setText("")
         }
 

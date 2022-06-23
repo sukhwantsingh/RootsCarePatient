@@ -294,9 +294,9 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <TextView
+                    android:id="@+id/tvIdNumberNote"
                     style="@style/AppTheme.TextRegular"
                     android:layout_width="match_parent"
-                    android:text="@string/provide_national_id_starts_with_1_or_2"
                     android:textColor="@color/colorTxtGrey1"
                     android:textSize="@dimen/dp11" />
 

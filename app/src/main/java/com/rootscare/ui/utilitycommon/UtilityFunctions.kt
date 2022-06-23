@@ -65,6 +65,8 @@ enum class BaseMediaUrls(val url: String) {
 
 fun getAppVersionText() = "RC Version ${BuildConfig.VERSION_NAME}(${BuildConfig.VERSION_CODE})"
 
+fun getAppVersionNumber() = BuildConfig.VERSION_CODE
+
 fun getAppLocale() = if (ApplicationClass.instance?.appSharedPref?.languagePref.equals(LanguageModes.ENG.get(), ignoreCase = true)) {
     LanguageModes.ENG.getLangLocale() } else LanguageModes.AR.getLangLocale()
 
@@ -561,6 +563,13 @@ fun getSlots(dateSelected: String, diff: Long, timetoadd: Int) {
     Log.wtf("slotsList:--", "--" + slotsList)
 }
 
+fun Activity.openWebLink(webLink: String?) {
+    val intent = Intent(Intent.ACTION_VIEW)
+    intent.data = Uri.parse(webLink)
+    val title = "Choose one"
+    val chooser = Intent.createChooser(intent, title)
+    startActivity(chooser)
+}
 
 // import android.content.pm.PackageManager
 //import android.util.Base64

@@ -212,12 +212,12 @@
         <entry key="app/src/main/res/layout/fragment_physiotherapy_listing_details.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_physitherapy_appointment_list.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_priovider_listing.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_profile_life_style.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile_medical.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile_personal.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_provider_listing.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_registration_otp.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_review_and_rating.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/fragment_see_all_babysitter_list.xml" value="0.3416666666666667" />
@@ -280,6 +280,7 @@
         <entry key="app/src/main/res/layout/item_view_prespriction_recyclerview.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/lab_layout.xml" value="0.375" />
         <entry key="app/src/main/res/layout/layout_bs_thankyou_success.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_dialog_version_check.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_item_new_appointment_fixed.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_item_new_appointments.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_item_new_cartitems.xml" value="0.2140625" />
@@ -295,7 +296,7 @@
         <entry key="app/src/main/res/layout/layout_new_dialog_bad_gaeway.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_new_dialog_how_it_works.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/layout_new_dialog_rate_appointment.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/layout_new_edit_account_.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_new_edit_account_.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_new_fragment_support_and_more.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/layout_new_home_.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_new_how_it_works.xml" value="0.2140625" />

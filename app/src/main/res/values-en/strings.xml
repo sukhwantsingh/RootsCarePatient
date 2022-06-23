@@ -108,6 +108,7 @@
     <string name="identity_number">Identity Number</string>
     <string name="provide_id_number">Provide ID Number</string>
     <string name="provide_national_id_starts_with_1_or_2">Provide SA National ID number starting with number (1) or resident ID number starting with number (2)</string>
+    <string name="provide_national_id_starts_with_7">Provide UAE Id number starting with number (7)</string>
     <string name="registration">Registration</string>
     <string name="notification">Notification</string>
     <string name="create_new_password">Create New Password</string>
@@ -281,6 +282,7 @@
     <string name="invalid_mobile_number">Invalid mobile number</string>
     <string name="plz_provide_idnumber">Please provide ID Number!</string>
     <string name="id_must_start_from_1_or_2">ID Number must be start from 1 or 2</string>
+    <string name="id_must_start_from_7">ID Number must be start with 7</string>
     <string name="plz_enter_cnf_pwd">Please enter confirm password!</string>
     <string name="plz_enter_otp">Please enter the OTP</string>
     <string name="cart_item">Cart Item</string>
@@ -327,4 +329,5 @@
     <string name="search_by_order_id">Search by Order ID</string>
     <string name="where_you_want_service">Where do you want the Medical service?</string>
     <string name="required_service_area">Provide required service area</string>
+    <string name="update">Update</string>
 </resources>

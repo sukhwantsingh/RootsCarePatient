@@ -54,11 +54,12 @@ enum class BookingTypes(private val slotTp: String, private val n: String, priva
 }
 
 @Keep
-enum class SarTyps(private val srType: String, private val srArType: String) {
-    SAR("SAR","ر.س");
+enum class CurrencyTypes(private val srType: String,private val cc: String) {
+    SAR("SAR","966"),
+    AED("AED","971");
 
-    fun getSar() = if (ApplicationClass.instance?.appSharedPref?.languagePref.equals(LanguageModes.ENG.get(), ignoreCase = true)) {
-        this.srType } else this.srArType
+    fun get() = this.srType
+    fun getCc() = this.cc
 
 }
 

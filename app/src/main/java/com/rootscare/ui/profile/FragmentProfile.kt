@@ -114,9 +114,10 @@ class FragmentProfile : BaseFragment<FragmentProfileBinding, FragmentProfileView
     }
     private val workFromList : ArrayList<String?> by lazy { ArrayList() }
     private val workFromListMap : HashMap<String?, String?> by lazy { HashMap() }
+    private var currency = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        fragmentProfileViewModel!!.navigator = this
+        fragmentProfileViewModel?.navigator = this
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -443,6 +444,7 @@ class FragmentProfile : BaseFragment<FragmentProfileBinding, FragmentProfileView
             fragmentProfileViewModel?.appSharedPref?.userImage = response?.result?.image
             fragmentProfileViewModel?.appSharedPref?.workArea = response?.result?.work_area
             fragmentProfileViewModel?.appSharedPref?.currencySymbol = response?.result?.currency_symbol
+            currency = response?.result?.currency_symbol.orEmpty()
 
             HomeActivity.isProfileUpdated.value = true
 
@@ -484,16 +486,18 @@ class FragmentProfile : BaseFragment<FragmentProfileBinding, FragmentProfileView
                 tvhEmailId.text = it.email ?: ""
 
                 tvWorkFrom.text = it.work_area.orEmpty()
-                edtRegFirstname.setText(it.firstName ?: "")
-                edtRegPhonenumber.setText(it.phoneNumber ?: "")
-                edtCc.setText(it.countryCode ?: "")
+                edtRegFirstname.setText(it.firstName.orEmpty())
+                edtRegPhonenumber.setText(it.phoneNumber.orEmpty())
+                edtCc.setText(it.countryCode.orEmpty())
 
-                edtRegEmailaddress.setText(it.email ?: "")
-                txtRegDob.setText(it.dob ?: "")
-                edtNationality.setText(it.nationality ?: "")
-                edtAddress.setText(it.address ?: "")
-                edtIdentityNumber.setText(it.idNumber ?: "")
-                imgProfile.setCircularRemoteImage(it.image ?: "")
+                edtRegEmailaddress.setText(it.email.orEmpty())
+                txtRegDob.setText(it.dob.orEmpty())
+                edtNationality.setText(it.nationality.orEmpty())
+                edtAddress.setText(it.address.orEmpty())
+
+                edtIdentityNumber.setText(it.idNumber.orEmpty())
+
+                imgProfile.setCircularRemoteImage(it.image.orEmpty())
 
                 selectGender = it.gender ?: GenderType.FEMALE.get()
                 if (it.gender.isNullOrBlank().not()) {
@@ -802,11 +806,19 @@ class FragmentProfile : BaseFragment<FragmentProfileBinding, FragmentProfileView
             showToast(getString(R.string.provide_id_number))
             return false
         }
-        if(isStartWithIdExact().not()) {
+
+        if(currency.equals(CurrencyTypes.AED.get(), ignoreCase = true) && isStartWithIdExact7().not()) {
+            fragmentProfileBinding?.layoutProfilePersonal?.edtIdentityNumber?.error = getString(R.string.id_must_start_from_7)
+            fragmentProfileBinding?.layoutProfilePersonal?.edtIdentityNumber?.requestFocus()
+            return false
+        }
+
+        if(currency.equals(CurrencyTypes.SAR.get(), ignoreCase = true) && isStartWithIdExact().not()) {
             fragmentProfileBinding?.layoutProfilePersonal?.edtIdentityNumber?.error = getString(R.string.id_must_start_from_1_or_2)
             fragmentProfileBinding?.layoutProfilePersonal?.edtIdentityNumber?.requestFocus()
             return false
         }
+
 
         if(((fragmentProfileBinding?.layoutProfilePersonal?.edtIdentityNumber?.text?.toString()?.length ?: 0) < 10) ||
                 ((fragmentProfileBinding?.layoutProfilePersonal?.edtIdentityNumber?.text?.toString()?.length ?: 0) > 15)) {
@@ -819,7 +831,12 @@ class FragmentProfile : BaseFragment<FragmentProfileBinding, FragmentProfileView
     }
 
 
-    private fun isStartWithIdExact() = fragmentProfileBinding?.layoutProfilePersonal?.edtIdentityNumber?.text.toString().startsWith("1") || fragmentProfileBinding?.layoutProfilePersonal?.edtIdentityNumber?.text.toString().startsWith("2")
+    private fun isStartWithIdExact() = fragmentProfileBinding?.layoutProfilePersonal?.edtIdentityNumber?.text.toString().trim().startsWith("1") ||
+                                       fragmentProfileBinding?.layoutProfilePersonal?.edtIdentityNumber?.text.toString().trim().startsWith("2")
+
+    private fun isStartWithIdExact7() = fragmentProfileBinding?.layoutProfilePersonal?.edtIdentityNumber?.text.toString().trim().startsWith("7")
+
+
 
     private fun apieditpatientprofilepersonalApiCall() {
         baseActivity?.showLoading()
