@@ -17,13 +17,28 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp8"
         android:background="@color/white"
-        android:elevation="@dimen/dp2"
-        android:paddingHorizontal="@dimen/dp16"
-        android:paddingVertical="@dimen/dp10">
+        android:elevation="@dimen/dp2">
+
+        <TextView
+            android:id="@+id/tv_doc_hosp_banner_yellow"
+            style="@style/AppTheme.TextMedium"
+            android:layout_gravity="top"
+            android:background="@drawable/square_bg_one_round_yellow"
+            android:paddingHorizontal="@dimen/dp8"
+            android:paddingVertical="@dimen/dp2"
+            android:visibility="gone"
+            android:text="@string/hospital"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp11"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp16"
+            android:layout_marginVertical="@dimen/dp10"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -37,82 +52,82 @@
                 app:setCircularRemoteImageWithNoImage="@{node.image}" />
 
 
-             <LinearLayout
+            <LinearLayout
                 android:id="@+id/ll_em_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/img_profile"
-                android:layout_marginTop="@dimen/dp2"
                 android:layout_marginStart="@dimen/dp14"
+                android:layout_marginTop="@dimen/dp2"
+                android:layout_toEndOf="@+id/img_profile"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
-                 <TextView
-                     android:textAlignment="viewStart"
-                     android:id="@+id/tv_username"
-                     style="@style/AppTheme.TextMedium"
-                     android:layout_width="wrap_content"
-                     android:clickable="true"
-                     android:foreground="?attr/selectableItemBackground"
-                     android:text="@{node.fullName}"
-                     android:textColor="@color/txt_color_profile_desc"
-                     android:textSize="@dimen/dp15"
-                     tools:text="Sunidhi Sharma" />
+                <TextView
+                    android:id="@+id/tv_username"
+                    style="@style/AppTheme.TextMedium"
+                    android:layout_width="wrap_content"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:text="@{node.fullName}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/txt_color_profile_desc"
+                    android:textSize="@dimen/dp15"
+                    tools:text="Sunidhi Sharma" />
 
                 <TextView
-                     android:textAlignment="viewStart"
                     style="@style/AppTheme.TextRegular"
                     android:layout_marginTop="@dimen/dp2"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
                     android:maxLines="2"
-                    app:needToShowSpeciality="@{node.user_type}"
                     android:text="@{node.forceSpeciality}"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/indicator_color"
                     android:textSize="@dimen/dp12"
+                    app:needToShowSpeciality="@{node.user_type}"
                     tools:text="General Physician" />
 
-                 <TextView
-                     android:textAlignment="viewStart"
+                <TextView
                     style="@style/AppTheme.TextRegular"
-                     android:ellipsize="end"
-                     android:gravity="center_vertical"
-                     android:singleLine="true"
-                     android:text="@{node.expAndQualification}"
-                     android:layout_marginTop="@dimen/dp3"
-                     android:textColor="@color/colorTxtGrey1"
-                     android:textSize="@dimen/dp12" />
+                    android:layout_marginTop="@dimen/dp3"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="@{node.expAndQualification}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorTxtGrey1"
+                    android:textSize="@dimen/dp12" />
 
-                 <TextView
-                     android:textAlignment="viewStart"
-                     android:id="@+id/tvdistance"
-                     style="@style/AppTheme.TextRegular"
-                     android:layout_marginTop="@dimen/dp8"
-                     android:background="@drawable/ic_rect_grey_round"
-                     android:gravity="center_vertical"
-                     android:paddingHorizontal="@dimen/dp8"
-                     android:textColor="@color/txt_color"
-                     android:drawablePadding="@dimen/dp5"
-                     android:paddingVertical="@dimen/dp4"
-                     android:textSize="@dimen/dp12"
-                     android:text="@{node.locationText}"
-                     tools:text="Within 10 km"
-                     app:drawableStartCompat="@drawable/ic_nav_map_pin" />
+                <TextView
+                    android:id="@+id/tvdistance"
+                    style="@style/AppTheme.TextRegular"
+                    android:layout_marginTop="@dimen/dp8"
+                    android:background="@drawable/ic_rect_grey_round"
+                    android:drawablePadding="@dimen/dp5"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/dp8"
+                    android:paddingVertical="@dimen/dp4"
+                    android:text="@{node.locationText}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/txt_color"
+                    android:textSize="@dimen/dp12"
+                    app:drawableStartCompat="@drawable/ic_nav_map_pin"
+                    tools:text="Within 10 km" />
 
-                  <TextView
-                     android:textAlignment="viewStart"
-                     android:id="@+id/tvh_availablity"
-                     style="@style/AppTheme.TextRegular"
-                     android:layout_width="match_parent"
-                     android:layout_marginTop="@dimen/dp8"
-                     android:drawablePadding="@dimen/dp5"
-                     android:textColor="@color/txt_color"
-                     android:textSize="@dimen/dp11"
-                     app:goneWith10="@{node.provider_available}"
-                     android:text="@{node.availDays}"
-                     app:drawableStartCompat="@drawable/ic_clock_grey"
-                     app:layout_constraintStart_toStartOf="parent"
-                     app:layout_constraintTop_toBottomOf="@+id/vl1" />
+                <TextView
+                    android:id="@+id/tvh_availablity"
+                    style="@style/AppTheme.TextRegular"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/dp8"
+                    android:drawablePadding="@dimen/dp5"
+                    android:text="@{node.availDays}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/txt_color"
+                    android:textSize="@dimen/dp11"
+                    app:drawableStartCompat="@drawable/ic_clock_grey"
+                    app:goneWith10="@{node.provider_available}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/vl1" />
 
 
             </LinearLayout>
@@ -144,11 +159,11 @@
                     app:setAvgRating="@{node.avg_rating}" />
 
                 <TextView
-                     android:textAlignment="viewStart"
                     android:id="@+id/tvh_bank"
                     style="@style/AppTheme.TextMedium"
                     android:layout_marginStart="@dimen/dp8"
                     android:text="@{node.booking_count}"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/txt_dash_heading"
                     android:textSize="@dimen/dp12"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_rate"
@@ -167,10 +182,10 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvh_bank" />
 
                 <TextView
-                     android:textAlignment="viewStart"
                     android:id="@+id/tv_amount_"
                     style="@style/AppTheme.TextMedium"
                     android:text="@{node.bavi_text}"
+                    android:textAlignment="viewStart"
                     android:textSize="@dimen/dp12"
                     app:changeColorWithAvailability="@{node.provider_available}"
                     app:layout_constraintBottom_toBottomOf="@+id/btn_book_appointment"
@@ -192,11 +207,11 @@
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textSize="@dimen/dp10"
-                    tools:visibility="visible"
                     app:invisibleWith10="@{node.provider_available}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/v1"
-                    app:layout_goneMarginEnd="0dp" />
+                    app:layout_goneMarginEnd="0dp"
+                    tools:visibility="visible" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </RelativeLayout>

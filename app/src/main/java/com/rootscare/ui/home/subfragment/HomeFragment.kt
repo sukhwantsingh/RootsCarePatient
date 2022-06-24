@@ -8,6 +8,7 @@ import com.rootscare.R
 import com.rootscare.databinding.FragmentHomeBinding
 import com.rootscare.ui.base.BaseFragment
 import com.rootscare.ui.home.HomeActivity
+import com.rootscare.ui.newaddition.providerlisting.FragmentProviderHospitalListing
 import com.rootscare.ui.newaddition.providerlisting.FragmentProviderListing
 import com.rootscare.utilitycommon.DoctorEnabledFor
 import com.rootscare.utilitycommon.ProviderTypes
@@ -86,7 +87,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>(),
 
             // Hospital Doc
             crdDocHosp.setOnClickListener {
-             moveToProviderListing(ProviderTypes.HOSPITAL_DOCTOR.getDisplayName(), ProviderTypes.DOCTOR.getType(),needToMove = false, docEnableFor = DoctorEnabledFor.ONLINE.get())
+                moveToProviderHospitalListing(ProviderTypes.HOSPITAL.getDisplayName(), ProviderTypes.DOCTOR.getType(), needToMove = false, docEnableFor = DoctorEnabledFor.ONLINE.get())
             }
 
            // Hospital Lab
@@ -102,6 +103,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>(),
             if(homeFragmentViewModel?.appSharedPref?.userCurrentLocation.isNullOrBlank().not()) {
                 HomeActivity.providerName = titleName
                 (activity as? HomeActivity)?.checkInBackstack(FragmentProviderListing.newInstance(provType, docEnableFor))
+            } else {
+                (activity as? HomeActivity)?.requestPermissionForLocation()
+            }
+        } else {
+            showToast("Coming Soon")
+        }
+    }
+
+    private fun moveToProviderHospitalListing(titleName:String, provType:String, needToMove:Boolean = true, docEnableFor: String = "") {
+        if(needToMove) {
+            if(homeFragmentViewModel?.appSharedPref?.userCurrentLocation.isNullOrBlank().not()) {
+                HomeActivity.providerName = titleName
+                (activity as? HomeActivity)?.checkInBackstack(FragmentProviderHospitalListing.newInstance(provType, docEnableFor))
             } else {
                 (activity as? HomeActivity)?.requestPermissionForLocation()
             }

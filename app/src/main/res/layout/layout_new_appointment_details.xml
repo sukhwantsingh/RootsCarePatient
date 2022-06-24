@@ -107,6 +107,22 @@
                         android:textColor="@color/indicator_color"
                         android:textSize="@dimen/dp15"
                         tools:text="Nurse" />
+                    <TextView
+                        android:id="@+id/tvh_hospital_"
+                        style="@style/AppTheme.TextMedium"
+                        android:background="@color/review_star"
+                        android:layout_marginStart="@dimen/dp8"
+                        android:paddingHorizontal="@dimen/dp5"
+                        android:paddingVertical="@dimen/dp2"
+                        android:text="@string/hospital"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dp10"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        app:visibilityWithNullEmptyCheck="@{data.hospital_id}"
+                        android:layout_toEndOf="@+id/tv_user_type"
+                        android:layout_alignTop="@+id/tv_user_type"
+                         />
 
                     <TextView
                         android:id="@+id/tv_username"

@@ -607,6 +607,7 @@ class FragmentProvderBookingForDoctor : BaseFragment<LayoutNewProviderBookingFor
     private fun bindViews(result: ModelBookingIntialForDoctor.Result?) {
         binding?.run {
             result?.let {
+                setVariable(BR.data, it)
                 imgProfile.setCircularRemoteImageWithNoImage(it.image)
                 tvUsername.text = it.provider_name
                 tvhTypeExperience.text = "${it.dispaly_provider_type} - ${it.experience}"

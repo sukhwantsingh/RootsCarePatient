@@ -63,11 +63,7 @@ class AdapterCartListingNew(internal var context: Context) :
         fun onBindView(item: ModelPatientCartNew.Result?) {
             binding.run {
                 item?.let {
-                    if (it.booking_type.equals(
-                            BookingTypes.ONLINE_CONS.getApiType(),
-                            ignoreCase = true
-                        )
-                    ) {
+                    if (it.booking_type.equals(BookingTypes.ONLINE_CONS.getApiType(), ignoreCase = true)) {
                         tvhDisFare.visibility = View.GONE
                         tvDisFare.visibility = View.GONE
                         tvhDisFare.text = ""
@@ -91,9 +87,11 @@ class AdapterCartListingNew(internal var context: Context) :
                     setupTaksListing(binding, it.task_details)
                     tvhVat.text = it.vat_text
                     tvVat.setAmount(it.vat_price)
-                    if (mCurrency.isNullOrBlank()) {
-                        tvTotalPrice.setAmount(it.total_price)
-                    } else tvTotalPrice.setAmountWithCurrency(it.total_price, mCurrency)
+                    if (mCurrency.isNullOrBlank()) { tvTotalPrice.setAmount(it.total_price) } else tvTotalPrice.setAmountWithCurrency(it.total_price, mCurrency)
+
+                   tvDocHospBannerYellow.visibility = if (it.hospital_id.isNullOrBlank()) View.GONE else View.VISIBLE
+
+
                     executePendingBindings()
                 }
             }

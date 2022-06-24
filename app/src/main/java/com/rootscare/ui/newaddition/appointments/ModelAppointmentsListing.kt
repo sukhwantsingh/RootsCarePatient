@@ -29,6 +29,8 @@ data class ModelAppointmentsListing(
         val price: String?,
         val provider_id: String?,
         val provider_name: String?,
+        val hospital_id: String?,
+        val hospital_name: String?,
         val provider_type: String?,
         val dispaly_provider_type: String?,
         val slot_time: String?,

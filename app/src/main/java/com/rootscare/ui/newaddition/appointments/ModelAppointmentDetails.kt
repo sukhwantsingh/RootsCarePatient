@@ -41,6 +41,8 @@ data class ModelAppointmentDetails(
         val provider_name: String?,
         val provider_id: String?,
         val service_type: String?,
+        val hospital_id: String?,
+        val hospital_name: String?,
         val speciality: String?,
         val symptom_recording: String?,
         val symptom_text: String?,

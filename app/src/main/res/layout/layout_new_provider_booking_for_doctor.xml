@@ -3,7 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data></data>
+    <data>
+        <variable
+            name="data"
+            type="com.rootscare.ui.newaddition.providerlisting.models.ModelBookingIntialForDoctor.Result" />
+    </data>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/sv_root"
@@ -24,14 +28,29 @@
                 android:id="@+id/rl1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/dp16">
-
+                android:layout_marginTop="8dp"
+                android:elevation="@dimen/dp4"
+                android:paddingStart="@dimen/dp16">
+                <TextView
+                    android:id="@+id/tv_doc_hosp_banner_yellow"
+                    style="@style/AppTheme.TextMedium"
+                    android:background="@drawable/square_bg_one_round_yellow"
+                    android:paddingHorizontal="@dimen/dp8"
+                    android:paddingVertical="@dimen/dp2"
+                    android:text="@string/hospital"
+                    android:textColor="@color/white"
+                    app:visibilityWithNullEmptyCheck="@{data.hospital_id}"
+                    android:textSize="@dimen/dp11"
+                    android:layout_alignParentEnd="true"
+                    />
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/img_profile"
                     android:layout_width="@dimen/dp77"
                     android:layout_height="@dimen/dp77"
                     app:civ_border_color="@color/indicator_color"
                     app:civ_border_width="@dimen/dp1"
+                    android:layout_marginTop="@dimen/dp8"
+                    android:layout_marginBottom="@dimen/dp16"
                     android:src="@drawable/no_img_logo" />
 
                 <TextView

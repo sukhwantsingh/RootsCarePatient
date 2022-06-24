@@ -25,6 +25,8 @@ data class ModelProviderListing(
         val email: String?,
         val image: String?,
         val qualification: String?,
+        val hospital_id: String?,
+        val hospital_name: String?,
         val experience: String?,
         val provider_address: String?,
         val task_base_enable: String?,  // 0- true 1- false

@@ -39,14 +39,29 @@
                 android:layout_alignTop="@+id/iv_cross"
                 android:layout_alignBottom="@+id/iv_cross"
                 android:layout_marginStart="@dimen/dp20"
-                android:layout_toStartOf="@+id/iv_cross"
+                android:layout_toStartOf="@+id/tv_doc_hosp_banner_yellow"
                 android:layout_toEndOf="@+id/tvhtop"
                 android:gravity="center_vertical"
                 android:textAlignment="viewStart"
                 android:textColor="@color/indicator_color"
                 android:textSize="@dimen/dp14"
                 tools:text="service_type" />
+            <TextView
+                android:id="@+id/tv_doc_hosp_banner_yellow"
+                style="@style/AppTheme.TextMedium"
+                android:background="@color/review_star"
+                android:paddingHorizontal="@dimen/dp8"
+                android:paddingVertical="@dimen/dp2"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:text="@string/hospital"
+                android:textColor="@color/white"
+                android:layout_toStartOf="@+id/iv_cross"
+                android:layout_alignTop="@+id/iv_cross"
+                android:layout_marginTop="@dimen/dp3"
+                android:textSize="@dimen/dp11"
 
+                />
             <ImageView
                 android:id="@+id/iv_cross"
                 android:layout_width="wrap_content"

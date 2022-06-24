@@ -19,6 +19,8 @@ data class ModelProviderDetails(
         val description: String?,
         val email: String?,
         val experience: String?,
+        val hospital_id: String?,
+        val hospital_name: String?,
         val provider_name: String?,
         val task_base_enable: String?,
         val online_enable: String?,

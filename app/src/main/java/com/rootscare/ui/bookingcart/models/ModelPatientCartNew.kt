@@ -14,6 +14,7 @@ data class ModelPatientCartNew(
     data class Result(
         val appointment_type: String?,
         val babysitter_id: String?,
+        val hospital_name: String?,
         val booking_type: String?,
         val slot_booking_id: String?,
         val caregiver_id: String?,

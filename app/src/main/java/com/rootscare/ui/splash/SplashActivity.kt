@@ -64,8 +64,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>(), S
         notificationUtils = NotificationUtils(this@SplashActivity)
         setLanguagePrefernce()
 
-          apiVersionCheck()
-     //     Handler(Looper.getMainLooper()).postDelayed({ redirectToLogin() }, 1000L)
+          //apiVersionCheck()
+          Handler(Looper.getMainLooper()).postDelayed({ redirectToLogin() }, 1000L)
     }
 
     private fun setLanguagePrefernce() {

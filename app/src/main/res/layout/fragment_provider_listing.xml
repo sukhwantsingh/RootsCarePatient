@@ -13,11 +13,26 @@
         android:orientation="vertical"
         android:paddingTop="@dimen/dp8">
 
+        <TextView
+            android:textAlignment="viewStart"
+            android:id="@+id/tvttle"
+            style="@style/AppTheme.TextMedium"
+            android:layout_width="wrap_content"
+            android:textColor="@color/txt_dash_heading"
+            android:textSize="@dimen/dp14"
+            android:layout_marginStart="@dimen/dp16"
+            android:textAllCaps="true"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_marginVertical="@dimen/dp8"
+            android:text="@string/doc_under_hospital" />
+
         <include
             android:id="@+id/incl_search"
             layout="@layout/layout_new_search_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tvttle"
             android:layout_marginHorizontal="@dimen/dp16" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -45,6 +60,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:textAllCaps="true"
+            tools:visibility="visible"
             android:visibility="gone"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/dp10" />

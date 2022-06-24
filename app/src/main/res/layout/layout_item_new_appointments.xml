@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="node"
             type="com.rootscare.ui.newaddition.appointments.ModelAppointmentsListing.Result" />
@@ -17,48 +18,46 @@
         android:background="@color/white"
         android:elevation="@dimen/dp2"
         android:paddingVertical="@dimen/dp10"
-        android:paddingStart="@dimen/dp16">
+        android:paddingStart="@dimen/dp16" >
 
 
         <TextView
             android:id="@+id/tvh_bank"
             style="@style/AppTheme.TextSemiBold"
-            android:layout_width="125dp"
+            android:layout_width="wrap_content"
             android:text="@{node.dispaly_provider_type}"
             android:textAllCaps="true"
-            android:gravity="center_vertical"
             android:textColor="@color/indicator_color"
-            android:textSize="@dimen/dp12"
-            android:singleLine="true"
-            android:textAlignment="viewStart"
+            android:textSize="@dimen/dp11"
+            app:layout_constraintBottom_toBottomOf="@+id/tvh_acname"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Doctor" />
 
-        <!--        <TextView
-                    android:id="@+id/tvh_hospital_"
-                    style="@style/AppTheme.TextMedium"
-                    android:layout_marginStart="@dimen/dp5"
-                    android:background="@color/price_bg"
-                    android:paddingHorizontal="@dimen/dp5"
-                    android:paddingVertical="@dimen/dp4"
-                    android:text="@string/hospital"
-                    android:textColor="@color/txt_color"
-                    android:textSize="@dimen/dp10"
-                    android:visibility="invisible"
-                    app:layout_constraintStart_toEndOf="@+id/tvh_bank"
-                    app:layout_constraintTop_toTopOf="parent" />
-                -->
+        <TextView
+            android:id="@+id/tvh_hospital_"
+            style="@style/AppTheme.TextMedium"
+            android:background="@color/review_star"
+            android:layout_marginStart="@dimen/dp4"
+            android:paddingHorizontal="@dimen/dp5"
+            android:paddingVertical="@dimen/dp2"
+            android:text="@string/hospital"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp10"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:visibilityWithNullEmptyCheck="@{node.hospital_id}"
+            app:layout_constraintStart_toEndOf="@+id/tvh_bank"
+            app:layout_constraintTop_toTopOf="@+id/tvh_bank" />
+
+
         <TextView
             android:id="@+id/tvh_acname"
             style="@style/AppTheme.TextMedium"
-            android:layout_width="0dp"
             android:text="@{node.order_id}"
             android:textColor="@color/indicator_color"
-            android:textSize="@dimen/dp15"
-            android:layout_marginHorizontal="@dimen/dp20"
+            android:textSize="@dimen/dp16"
             app:layout_constrainedWidth="true"
-            android:textAlignment="viewStart"
             app:layout_constraintEnd_toStartOf="@+id/tvh_appoint_status"
             app:layout_constraintStart_toEndOf="@+id/tvh_bank"
             app:layout_constraintTop_toTopOf="@+id/tvh_bank"
@@ -67,16 +66,13 @@
         <TextView
             android:id="@+id/tvh_appoint_status"
             style="@style/AppTheme.TextMedium"
-            android:layout_width="72dp"
             android:layout_marginEnd="@dimen/dp16"
+            android:paddingHorizontal="@dimen/dp6"
             android:paddingVertical="@dimen/dp3"
-            android:gravity="center"
-            android:text="@{node.acceptance_status}"
-            android:textAllCaps="true"
-            android:singleLine="true"
-            android:ellipsize="end"
             android:textColor="@color/white"
             android:textSize="@dimen/dp10"
+            android:textAllCaps="true"
+            android:text="@{node.acceptance_status}"
             app:backgroundStatusColor="@{node.acceptance_status}"
             app:layout_constrainedWidth="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,19 +83,17 @@
             android:id="@+id/tv_bank_name"
             style="@style/AppTheme.TextMedium"
             android:layout_width="@dimen/dimen_0dp"
-            android:layout_marginTop="@dimen/dp2"
-            android:text="@{node.provider_name}"
+            android:layout_marginTop="@dimen/dp5"
             android:textColor="@color/txt_color"
             android:textSize="@dimen/dp12"
-            android:textAlignment="viewStart"
             android:singleLine="true"
-            app:layout_constraintEnd_toEndOf="@+id/tvh_bank"
+            android:text="@{node.provider_name}"
+            app:layout_constraintEnd_toStartOf="@+id/tv_ac_name"
             app:layout_constraintStart_toStartOf="@+id/tvh_bank"
             app:layout_constraintTop_toBottomOf="@+id/tvh_acname"
-            tools:text="Dr Ramadi" />
+            tools:text="Dr Ramadi Entersilio" />
 
         <TextView
-            android:textAlignment="viewStart"
             android:id="@+id/tv_ac_name"
             style="@style/AppTheme.TextMedium"
             android:layout_width="0dp"
@@ -111,26 +105,25 @@
             app:layout_constraintStart_toStartOf="@+id/tvh_acname"
             app:layout_constraintTop_toBottomOf="@+id/tvh_acname" />
 
-         <TextView
-            android:textAlignment="viewStart"
+        <!--    android:text="@{node.speciality}" -->
+        <TextView
             android:id="@+id/tv_ac_num"
             style="@style/AppTheme.TextRegular"
             android:layout_width="0dp"
             android:layout_marginTop="@dimen/dp2"
+            tools:text="Gastroenterologiest"
             android:text="@{node.speciality}"
+            android:singleLine="true"
             android:textColor="@color/txt_color"
             android:textSize="@dimen/dp11"
-            android:singleLine="true"
             app:layout_constraintEnd_toStartOf="@+id/tv_ac_name"
             app:layout_constraintStart_toStartOf="@+id/tvh_bank"
-            app:layout_constraintTop_toBottomOf="@+id/tv_bank_name"
-            tools:text="Gastroeologist" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_bank_name" />
 
         <TextView
-            android:textAlignment="viewStart"
             android:id="@+id/tvh_date"
             style="@style/AppTheme.TextMedium"
-            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginTop="@dimen/dp2"
             android:text="@string/date"
             android:textColor="@color/indicator_color"
             android:textSize="@dimen/dp11"
@@ -138,19 +131,18 @@
             app:layout_constraintTop_toTopOf="@+id/tv_ac_num" />
 
         <TextView
-            android:textAlignment="viewStart"
             android:id="@+id/tv_date_vl"
             style="@style/AppTheme.TextMedium"
             android:layout_width="0dp"
             android:layout_marginTop="@dimen/dp2"
-            android:text="@{node.app_date}"
+            tools:text="FRI, 17 FEB 2022"
             android:textAllCaps="true"
             android:textColor="@color/txt_color"
             android:textSize="@dimen/dp12"
+            android:text="@{node.app_date}"
             app:layout_constraintEnd_toStartOf="@+id/tv_time_vl"
             app:layout_constraintStart_toStartOf="@+id/tvh_date"
-            app:layout_constraintTop_toBottomOf="@+id/tvh_date"
-            tools:text="FRI, 17 FEB 2022" />
+            app:layout_constraintTop_toBottomOf="@+id/tvh_date" />
 
 
         <TextView
@@ -163,7 +155,6 @@
             android:text="@{node.appointment_type}"
             android:textColor="@color/indicator_color"
             android:textSize="@dimen/dp11"
-            android:gravity="center"
             app:layout_constraintStart_toStartOf="@+id/tv_date_vl"
             app:layout_constraintTop_toBottomOf="@+id/tv_date_vl"
             tools:text="Home Visit" />
@@ -245,10 +236,10 @@
             android:text="@{node.patient_name}"
             android:textColor="@color/txt_color"
             android:textSize="@dimen/dp12"
-            android:singleLine="true"
             app:layout_constraintEnd_toStartOf="@+id/tv_schedule_type"
             app:layout_constraintStart_toStartOf="@+id/tvh_Address"
             app:layout_constraintTop_toBottomOf="@+id/tvh_Address"
+            android:singleLine="true"
             tools:text="Sanjay Biswas" />
 
         <TextView
@@ -360,21 +351,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/v1"
             />
-        <!--
-         app:layout_constraintEnd_toStartOf="@+id/ibcross"
-                <ImageView
-                    android:id="@+id/ibcross"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:visibility="visible"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:src="@drawable/ic_cross_"
-                    app:layout_constraintBottom_toBottomOf="@+id/btn_view_details"
-                    app:layout_constraintEnd_toEndOf="@+id/v1"
-                    app:layout_constraintTop_toTopOf="@+id/btn_view_details" />
 
-        -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

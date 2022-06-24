@@ -28,22 +28,33 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc2cdabe-1c55-49c8-afc5-ece2b64879f2" name="Default Changelist" comment="updated code cleaned">
+    <list default="true" id="fc2cdabe-1c55-49c8-afc5-ece2b64879f2" name="Default Changelist" comment="updated with play store updation feature">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/data/datasource/api/ApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/data/datasource/api/ApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/bookingcart/adapter/AdapterCartListingNew.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/bookingcart/adapter/AdapterCartListingNew.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/bookingcart/models/ModelPatientCartNew.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/bookingcart/models/ModelPatientCartNew.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/home/HomeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/home/HomeActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/home/subfragment/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/home/subfragment/HomeFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/login/subfragment/registrationfragment/FragmentRegistration.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/login/subfragment/registrationfragment/FragmentRegistration.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/profile/FragmentProfile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/profile/FragmentProfile.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/newaddition/appointments/ModelAppointmentDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/newaddition/appointments/ModelAppointmentDetails.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/newaddition/appointments/ModelAppointmentsListing.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/newaddition/appointments/ModelAppointmentsListing.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/newaddition/providerlisting/FragmentProvderBookingForDoctor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/newaddition/providerlisting/FragmentProvderBookingForDoctor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/newaddition/providerlisting/models/ModelBookingIntialForDoctor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/newaddition/providerlisting/models/ModelBookingIntialForDoctor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/newaddition/providerlisting/models/ModelProviderDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/newaddition/providerlisting/models/ModelProviderDetails.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/newaddition/providerlisting/models/ModelProviderListing.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/newaddition/providerlisting/models/ModelProviderListing.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/splash/SplashActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/splash/SplashActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/splash/SplashNavigator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/splash/SplashNavigator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/splash/SplashViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/splash/SplashViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/utilitycommon/GenricTypes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/utilitycommon/GenricTypes.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/utilitycommon/UtilityFunctions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/utilitycommon/UtilityFunctions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_registration.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_registration.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-en/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-en/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/download.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/square_bg_green.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/square_bg_green.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_provider_listing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_provider_listing.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_item_new_appointments.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_item_new_appointments.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_item_new_cartitems.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_item_new_cartitems.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_item_new_providers_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_item_new_providers_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_new_appointment_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_new_appointment_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_new_home_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_new_home_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_new_provider_booking_for_doctor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_new_provider_booking_for_doctor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_new_providers_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_new_providers_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_new_row_item_cart_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_new_row_item_cart_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,9 +103,9 @@
         <option value="Class" />
         <option value="valueResourceFile" />
         <option value="resourceFile" />
-        <option value="layoutResourceFile" />
         <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -180,7 +191,7 @@
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="memory.settings.postsync.last.time.stamp" value="1639042900156" />
     <property name="multi-representation-preview/Users/arpansarkar/Downloads/root 2/Android-APK-RootsCare/Roots Care/projects/app/src/main/java/com/customview/MyCustomButton.kt_selected" value="Custom views" />
     <property name="multi-representation-preview/Users/arpansarkar/Downloads/root 2/Android-APK-RootsCare/Roots Care/projects/app/src/main/java/com/customview/MyEditTextView.kt_selected" value="Custom views" />
@@ -209,11 +220,11 @@
       <recent name="com.rootscare.ui.login" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/values-ar" />
-      <recent name="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/bookingcart/adapter" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/newaddition/providerlisting/adapter" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/rootscare/ui/newaddition/providerlisting" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/values-ar" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ssil\AndroidStudioProjects\ONGOING PROJECT\ROOTS CARE\project\Roots Care\projects\app\src\main\assets\font" />
@@ -678,7 +689,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655839650113</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="updated with play store updation feature">
+      <created>1656007039486</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1656007039486</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -697,7 +715,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Roots Care Patient APplication First Commit From Riya On 02-07-2020" />
     <MESSAGE value="Roots Care Patient APplication Second Commit From Riya On 02-07-2020" />
     <MESSAGE value="Roots Care Patient APplication last Commit From Riya On 02-07-2020" />
     <MESSAGE value="Roots Care Patient APplication first Commit From Riya On 03-07-2020" />
@@ -722,7 +739,8 @@
     <MESSAGE value="Arpan's commit after issue fixation - 19.11.21" />
     <MESSAGE value="updated gt file" />
     <MESSAGE value="updated code cleaned" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated code cleaned" />
+    <MESSAGE value="updated with play store updation feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated with play store updation feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

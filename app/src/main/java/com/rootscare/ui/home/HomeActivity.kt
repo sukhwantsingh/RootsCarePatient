@@ -43,16 +43,13 @@ import com.rootscare.ui.home.model.ModelUpdateCurrentLocation
 import com.rootscare.ui.home.subfragment.HomeFragment
 import com.rootscare.ui.login.LoginActivity
 import com.rootscare.ui.newaddition.appointments.FragNewAppointmentListing
-import com.rootscare.ui.newaddition.providerlisting.FragmentProvderBooking
-import com.rootscare.ui.newaddition.providerlisting.FragmentProviderListing
-import com.rootscare.ui.newaddition.providerlisting.FragmentProviderListingDetails
 import com.rootscare.ui.notification.FragmentNotification
 import com.rootscare.ui.profile.FragmentProfile
 import com.rootscare.ui.supportmore.FragmentSupportMore
 import com.rootscare.ui.supportmore.SupportAndMore
 import com.rootscare.utilitycommon.*
 import com.rootscare.databinding.ActivityHomeBinding
-import com.rootscare.ui.newaddition.providerlisting.FragmentProvderBookingForDoctor
+import com.rootscare.ui.newaddition.providerlisting.*
 import com.rootscare.ui.newaddition.providerlisting.patientaddition.FragmentAddPatient
 import com.rootscare.utils.firebase.Config
 import kotlinx.android.synthetic.main.activity_home.*
@@ -495,6 +492,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
 
                 appointmentSearch.visibility = View.VISIBLE
                 appointmentSearch.setOnClickListener { FragNewAppointmentListing.showSearch.value = true }
+            }
+            is FragmentProviderHospitalListing -> {
+                tootbar_text.text = providerName
+                tootlebar_notification?.visibility = View.VISIBLE
+                toolbar_back?.visibility = View.VISIBLE
+                toolbar_menu?.visibility = View.GONE
             }
             is FragmentProviderListing -> {
                 tootbar_text.text = providerName

@@ -335,4 +335,6 @@
     <string name="where_you_want_service">Where do you want the Medical service?</string>
     <string name="required_service_area">Provide required service area</string>
     <string name="update">Update</string>
+    <string name="doc_under_hospital">Doctors Under Hospital</string>
+    <string name="find_speciality_amp_doctors">Find Speciality &amp; Doctors</string>
 </resources>

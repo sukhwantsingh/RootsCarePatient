@@ -30,6 +30,8 @@ data class ModelBookingIntialForDoctor(
         val provider_name: String?,
         val provider_type: String?,
         val qualification: String?,
+        val hospital_id: String?,
+        val hospital_name: String?,
         val speciality: String?,
         val vat_price: String?,
         val vat_text: String?

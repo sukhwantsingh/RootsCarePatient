@@ -126,6 +126,7 @@
         <entry key="app/src/main/res/drawable/square_bg.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/square_bg_green.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/drawable/square_bg_grey.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/drawable/square_bg_one_round_yellow.xml" value="0.2155" />
         <entry key="app/src/main/res/drawable/square_bg_red.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/star_blank.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/star_filled.xml" value="0.1545" />
@@ -186,7 +187,7 @@
         <entry key="app/src/main/res/layout/fragment_doctor_listing_details.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_edit_patient_family_member.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_forgot_password.xml" value="0.2140625" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_hospital_appointment_list.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/fragment_hospital_booking.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_hospital_booking_details.xml" value="0.20104166666666667" />
@@ -216,7 +217,7 @@
         <entry key="app/src/main/res/layout/fragment_profile_life_style.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile_medical.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile_personal.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_provider_listing.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_provider_listing.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_registration_otp.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_review_and_rating.xml" value="0.2140625" />
@@ -282,10 +283,10 @@
         <entry key="app/src/main/res/layout/layout_bs_thankyou_success.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_dialog_version_check.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_item_new_appointment_fixed.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/layout_item_new_appointments.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_item_new_appointments.xml" value="0.335" />
         <entry key="app/src/main/res/layout/layout_item_new_cartitems.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/layout_item_new_notifications.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/layout_item_new_providers_.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_item_new_providers_.xml" value="0.5" />
         <entry key="app/src/main/res/layout/layout_item_new_row_home_.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_location_chooser.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_nav_drawer_new_home_sideview.xml" value="0.25" />
@@ -298,7 +299,7 @@
         <entry key="app/src/main/res/layout/layout_new_dialog_rate_appointment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_new_edit_account_.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_new_fragment_support_and_more.xml" value="0.2140625" />
-        <entry key="app/src/main/res/layout/layout_new_home_.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_new_home_.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_new_how_it_works.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/layout_new_item_hour_slots.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_new_item_payment_splitting.xml" value="0.18888888888888888" />
@@ -310,8 +311,8 @@
         <entry key="app/src/main/res/layout/layout_new_item_row_times.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_new_provider_booking_.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_new_provider_booking_for_doctor.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/layout_new_providers_details.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/layout_new_row_item_cart_.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_new_providers_details.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/layout_new_row_item_cart_.xml" value="0.335" />
         <entry key="app/src/main/res/layout/layout_new_search_bar.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_new_search_bar_appointment.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/layout_row_item_new_home_.xml" value="0.2140625" />
@@ -322,6 +323,8 @@
         <entry key="app/src/main/res/layout/payment_activity.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/place_recycler_item_layout.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/progress_dialog.xml" value="0.2140625" />
+        <entry key="app/src/main/res/layout/row_item_doctors_under_hospitals.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/row_item_hospital.xml" value="0.33" />
         <entry key="app/src/main/res/layout/single_item_file_listing.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/singlenursetask.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/tab_item_appointment_layout.xml" value="0.20104166666666667" />

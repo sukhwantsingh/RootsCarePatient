@@ -1,6 +1,6 @@
 # Project exclude paths
 /.gradle/
-.idea/
+*.idea/
 app/build/
 
 app/release/output.json

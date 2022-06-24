@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="node"
+            type="com.rootscare.ui.newaddition.providerlisting.models.ModelProviderListing.Result" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cns_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/dp2"
+        android:layout_marginTop="@dimen/dp8"
+        android:paddingStart="@dimen/dp16"
+        android:background="@color/white"
+        android:paddingVertical="@dimen/dp10">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profile"
+            android:layout_width="@dimen/dp55"
+            android:layout_height="@dimen/dp55"
+            android:src="@drawable/no_img_logo"
+            app:civ_border_color="@color/indicator_color"
+            app:civ_border_width="@dimen/dp1"
+            android:layoutDirection="ltr"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:setCircularRemoteImageWithNoImage="@{node.image}" />
+
+        <TextView
+            android:textAlignment="viewStart"
+            android:id="@+id/tv_username"
+            style="@style/AppTheme.TextMedium"
+            android:layout_width="wrap_content"
+            android:text="@{node.fullName}"
+            android:singleLine="true"
+            android:textColor="@color/txt_color_profile_desc"
+            app:layout_constraintStart_toEndOf="@+id/img_profile"
+            app:layout_constraintTop_toTopOf="@+id/img_profile"
+            app:layout_constraintBottom_toTopOf="@+id/tv_rate"
+            android:layout_marginStart="@dimen/dp12"
+            android:textSize="@dimen/dp16"
+            tools:text="N. K. Narayana Hospital" />
+
+        <TextView
+            android:id="@+id/tv_rate"
+            style="@style/AppTheme.TextRegular"
+            android:layout_width="44dp"
+            android:layout_height="@dimen/dp19"
+            android:layout_gravity="bottom"
+            android:background="@drawable/ic_back_green_rect"
+            android:drawablePadding="@dimen/dp4"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp2"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp11"
+            app:drawableStartCompat="@drawable/ico_star_white"
+            app:layout_constraintStart_toEndOf="@+id/img_profile"
+            app:layout_constraintTop_toBottomOf="@+id/tv_username"
+            app:layout_constraintStart_toStartOf="@+id/tv_username"
+            app:layout_constraintBottom_toBottomOf="@+id/img_profile"
+            android:layout_marginTop="@dimen/dp4"
+            app:setAvgRating="@{node.avg_rating}" />
+
+        <TextView
+            android:textAlignment="viewStart"
+            android:id="@+id/tvh_bank"
+            style="@style/AppTheme.TextMedium"
+            android:layout_marginStart="@dimen/dp8"
+            android:text="@{node.booking_count}"
+            android:textColor="@color/txt_dash_heading"
+            android:textSize="@dimen/dp12"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_rate"
+            app:layout_constraintStart_toEndOf="@+id/tv_rate"
+            tools:text="123 Bookings"
+            app:layout_constraintTop_toTopOf="@+id/tv_rate" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_providers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp8"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/dp1"
+            app:layout_constraintTop_toBottomOf="@+id/img_profile"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="5"
+            tools:listitem="@layout/row_item_doctors_under_hospitals" />
+
+        <TextView
+            android:textAlignment="viewStart"
+            style="@style/AppTheme.TextRegular"
+            android:layout_width="0dp"
+            android:textSize="@dimen/dp12"
+            android:textColor="@color/colorTxtGrey1"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_find_spec_docs"
+            app:layout_constraintStart_toStartOf="@+id/img_profile"
+            app:layout_constraintTop_toTopOf="@+id/btn_find_spec_docs"
+            app:layout_constraintEnd_toStartOf="@+id/btn_find_spec_docs"
+            android:singleLine="true"
+            android:text="@string/book_online_appoint" />
+
+        <!--             app:invisibleWith10="@{node.provider_available}" -->
+        <TextView
+            android:id="@+id/btn_find_spec_docs"
+            style="@style/AppTheme.TextMedium"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/square_bg_green"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:layout_marginEnd="@dimen/dp16"
+            android:paddingVertical="@dimen/dp8"
+            android:paddingHorizontal="@dimen/dp12"
+            android:text="@string/find_speciality_amp_doctors"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp11"
+            tools:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_providers"
+            app:layout_goneMarginEnd="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
