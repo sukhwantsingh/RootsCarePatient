@@ -12,18 +12,19 @@ import com.rootscare.R
 import com.rootscare.databinding.LayoutItemNewProvidersBinding
 import com.rootscare.databinding.RowItemHospitalBinding
 import com.rootscare.ui.newaddition.providerlisting.models.ModelProviderListing
+import com.rootscare.ui.newaddition.providerlisting.models.NetworkHospitalListing
 
 interface OnProviderHospitalListingCallback {
-    fun onItemClick(pos: Int, id: String?, usType: String) {}
-    fun onFindSpecAndDocs(pos: Int, node: ModelProviderListing.Result?) {}
-    fun onDoctorClick(node:ModelProviderListing.Result?){}
+    fun onItemClick(pos: Int, node: NetworkHospitalListing.Result?) {}
+    fun onFindSpecAndDocs(pos: Int, node: NetworkHospitalListing.Result?) {}
+    fun onDoctorClick(node:NetworkHospitalListing.Result.AvailableProvider?){}
     fun onLoadMore(pos: Int, lastuserId: String) {}
 }
 
-class AdapterProviderHospitalListing(internal var context: Context, private val mCallback: OnProviderHospitalListingCallback) : ListAdapter<ModelProviderListing.Result, AdapterProviderHospitalListing.ViewHolder>(
+class AdapterProviderHospitalListing(internal var context: Context, private val mCallback: OnProviderHospitalListingCallback) : ListAdapter<NetworkHospitalListing.Result, AdapterProviderHospitalListing.ViewHolder>(
         AdapterProviderHospitalListingDiffUtil()) {
 
-    val updatedArrayList = ArrayList<ModelProviderListing.Result?>()
+    val updatedArrayList = ArrayList<NetworkHospitalListing.Result?>()
     private var mDocsAdapter: AdapterDoctorsUnderHospitals? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -39,26 +40,18 @@ class AdapterProviderHospitalListing(internal var context: Context, private val 
         holder.onBindView(getItem(position))
 
         if (position == itemCount - 1) {
-            mCallback.onLoadMore(position, getItem(position).user_id ?: "")
+            mCallback.onLoadMore(position, getItem(position).hospital_id ?: "")
         }
     }
 
     // dont call this from calling component
-    override fun submitList(list: MutableList<ModelProviderListing.Result?>?) {
+    override fun submitList(list: MutableList<NetworkHospitalListing.Result?>?) {
         super.submitList(if (list.isNullOrEmpty()) null else ArrayList(list))
     }
 
-    fun loadDataIntoList(list: ArrayList<ModelProviderListing.Result?>?) {
+    fun loadDataIntoList(list: ArrayList<NetworkHospitalListing.Result?>?) {
         list?.let { updatedArrayList.addAll(it.toMutableList()) }
         submitList(updatedArrayList)
-    }
-
-    fun updateMarkAcceptReject(pos: Int?) {
-        pos?.let {
-            updatedArrayList.removeAt(it)
-            submitList(updatedArrayList)
-        }
-
     }
 
     inner class ViewHolder(val binding: RowItemHospitalBinding) :
@@ -67,23 +60,21 @@ class AdapterProviderHospitalListing(internal var context: Context, private val 
             binding.apply {
                 tvUsername.setOnClickListener { imgProfile.performClick() }
                 imgProfile.setOnClickListener {
-                    val mNode = getItem(absoluteAdapterPosition)
-                    mCallback.onItemClick(absoluteAdapterPosition,mNode?.user_id ?: "",mNode?.user_type ?: "")
+                    mCallback.onItemClick(absoluteAdapterPosition,getItem(absoluteAdapterPosition))
                 }
 
                 btnFindSpecDocs.setOnClickListener {
-                    val mNode = getItem(absoluteAdapterPosition)
-                    mCallback.onFindSpecAndDocs(absoluteAdapterPosition, mNode)
+                    mCallback.onFindSpecAndDocs(absoluteAdapterPosition, getItem(absoluteAdapterPosition))
                 }
             }
         }
 
-        fun onBindView(item: ModelProviderListing.Result?) {
+        fun onBindView(item: NetworkHospitalListing.Result?) {
             binding.run {
-                mDocsAdapter = AdapterDoctorsUnderHospitals(context, mCallback)
-                rvProviders.adapter = mDocsAdapter
-                mDocsAdapter?.updatedArrayList?.clear()
-                mDocsAdapter?.loadDataIntoList(updatedArrayList)
+              mDocsAdapter = AdapterDoctorsUnderHospitals(context, mCallback)
+              rvProviders.adapter = mDocsAdapter
+              mDocsAdapter?.updatedArrayList?.clear()
+              mDocsAdapter?.loadDataIntoList(item?.available_provider)
 
                 setVariable(BR.node, item)
                 executePendingBindings()
@@ -92,17 +83,17 @@ class AdapterProviderHospitalListing(internal var context: Context, private val 
     }
 }
 
-class AdapterProviderHospitalListingDiffUtil : DiffUtil.ItemCallback<ModelProviderListing.Result>() {
+class AdapterProviderHospitalListingDiffUtil : DiffUtil.ItemCallback<NetworkHospitalListing.Result>() {
     override fun areItemsTheSame(
-        oldItem: ModelProviderListing.Result,
-        newItem: ModelProviderListing.Result
+        oldItem: NetworkHospitalListing.Result,
+        newItem: NetworkHospitalListing.Result
     ): Boolean {
-        return oldItem.user_id == newItem.user_id
+        return oldItem.hospital_id == newItem.hospital_id
     }
 
     override fun areContentsTheSame(
-        oldItem: ModelProviderListing.Result,
-        newItem: ModelProviderListing.Result
+        oldItem: NetworkHospitalListing.Result,
+        newItem: NetworkHospitalListing.Result
     ): Boolean {
         return oldItem == newItem
 

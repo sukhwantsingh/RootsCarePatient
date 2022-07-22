@@ -35,6 +35,7 @@ data class ModelProviderDetails(
         val speciality: String?,
         val user_type: String?) {
 
+        fun showSpecialityOrNot() = if(hospital_id.isNullOrBlank()) "show" else null
         // 0- true 1- false
         fun getTaskEnability() = if(user_type?.trim().equals(ProviderTypes.DOCTOR.getType(), ignoreCase = true)) {
             online_enable ?: "1" } else task_base_enable ?: "1"

@@ -7,7 +7,7 @@
 
         <variable
             name="node"
-            type="com.rootscare.ui.newaddition.providerlisting.models.ModelProviderListing.Result" />
+            type="com.rootscare.ui.newaddition.providerlisting.models.NetworkHospitalListing.Result.AvailableProvider" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -18,12 +18,12 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="@dimen/dp5">
+        app:cardCornerRadius="@dimen/dp7">
 
 
         <LinearLayout
             android:layout_width="115dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <FrameLayout
@@ -71,7 +71,7 @@
                     android:id="@+id/tvh1"
                     style="@style/AppTheme.TextRegular"
                     android:singleLine="true"
-                    android:text="@{node.provider_name}"
+                    android:text="@{node.doctor_name}"
                     android:textAlignment="viewStart"
                     android:textColor="@color/txt_color_profile_desc"
                     android:textSize="@dimen/dp12"
@@ -95,16 +95,15 @@
                     android:layout_marginVertical="@dimen/dp5"
                     android:background="@color/gray_light" />
 
+                <!--   android:text="@{node.speciality}"-->
                 <TextView
-                    android:id="@+id/tvsh2"
                     style="@style/AppTheme.TextRegular"
                     android:layout_width="wrap_content"
                     android:singleLine="true"
-                    android:text="@{node.speciality}"
                     android:textAlignment="viewStart"
                     android:textColor="@color/indicator_color"
                     android:textSize="@dimen/dp11"
-                    tools:text="General Physician" />
+                    android:text="@string/book_consultation" />
 
 
             </LinearLayout>

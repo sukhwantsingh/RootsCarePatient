@@ -17,6 +17,7 @@ import com.rootscare.ui.newaddition.providerlisting.adapter.AdapterProviderListi
 import com.rootscare.ui.newaddition.providerlisting.adapter.OnProviderHospitalListingCallback
 import com.rootscare.ui.newaddition.providerlisting.adapter.OnProviderListingCallback
 import com.rootscare.ui.newaddition.providerlisting.models.ModelProviderListing
+import com.rootscare.ui.newaddition.providerlisting.models.NetworkHospitalListing
 import com.rootscare.ui.supportmore.bottomsheet.OnBottomSheetCallback
 import com.rootscare.utilitycommon.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -84,7 +85,7 @@ class FragmentProviderHospitalListing : BaseFragment<FragmentProviderListingBind
     private fun initViews() {
         binding?.tvttle?.visibility = View.VISIBLE
         binding?.rvProviders?.adapter = mProviderAdapter
-        binding?.inclSearch?.edtSearch?.hint = "Search ${HomeActivity.providerName} near your address"
+        binding?.inclSearch?.edtSearch?.hint = "Search ${HomeActivity.providerName}s near your address"
         binding?.inclSearch?.edtSearch?.addTextChangedListener { searchText = it.toString() }
         binding?.inclSearch?.imgSearch?.setOnClickListener {
             pageCount = 1
@@ -94,17 +95,26 @@ class FragmentProviderHospitalListing : BaseFragment<FragmentProviderListingBind
     }
 
     val mCallback = object : OnProviderHospitalListingCallback {
-        override fun onDoctorClick(node: ModelProviderListing.Result?) {
-            showToast(node?.provider_name.orEmpty())
+        override fun onDoctorClick(node: NetworkHospitalListing.Result.AvailableProvider?) {
+          //  (activity as? HomeActivity)?.checkInBackstack(FragmentProvderBookingForDoctor.newInstance(
+          //     node?.user_id.orEmpty(), BookingTypes.ONLINE_CONS.get(),  node?.user_type.orEmpty() ,"0", "1"))
+
+         (activity as? HomeActivity)?.checkInBackstack(FragmentProviderListingDetails.newInstance(node?.user_id.orEmpty(), node?.user_type?.trim()))
+
         }
 
-        override fun onFindSpecAndDocs(pos: Int, node: ModelProviderListing.Result?) {
-            // send control to next fragment here
-            showToast("Working on it $pos")
+        override fun onFindSpecAndDocs(pos: Int, node: NetworkHospitalListing.Result?) {
+            HomeActivity.providerName = ProviderTypes.DOCTOR.getDisplayHeading()
+            (activity as? HomeActivity)?.checkInBackstack(FragmentHospitalDoctorsListing.newInstance(node?.hospital_id.orEmpty(), node?.hospital_name.orEmpty(), ProviderTypes.DOCTOR.getType(), DoctorEnabledFor.ONLINE.get()))
         }
-        override fun onItemClick(pos: Int, id: String?,usType:String) {
-            (activity as? HomeActivity)?.checkInBackstack(FragmentProviderListingDetails.newInstance(id ?: "", usType.trim()))
+        override fun onItemClick(pos: Int, node: NetworkHospitalListing.Result?) {
+     //    (activity as? HomeActivity)?.checkInBackstack(FragmentProviderListingDetails.newInstance(id ?: "", usType.trim()))
+
+           HomeActivity.providerName = ProviderTypes.DOCTOR.getDisplayHeading()
+          (activity as? HomeActivity)?.checkInBackstack(FragmentHospitalDoctorsListing.newInstance(node?.hospital_id.orEmpty(),node?.hospital_name.orEmpty(), ProviderTypes.DOCTOR.getType(), DoctorEnabledFor.ONLINE.get()))
+
         }
+
         override fun onLoadMore(pos: Int, lastuserId: String) {
             if(eof.not()) {
                 binding?.tvBottomLoadMore?.visibility = View.VISIBLE
@@ -133,7 +143,7 @@ class FragmentProviderHospitalListing : BaseFragment<FragmentProviderListingBind
 
 
 
-    override fun onSuccessProviderListing(response: ModelProviderListing?) {
+    override fun onSuccessProviderListing(response: NetworkHospitalListing?) {
         try {
             baseActivity?.hideLoading()
             val isEof = response?.message ?: "Y|Message"
@@ -170,17 +180,16 @@ class FragmentProviderHospitalListing : BaseFragment<FragmentProviderListingBind
         if (isNetworkConnected) {
             val jsonObject = JsonObject().apply {
                 addProperty("service_type", userType)
-                addProperty("provider_name", searchText)
+                addProperty("hospital_name", searchText)
                 addProperty("page_count", pageCount.toString())
                 addProperty("login_user_id", mViewModel?.appSharedPref?.userId)
-                addProperty("docEnableFor", docEnableFor)
                 addProperty("work_area",  mViewModel?.appSharedPref?.workArea)
             }
 
             val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
              baseActivity?.hideKeyboard()
              if(showLoading) baseActivity?.showLoading()
-             mViewModel?.apiProviderList(body)
+             mViewModel?.apiProviderHospitalListing(body)
         } else {
             noData(getString(R.string.check_network_connection))
         }

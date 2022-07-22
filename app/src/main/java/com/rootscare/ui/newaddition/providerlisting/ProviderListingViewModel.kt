@@ -14,6 +14,67 @@ class ProviderListingViewModel : BaseViewModel<ProviderListingNavigator>() {
 
     val mlFamilyMemberId  = MutableLiveData("")
 
+    fun apiSpecialityList(reqBody: RequestBody) {
+        val disposable = apiServiceWithGsonFactory.fetchSpeciality(reqBody)
+            .subscribeOn(_scheduler_io)
+            .observeOn(_scheduler_ui)
+            .subscribe({ response ->
+                if (null != response) {
+                    Log.d("check_response", ": $response")
+                    navigator.onSuccessSpeciality(response)
+                } else {
+                    Log.d("check_response", ": null response")
+                }
+            }, { throwable ->
+                run {
+                    navigator.errorInAPi(throwable)
+                    Log.d("check_response_error", ": " + throwable.message)
+                }
+            })
+
+        compositeDisposable.add(disposable)
+    }
+
+    fun apiProviderListHospDoctor(reqBody: RequestBody?) {
+        val disposable = apiServiceWithGsonFactory.apiProviderHospDoctorsListing(reqBody)
+            .subscribeOn(_scheduler_io)
+            .observeOn(_scheduler_ui)
+            .subscribe({ response ->
+                if (response != null) {
+                    navigator.onSuccessProviderListing(response)
+                } else {
+                    Log.d("check_response", ": null response")
+                }
+            }, { throwable ->
+                run {
+                    navigator.errorInAPi(throwable)
+                    Log.d("check_response_error", ": " + throwable.message)
+                }
+            })
+
+        compositeDisposable.add(disposable)
+    }
+
+    fun apiProviderHospitalListing(reqBody: RequestBody?) {
+        val disposable = apiServiceWithGsonFactory.apiHospitalListing(reqBody)
+            .subscribeOn(_scheduler_io)
+            .observeOn(_scheduler_ui)
+            .subscribe({ response ->
+                if (response != null) {
+                    navigator.onSuccessProviderListing(response)
+                } else {
+                    Log.d("check_response", ": null response")
+                }
+            }, { throwable ->
+                run {
+                    navigator.errorInAPi(throwable)
+                    Log.d("check_response_error", ": " + throwable.message)
+                }
+            })
+
+        compositeDisposable.add(disposable)
+    }
+
     fun apiProviderList(reqBody: RequestBody?) {
         val disposable = apiServiceWithGsonFactory.apiProviderListing(reqBody)
             .subscribeOn(_scheduler_io)
@@ -33,6 +94,7 @@ class ProviderListingViewModel : BaseViewModel<ProviderListingNavigator>() {
 
         compositeDisposable.add(disposable)
     }
+
     fun apiProviderDetail(reqBody: RequestBody?) {
         val disposable = apiServiceWithGsonFactory.apiProviderDetails(reqBody)
             .subscribeOn(_scheduler_io)
@@ -58,6 +120,7 @@ class ProviderListingViewModel : BaseViewModel<ProviderListingNavigator>() {
 
         compositeDisposable.add(disposable)
     }
+
     fun apipatientfamilymember(getPatientFamilyMemberRequest: GetPatientFamilyMemberRequest) {
         val disposable = apiServiceWithGsonFactory.apipatientfamilymember(getPatientFamilyMemberRequest)
                 .subscribeOn(_scheduler_io)
@@ -204,7 +267,7 @@ class ProviderListingViewModel : BaseViewModel<ProviderListingNavigator>() {
     }
 
     fun apiBookAppointmentforDoctor(
-        serviceType: RequestBody?, currency: RequestBody?, loggedId: RequestBody?, familyMembId: RequestBody?, providerId: RequestBody?,
+        hospId: RequestBody?, serviceType: RequestBody?, currency: RequestBody?, loggedId: RequestBody?, familyMembId: RequestBody?, providerId: RequestBody?,
         taskId: RequestBody?,taskType: RequestBody?, appointType: RequestBody?,from_date: RequestBody?,
         from_time: RequestBody?, taskPrice: RequestBody?, taskPriceTotal: RequestBody?,
         vatPrice: RequestBody?,
@@ -216,7 +279,7 @@ class ProviderListingViewModel : BaseViewModel<ProviderListingNavigator>() {
         symptom_recording: MultipartBody.Part? = null,
         upload_prescription: MultipartBody.Part? = null
     ) {
-       val disposable = apiServiceWithGsonFactory.apiBookAppointmentForDoctor(
+       val disposable = apiServiceWithGsonFactory.apiBookAppointmentForDoctor(hospId,
            serviceType,currency, loggedId, familyMembId, providerId, taskId,
            taskType, appointType, from_date, from_time, taskPrice, taskPriceTotal,
            vatPrice, vatPercent, dis_fare, subTotalPrice,

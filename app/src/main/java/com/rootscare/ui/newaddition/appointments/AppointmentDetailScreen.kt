@@ -62,7 +62,7 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
     private var myExoPlayer: MyExoPlayer? = null
     private var downloadManager: DownloadManager? = null
     private var downLoadId: Long? = null
-
+    private var mHospId = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewModel?.navigator = this
@@ -109,6 +109,7 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
                 val rev = data.getOrNull(1) ?:""
 
                 val jsonObject = JsonObject().apply {
+                    addProperty("hospital_id", mHospId)
                     addProperty("service_type", serviceType)
                     addProperty("lgoin_user_id", mViewModel?.appSharedPref?.userId)
                     addProperty("order_id", orderId)
@@ -124,7 +125,6 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
                 showToast(getString(R.string.check_network_connection))
             }
         }
-
 
         override fun onGoBack() { finish() }
         override fun onRetry() { fetchTasksDetailApi()  }
@@ -300,6 +300,7 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
            binding?.run {
                data = it
                orderId = it.order_id?:""
+               mHospId = it.hospital_id.orEmpty()
 //               mPatientLat = it.patient_lat ?: "0.0"
 //               mPatientLng = it.patient_long ?: "0.0"
                if(serviceType.equals(ProviderTypes.DOCTOR.getType(),ignoreCase = true)) {
@@ -345,7 +346,7 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
                            }
                        }
                    }
-                }else {
+                } else {
                    when {
                        it.acceptance_status.equals(TransactionStatus.PENDING.get(), ignoreCase = true) -> {
                            btnReschedule.visibility = View.VISIBLE
@@ -452,6 +453,7 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
                 if(it.slot_booking_id?.equals(SlotBookingId.ONLINE_BOOKING.get(),true) == true){
                     tvhDisFare.visibility = View.GONE
                     tvDisFare.visibility = View.GONE
+                    vw1.visibility = View.GONE
                 }
 
                 grpPresc.visibility = if(it.provider_prescription.isNullOrBlank().not()) {

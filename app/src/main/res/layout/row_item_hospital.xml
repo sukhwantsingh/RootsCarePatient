@@ -7,7 +7,7 @@
 
         <variable
             name="node"
-            type="com.rootscare.ui.newaddition.providerlisting.models.ModelProviderListing.Result" />
+            type="com.rootscare.ui.newaddition.providerlisting.models.NetworkHospitalListing.Result" />
 
     </data>
 
@@ -38,7 +38,7 @@
             android:id="@+id/tv_username"
             style="@style/AppTheme.TextMedium"
             android:layout_width="wrap_content"
-            android:text="@{node.fullName}"
+            android:text="@{node.hospital_name}"
             android:singleLine="true"
             android:textColor="@color/txt_color_profile_desc"
             app:layout_constraintStart_toEndOf="@+id/img_profile"
@@ -74,7 +74,7 @@
             android:id="@+id/tvh_bank"
             style="@style/AppTheme.TextMedium"
             android:layout_marginStart="@dimen/dp8"
-            android:text="@{node.booking_count}"
+            android:text="@{node.hb_count}"
             android:textColor="@color/txt_dash_heading"
             android:textSize="@dimen/dp12"
             app:layout_constraintBottom_toBottomOf="@+id/tv_rate"

@@ -185,6 +185,15 @@ interface ApiService {
     @POST("api-patient-service-provider-list")
     fun apiProviderListing(@Body reqBody: RequestBody?): Single<ModelProviderListing>
 
+    @POST("api-patient-hospital-list")
+    fun apiHospitalListing(@Body reqBody: RequestBody?): Single<NetworkHospitalListing>
+
+    @POST("api-patient-hospital-doctor-list")
+    fun apiProviderHospDoctorsListing(@Body reqBody: RequestBody?): Single<ModelProviderListing>
+
+    @POST("api-hospital-doctor-speciality-list")
+    fun fetchSpeciality(@Body reqBody: RequestBody): Single<ModelIssueTypes>
+
     @POST("api-patient-service-provider-details")
     fun apiProviderDetails(@Body reqBody: RequestBody?): Single<ModelProviderDetails>
 
@@ -261,6 +270,7 @@ interface ApiService {
     @Multipart
     @POST("api-patient-insert-cart") // needs to change after testing
     fun apiBookAppointmentForDoctor(
+        @Part("hospital_id") hospital_id: RequestBody?,
         @Part("service_type") service_type: RequestBody?,
         @Part("currency_symbol") currency: RequestBody?,
         @Part("login_user_id") login_user_id: RequestBody?,

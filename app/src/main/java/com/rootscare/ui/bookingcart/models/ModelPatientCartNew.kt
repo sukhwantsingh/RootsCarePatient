@@ -55,7 +55,8 @@ data class ModelPatientCartNew(
     ) {
         @Keep
         data class ProviderDetails(
-            val provider_name: String?
+            val provider_name: String?,
+            val hospital_id: String?
         )
 
         @Keep

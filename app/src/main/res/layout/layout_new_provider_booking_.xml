@@ -504,11 +504,41 @@
                         android:textColor="@color/txt_color_profile_desc"
                         android:textSize="@dimen/dp14"
                         tools:text="10 SAR" />
+                    <View
+                        android:id="@+id/vw1"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/tvh_dis_fare"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:background="@color/view_div_dk" />
+
+                    <TextView
+                        android:id="@+id/tvh_sub_total"
+                        style="@style/AppTheme.TextMedium"
+                        android:layout_below="@+id/vw1"
+                        android:layout_marginTop="@dimen/dp8"
+                        android:layout_marginBottom="@dimen/dp8"
+                        android:text="@string/sub_total"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/indicator_color"
+                        android:textSize="@dimen/dp14" />
+
+                    <TextView
+                        android:id="@+id/tv_sub_total_price"
+                        style="@style/AppTheme.TextMedium"
+                        android:layout_below="@+id/vw1"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/dp8"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/indicator_color"
+                        android:textSize="@dimen/dp14"
+                        tools:text="517.5 SAR" />
+
 
                     <TextView
                         android:id="@+id/tvh_vat"
                         style="@style/AppTheme.TextRegular"
-                        android:layout_below="@+id/tvh_dis_fare"
+                        android:layout_below="@+id/tvh_sub_total"
                         android:layout_marginTop="@dimen/dp8"
                         android:text="Vat(15%)"
                         android:textColor="@color/txt_color_profile_desc"
@@ -517,7 +547,7 @@
                     <TextView
                         android:id="@+id/tv_vat"
                         style="@style/AppTheme.TextRegular"
-                        android:layout_below="@+id/tvh_dis_fare"
+                        android:layout_below="@+id/tvh_sub_total"
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="@dimen/dp8"
                         android:textColor="@color/txt_color_profile_desc"

@@ -146,6 +146,8 @@ class FragmentProvderBookingForDoctor : BaseFragment<LayoutNewProviderBookingFor
     private var prescriptionimage: RequestBody? = null
     private var imageMulitpart: MultipartBody.Part? = null
 
+    private var hospitalId = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewModel?.navigator = this
@@ -241,6 +243,7 @@ class FragmentProvderBookingForDoctor : BaseFragment<LayoutNewProviderBookingFor
                 }
 
                 else -> {
+                    val RHospId = hospitalId.asReqBody()
                     val RproviderType = providerType.asReqBody()
                     val RloginUserId = mViewModel?.appSharedPref?.userId?.asReqBody()
                     val RfamilyMembId = (mViewModel?.mlFamilyMemberId?.value ?: "").asReqBody()
@@ -261,7 +264,7 @@ class FragmentProvderBookingForDoctor : BaseFragment<LayoutNewProviderBookingFor
                     val RCurrency = mViewModel?.appSharedPref?.currencySymbol?.asReqBody()
 
                     baseActivity?.hideKeyboard(); baseActivity?.showLoading()
-                    mViewModel?.apiBookAppointmentforDoctor(
+                    mViewModel?.apiBookAppointmentforDoctor(RHospId,
                     RproviderType, RCurrency, RloginUserId, RfamilyMembId, RproviderId, RtaskSelectedBookingIds,
                     Rtsk_type, Rappoint_type, RdateSelected, RtimeSlotSelected, RtaskSelectedPrice,
                     RtaskPriceTotal, RforApivatPrice, RvatPricePercent, Rdistancefare,RsubTotalPrice,
@@ -289,11 +292,12 @@ class FragmentProvderBookingForDoctor : BaseFragment<LayoutNewProviderBookingFor
                 val gTotal = subTotal.plus(vPriceValue)
 
                 binding?.run {
-                  //  tvDisFare.setAmount(disPrice)
                     tvDisFare.visibility = View.GONE
                     tvhDisFare.visibility = View.GONE
+                    vw1.visibility = View.GONE
 
                     tvVat.setAmountWithCurrency(vPriceValue, mViewModel?.appSharedPref?.currencySymbol)
+          tvSubTotalPrice.setAmountWithCurrency(subTotal.toString(), mViewModel?.appSharedPref?.currencySymbol)
                     tvTotalPrice.setAmountWithCurrency(gTotal.toString(), mViewModel?.appSharedPref?.currencySymbol)
                 }
                 totalPrice = gTotal.toString()
@@ -316,9 +320,11 @@ class FragmentProvderBookingForDoctor : BaseFragment<LayoutNewProviderBookingFor
                 binding?.run {
                     tvDisFare.visibility = View.VISIBLE
                     tvhDisFare.visibility = View.VISIBLE
+                    vw1.visibility = View.VISIBLE
 
                     tvVat.setAmountWithCurrency(vPriceValue, mViewModel?.appSharedPref?.currencySymbol)
                     tvDisFare.setAmountWithCurrency(disPrice, mViewModel?.appSharedPref?.currencySymbol)
+              tvSubTotalPrice.setAmountWithCurrency(subTotal.toString(), mViewModel?.appSharedPref?.currencySymbol)
                     tvTotalPrice.setAmountWithCurrency(gTotal.toString(), mViewModel?.appSharedPref?.currencySymbol)
                 }
                 totalPrice = gTotal.toString()
@@ -403,7 +409,7 @@ class FragmentProvderBookingForDoctor : BaseFragment<LayoutNewProviderBookingFor
                }
                onlineBooking.equals("0", ignoreCase = true) &&
                (homeVisitBooking.isBlank() || homeVisitBooking.equals("1", ignoreCase = true)) -> {
-                   arrayListOf(BookingTypes.ONLINE_CONS.getDisplayHeading())
+                   arrayListOf(BookingTypes.ONLINE_CONSULTATION.getDisplayHeading())
                }
                homeVisitBooking.equals("0", ignoreCase = true) &&
                (onlineBooking.isBlank() || onlineBooking.equals("1", ignoreCase = true)) -> {
@@ -608,6 +614,7 @@ class FragmentProvderBookingForDoctor : BaseFragment<LayoutNewProviderBookingFor
         binding?.run {
             result?.let {
                 setVariable(BR.data, it)
+                hospitalId = it.hospital_id.orEmpty()
                 imgProfile.setCircularRemoteImageWithNoImage(it.image)
                 tvUsername.text = it.provider_name
                 tvhTypeExperience.text = "${it.dispaly_provider_type} - ${it.experience}"

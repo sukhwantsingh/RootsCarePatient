@@ -18,10 +18,7 @@ import com.rootscare.ui.base.BaseActivity
 import com.rootscare.ui.home.HomeActivity
 import com.rootscare.ui.login.LoginActivity
 import com.rootscare.ui.splash.model.NetworkAppCheck
-import com.rootscare.utilitycommon.LanguageModes
-import com.rootscare.utilitycommon.SUCCESS_CODE
-import com.rootscare.utilitycommon.getAppVersionNumber
-import com.rootscare.utilitycommon.openWebLink
+import com.rootscare.utilitycommon.*
 import com.rootscare.utils.firebase.NotificationUtils
 import io.branch.referral.Branch
 import io.branch.referral.BranchError
@@ -49,13 +46,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>(), S
             return splashViewModel as SplashViewModel
         }
 
-    companion object {
-        val TAG = SplashActivity::class.java.simpleName
-
-        fun newIntent(activity: Activity): Intent {
-            return Intent(activity, SplashActivity::class.java)
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,8 +54,13 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>(), S
         notificationUtils = NotificationUtils(this@SplashActivity)
         setLanguagePrefernce()
 
-          //apiVersionCheck()
-          Handler(Looper.getMainLooper()).postDelayed({ redirectToLogin() }, 1000L)
+        initViews()
+
+    }
+
+    private fun initViews() {
+        if(IS_PRODUCTION) apiVersionCheck()
+        else Handler(Looper.getMainLooper()).postDelayed({ redirectToLogin() }, 2000L)
     }
 
     private fun setLanguagePrefernce() {

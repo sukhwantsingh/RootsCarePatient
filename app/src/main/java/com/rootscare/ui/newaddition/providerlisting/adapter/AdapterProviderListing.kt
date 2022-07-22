@@ -2,6 +2,7 @@ package com.rootscare.ui.newaddition.providerlisting.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
@@ -86,10 +87,6 @@ class AdapterProviderListing(internal var context: Context) :
         fun onBindView(item: ModelProviderListing.Result?) {
             binding.run {
                 setVariable(BR.node, item)
-
-//                if(item?.acceptance_status?.equals(TransactionStatus.PENDING.get(), ignoreCase = true) == true){
-//                    grpAcceptRej.visibility = View.VISIBLE
-//                } else grpAcceptRej.visibility = View.GONE
                 executePendingBindings()
             }
         }

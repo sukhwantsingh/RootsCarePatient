@@ -499,12 +499,23 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
                 toolbar_back?.visibility = View.VISIBLE
                 toolbar_menu?.visibility = View.GONE
             }
+
             is FragmentProviderListing -> {
                 tootbar_text.text = providerName
                 tootlebar_notification?.visibility = View.VISIBLE
                 toolbar_back?.visibility = View.VISIBLE
                 toolbar_menu?.visibility = View.GONE
             }
+             is FragmentHospitalDoctorsListing -> {
+                tootbar_text.text = providerName
+                tootlebar_notification?.visibility = View.VISIBLE
+                toolbar_back?.visibility = View.VISIBLE
+                toolbar_menu?.visibility = View.GONE
+
+                 appointmentSearch.visibility = View.VISIBLE
+                 appointmentSearch.setOnClickListener { FragmentHospitalDoctorsListing.showSearch.value = true }
+            }
+
             is FragmentProviderListingDetails -> {
                 tootbar_text.text = providerName
                 tootlebar_notification?.visibility = View.VISIBLE

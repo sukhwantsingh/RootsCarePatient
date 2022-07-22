@@ -88,7 +88,7 @@
     <string name="sign_up">التسجيل</string>
     <string name="register_to_open_your_account">قم بالتسجيل لفتح حسابك</string>
     <string name="create_new_pwd_subtext">يجب أن تكون كلمة مرورك الجديدة مختلفة عن كلمات المرور السابقة المستخدمة.</string>
-    <string name="sent_code_subtext">لقد أرسلنا رمز التحقق إلى بريدك الإلكتروني</string>
+    <string name="sent_code_subtext">تم إرسال رمز التحقق إلى رقم هاتفك المحمول</string>
     <string name="forgot_password_subtext">.أدخل البريد الإلكتروني المرتبط بحسابك وسنرسل بريدًا إلكترونيًا يحتوي على تعليمات لإعادة تعيين كلمة المرور الخاصة بك</string>
     <string name="full_name">الاسم الكامل</string>
     <string name="mobile_number">رقم الهاتف المحمول</string>
@@ -217,8 +217,8 @@
     <string name="open_google_map">فتح خريطة جوجل</string>
     <string name="call">اتصال</string>
     <string name="booked_on"> تم الحجز في</string>
-    <string name="provide_otp_at_the_end_of_service">ادخل رمز التحقق لمرة واحدة عند نهاية الخدمة</string>
-    <string name="appointment_closed_otp_text">تم إدخال رمز التحقق لمرة واحدة ، وتم إغلاق الموعد</string>
+    <string name="provide_otp_at_the_end_of_service">نرجو تزويدنا برمز التحقق عند نهاية الخدمة</string>
+    <string name="appointment_closed_otp_text">تم ادخال رمز التحقق، تم إغلاق الموعد</string>
     <string name="distance_fare">أجور المسافة</string>
     <string name="not_rated_yet">لم يتم تقييمه بعد</string>
     <string name="rated">تم التقييم</string>
@@ -326,9 +326,16 @@
     <string name="current_location">الموقع الحالي</string>
     <string name="using_gps_of_your_device">استخدام نظام تحديد المواقع بجهازك</string>
     <string name="video_consultation">استشارة عبر الفيديو</string>
+    <string name="login_mobile_note">يجب أن يبدأ رقم الجوال المكون من 12 رقمًا برمز البلد. لا تقم بتضمين أي علامات (- + أو #)</string>
     <string name="search_by_order_id">Search by Order ID</string>
     <string name="where_you_want_service">Where do you want the Medical service?</string>
     <string name="use_mobile_number_note">Please enter valid mobile number</string>
     <string name="required_service_area">Provide required service area</string>
     <string name="update">Update</string>
+    <string name="doc_under_hospital">Doctors Under Hospital</string>
+    <string name="find_speciality_amp_doctors">Find Speciality &amp; Doctors</string>
+    <string name="book_consultation">Book Consultation</string>
+    <string name="search_by_name">Search by name</string>
+    <string name="select_speciality">Select Speciality</string>
+    <string name="sub_total">Sub Total</string>
 </resources>

@@ -52,11 +52,13 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 
 
-val PAYMENT_KEY_: String by lazy { if(IS_PRODUCTION) "sk_live_6GPzSurWAK9ng1C7yUq8wOeh" else "sk_test_KOfdbVzDXW7JreslyPL2g1nN" }
-const val SUCCESS_CODE = "200"
 
-const val IS_PRODUCTION = false
+
+const val IS_PRODUCTION = true
+
+val PAYMENT_KEY_: String by lazy { if(IS_PRODUCTION) "sk_live_6GPzSurWAK9ng1C7yUq8wOeh" else "sk_test_KOfdbVzDXW7JreslyPL2g1nN" }
 val API_BASE_URL: String by lazy { if(IS_PRODUCTION) "https://rootscare.net/application/" else "https://teq-dev-var19.co.in/rootscare/" }
+const val SUCCESS_CODE = "200"
 
 enum class BaseMediaUrls(val url: String) {
     USERIMAGE("${API_BASE_URL}uploads/images/"),

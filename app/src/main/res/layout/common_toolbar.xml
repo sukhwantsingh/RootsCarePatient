@@ -99,11 +99,11 @@
 
                     <ImageView
                         android:id="@+id/toolbar_search"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_width="29dp"
+                        android:layout_height="29dp"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/search_new"
-                        android:padding="@dimen/dp2"
+                        android:padding="@dimen/dp3"
                         app:tint="@color/txt_color"
                         android:visibility="gone"   />
 

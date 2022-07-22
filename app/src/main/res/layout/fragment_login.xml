@@ -76,6 +76,15 @@
                             android:textSize="@dimen/dp15" />
 
                     </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_below="@+id/tilmb"
+                        android:layout_alignStart="@+id/tilmb"
+                        android:layout_marginStart="@dimen/dp2"
+                        android:layout_marginTop="@dimen/dp2"
+                        android:text="@string/login_mobile_note"
+                        android:textColor="@color/colorTxtGrey1"
+                        android:textSize="@dimen/dp12" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

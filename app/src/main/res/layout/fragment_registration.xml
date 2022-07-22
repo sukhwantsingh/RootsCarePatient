@@ -195,14 +195,15 @@
                             android:textSize="@dimen/dp15" />
 
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <TextView
                         style="@style/AppTheme.TextRegular"
-                        android:text="@string/use_mobile_number_note"
-                        android:textColor="@color/colorTxtGrey1"
                         android:layout_below="@+id/tilmb"
+                        android:layout_alignStart="@+id/tilmb"
                         android:layout_marginStart="@dimen/dp2"
                         android:layout_marginTop="@dimen/dp2"
-                        android:layout_alignStart="@+id/tilmb"
+                        android:text="@string/use_mobile_number_note"
+                        android:textColor="@color/colorTxtGrey1"
                         android:textSize="@dimen/dp12" />
                 </RelativeLayout>
 

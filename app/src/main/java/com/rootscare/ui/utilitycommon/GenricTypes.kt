@@ -43,6 +43,7 @@ enum class BookingTypes(private val slotTp: String, private val n: String, priva
     TASK_BASED("TASK_BOOKING","Task Booking","task_base","حجز مُهمة"),
     HOURLY_BASED("HOURLY_BOOKING","Hourly Booking","hour_base","حجز بالساعة"),
     ONLINE_CONS("ONLINE","Online Cons","online_task","استشارة عن بُعد"),
+    ONLINE_CONSULTATION("ONLINE","Online Consultation","online_task","استشارة عن بُعد"),
     HOME_VISIT("HOME_VISIT","Home Visit","home_visit","زيارة منزلية");
 
     fun get() = this.n

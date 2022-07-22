@@ -72,9 +72,23 @@
                             tools:text="Dr. Mosia Glura" />
 
                         <TextView
+                            android:id="@+id/tvh_hosp_name_header"
+                            style="@style/AppTheme.TextMedium"
+                            android:layout_below="@+id/tv_username"
+                            android:layout_alignStart="@+id/tv_username"
+                            android:layout_marginTop="@dimen/dp3"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="@{data.hospital_name}"
+                            app:visibilityWithNullEmptyCheck="@{data.hospital_id}"
+                            android:textColor="@color/indicator_color"
+                            android:textSize="@dimen/dp13"
+                            tools:text="Chauhan Medicity" />
+
+                        <TextView
                             android:id="@+id/tvh_qualification"
                             style="@style/AppTheme.TextRegular"
-                            android:layout_below="@+id/tv_username"
+                            android:layout_below="@+id/tvh_hosp_name_header"
                             android:layout_alignStart="@+id/tv_username"
                             android:layout_marginTop="@dimen/dp3"
                             android:ellipsize="end"
@@ -93,10 +107,10 @@
                             android:ellipsize="end"
                             android:singleLine="true"
                             android:text="@{data.speciality}"
+                            app:visibilityWithNullEmptyCheck="@{data.showSpecialityOrNot()}"
                             android:textColor="@color/indicator_color"
                             android:textSize="@dimen/dp13"
                             tools:text="General Physician" />
-
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/cns_cba"

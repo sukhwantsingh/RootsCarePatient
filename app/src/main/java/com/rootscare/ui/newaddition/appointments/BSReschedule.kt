@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.core.text.parseAsHtml
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
+import com.dialog.CommonDialog.dialog
 import com.rootscare.R
 import com.rootscare.databinding.LayoutNewBsRescheduleBinding
 import com.rootscare.ui.newaddition.appointments.adapter.AdapterPaymentSplitting
@@ -35,7 +36,7 @@ class BSReschedule : DialogFragment() {
     private var selectedmonth = 0
     private var selectedday = 0
     private var dateSelected = ""
-    private var isLoadedFirst = true
+  //  private var isLoadedFirst = true
 
     val mHourlyBaseSlotList = ArrayList<String?>()
     val mTaskBaseSlotList = ArrayList<String?>()
@@ -77,7 +78,7 @@ class BSReschedule : DialogFragment() {
             rvDateSlots.adapter = mAdapDateSlots
             setDateSlotsListRecycle()
             mData?.let {
-            dateSelected = it.app_date?:""
+            dateSelected = getCurrentAppDate() // it.app_date?:""
             tvhSlotType.text =  when(it.slot_booking_id) {
 
             SlotBookingId.TASK_BOOKING.get()  -> {
@@ -88,6 +89,7 @@ class BSReschedule : DialogFragment() {
               setTasksListRecycle(it.task_details)
               BookingTypes.TASK_BASED.getDisplayHeading()
             }
+
             SlotBookingId.HOURLY_BOOKING.get() -> {
             if(mData?.task_time.isNullOrBlank()) { mHourlyBaseSlotList.clear() }
             else { mData?.task_time?.split(",")?.map { it1 -> it1.trim()}?.let { it2-> mHourlyBaseSlotList.addAll(it2) } }
@@ -247,23 +249,36 @@ class BSReschedule : DialogFragment() {
                 tvNoFoundSlotTiming.visibility = View.GONE
                 val arrList: ArrayList<ModelTaskListWithPrice.Result?> = ArrayList()
                 mList?.forEach {
-                    if(isLoadedFirst.not()) {
-                        if(isTimeAfterCurrent("$dateSelected $it")) {
-                            arrList.add(ModelTaskListWithPrice.Result("", it?.trim()?.uppercase(), "", false))
-                        }
-                    } else {
+                    if(isTimeAfterCurrent("$dateSelected $it")) {
                         arrList.add(ModelTaskListWithPrice.Result("", it?.trim()?.uppercase(), "", false))
                     }
+//                    if(isLoadedFirst.not()) {
+//                        if(isTimeAfterCurrent("$dateSelected $it")) {
+//                            arrList.add(ModelTaskListWithPrice.Result("", it?.trim()?.uppercase(), "", false))
+//                        }
+//                    } else {
+//                       if(isTimeAfterCurrent("$dateSelected $it")) {
+//                            arrList.add(ModelTaskListWithPrice.Result("", it?.trim()?.uppercase(), "", false))
+//                       }
+//                    }
                 }
-                if (mAdapTimeSlots.updatedArrayList.isNullOrEmpty()) {
-                    mAdapTimeSlots.loadDataIntoList(arrList)
+
+                if(arrList.isNullOrEmpty()){
+                    rvTimeSlots.visibility = View.GONE
+                    tvNoFoundSlotTiming.visibility = View.VISIBLE
                 } else {
-                    mAdapTimeSlots.updateData(arrList)
+                    if (mAdapTimeSlots.updatedArrayList.isNullOrEmpty()) {
+                        mAdapTimeSlots.loadDataIntoList(arrList)
+                    } else {
+                        mAdapTimeSlots.updateData(arrList)
+                    }
                 }
-               if(isLoadedFirst) {
-                   mAdapTimeSlots.markedSelectedSlot((mData?.app_time?.trim() ?: "").uppercase())
-                   isLoadedFirst = false
-               }
+
+
+            //   if(isLoadedFirst) {
+               //    mAdapTimeSlots.markedSelectedSlot((mData?.app_time?.trim() ?: "").uppercase())
+               //    isLoadedFirst = false
+             //  }
                 startSmoothScroll(0, rvTimeSlots)
             } else {
                 rvTimeSlots.visibility = View.GONE

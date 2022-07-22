@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/reltop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dp8">
+
+        <TextView
+            android:id="@+id/tvttle"
+            style="@style/AppTheme.TextMedium"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/dp8"
+            android:layout_marginStart="@dimen/dp16"
+            android:textAlignment="viewStart"
+            android:textAllCaps="true"
+            android:textColor="@color/txt_dash_heading"
+            android:textSize="@dimen/dp14"
+            android:visibility="visible"
+            tools:text="Hospital Name" />
+
+
+        <TextView
+            android:id="@+id/tv_select_depart"
+            style="@style/AppTheme.TextRegular"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/tvttle"
+            android:layout_alignStart="@+id/tvttle"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginEnd="@dimen/dp16"
+            android:layout_toStartOf="@+id/tv_more_filter"
+            android:background="@drawable/rounded_white_bg"
+            android:clickable="true"
+            android:focusable="false"
+            android:gravity="center_vertical"
+            android:hint="@string/select_speciality"
+            android:padding="@dimen/dp10"
+            android:textColor="@color/txt_dash_heading"
+            android:textColorHint="@color/txt_color_wi"
+            android:textSize="@dimen/dp15"
+            android:visibility="visible"
+            app:drawableEndCompat="@drawable/ic_dropdown_arrow" />
+
+        <TextView
+            android:id="@+id/tv_more_filter"
+            style="@style/AppTheme.TextMedium"
+            android:layout_alignTop="@+id/tv_select_depart"
+            android:layout_alignBottom="@+id/tv_select_depart"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp2"
+            android:layout_marginEnd="@dimen/dp16"
+            android:drawableEnd="@drawable/ico_filter"
+            android:drawablePadding="@dimen/dp8"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:text="More Filter"
+            android:visibility="gone"
+            android:textAlignment="viewStart"
+            android:textColor="@color/indicator_color"
+            android:textSize="@dimen/dp14" />
+
+        <include
+            android:id="@+id/incl_search"
+            layout="@layout/layout_new_search_bar_appointment"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_select_depart"
+            android:background="@drawable/round_square_border_schedule_type_blue"
+            android:visibility="gone"
+            android:layout_marginHorizontal="@dimen/dp8" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_providers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tvBottomLoadMore"
+            android:layout_below="@+id/incl_search"
+            android:layout_marginTop="@dimen/dp4"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp8"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="2"
+            tools:listitem="@layout/layout_item_new_providers_" />
+
+        <TextView
+            android:id="@+id/tvBottomLoadMore"
+            style="@style/AppTheme.TextMedium"
+            android:background="@drawable/round_square_border_schedule_type_blue"
+            android:paddingHorizontal="@dimen/dp8"
+            android:paddingVertical="@dimen/dp5"
+            android:text="••• Load More"
+            android:layout_margin="@dimen/dp8"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:textAllCaps="true"
+            tools:visibility="visible"
+            android:visibility="gone"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/dp10" />
+        <TextView
+            android:id="@+id/tv_no_date"
+            style="@style/AppTheme.TextRegular"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/_3sdp"
+            android:gravity="center"
+            android:text="@string/no_data"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/dp16"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</layout>

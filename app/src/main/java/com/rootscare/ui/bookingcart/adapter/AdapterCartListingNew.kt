@@ -66,11 +66,14 @@ class AdapterCartListingNew(internal var context: Context) :
                     if (it.booking_type.equals(BookingTypes.ONLINE_CONS.getApiType(), ignoreCase = true)) {
                         tvhDisFare.visibility = View.GONE
                         tvDisFare.visibility = View.GONE
+                        vw1.visibility = View.GONE
+
                         tvhDisFare.text = ""
                         tvDisFare.text = ""
                     } else {
                         tvhDisFare.visibility = View.VISIBLE
                         tvDisFare.visibility = View.VISIBLE
+                        vw1.visibility = View.VISIBLE
 
                         tvhDisFare.text = it.distance_fare_text
                         tvDisFare.setAmount(it.distance_fare)
@@ -85,14 +88,13 @@ class AdapterCartListingNew(internal var context: Context) :
 
                     // payment recyclerview
                     setupTaksListing(binding, it.task_details)
+                    if (mCurrency.isNullOrBlank()) { tvSubTotalPrice.setAmount(it.sub_total_price) } else tvSubTotalPrice.setAmountWithCurrency(it.sub_total_price, mCurrency)
                     tvhVat.text = it.vat_text
                     tvVat.setAmount(it.vat_price)
                     if (mCurrency.isNullOrBlank()) { tvTotalPrice.setAmount(it.total_price) } else tvTotalPrice.setAmountWithCurrency(it.total_price, mCurrency)
 
-                   tvDocHospBannerYellow.visibility = if (it.hospital_id.isNullOrBlank()) View.GONE else View.VISIBLE
-
-
-                    executePendingBindings()
+                   tvDocHospBannerYellow.visibility = if (it.provider_details?.hospital_id.isNullOrBlank()) View.GONE else View.VISIBLE
+                   executePendingBindings()
                 }
             }
         }

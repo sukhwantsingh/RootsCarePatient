@@ -204,13 +204,11 @@ class FragmentProvderBooking : BaseFragment<LayoutNewProviderBookingBinding, Pro
                 val gTotal = subTotal.plus(vPriceValue)
 
                 binding?.run {
-               //   tvVat.setAmount(vPriceValue);
-              //    tvDisFare.setAmount(disPrice)
-              //    tvTotalPrice.setAmount(gTotal.toString())
 
-                     tvVat.setAmountWithCurrency(vPriceValue, mViewModel?.appSharedPref?.currencySymbol)
+                         tvVat.setAmountWithCurrency(vPriceValue, mViewModel?.appSharedPref?.currencySymbol)
                      tvDisFare.setAmountWithCurrency(disPrice, mViewModel?.appSharedPref?.currencySymbol)
-                     tvTotalPrice.setAmountWithCurrency(gTotal.toString(), mViewModel?.appSharedPref?.currencySymbol)
+               tvSubTotalPrice.setAmountWithCurrency(subTotal.toString(), mViewModel?.appSharedPref?.currencySymbol)
+                  tvTotalPrice.setAmountWithCurrency(gTotal.toString(), mViewModel?.appSharedPref?.currencySymbol)
                 }
 
                 totalPrice = gTotal.toString()
@@ -230,13 +228,10 @@ class FragmentProvderBooking : BaseFragment<LayoutNewProviderBookingBinding, Pro
 
                 // show to the views
                 binding?.run {
-//                    tvVat.setAmount(vPriceValue);
-//                    tvDisFare.setAmount(disPrice)
-//                    tvTotalPrice.setAmount(gTotal.toString())
-
-                     tvVat.setAmountWithCurrency(vPriceValue, mViewModel?.appSharedPref?.currencySymbol)
-                     tvDisFare.setAmountWithCurrency(disPrice, mViewModel?.appSharedPref?.currencySymbol)
-                     tvTotalPrice.setAmountWithCurrency(gTotal.toString(), mViewModel?.appSharedPref?.currencySymbol)
+                           tvVat.setAmountWithCurrency(vPriceValue, mViewModel?.appSharedPref?.currencySymbol)
+                       tvDisFare.setAmountWithCurrency(disPrice, mViewModel?.appSharedPref?.currencySymbol)
+                 tvSubTotalPrice.setAmountWithCurrency(subTotal.toString(), mViewModel?.appSharedPref?.currencySymbol)
+                    tvTotalPrice.setAmountWithCurrency(gTotal.toString(), mViewModel?.appSharedPref?.currencySymbol)
                 }
 
                 totalPrice = gTotal.toString()
@@ -245,8 +240,6 @@ class FragmentProvderBooking : BaseFragment<LayoutNewProviderBookingBinding, Pro
                 subTotalPrice = subTotal.toString() // vat plus task list price
             }
         }
-
-
     }
 
     private fun callingApi() {

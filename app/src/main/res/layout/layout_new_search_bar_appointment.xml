@@ -42,6 +42,20 @@
             app:layout_constraintBottom_toBottomOf="@+id/edt_search"
             app:layout_constraintEnd_toEndOf="@+id/edt_search"
             app:layout_constraintTop_toTopOf="@+id/edt_search" />
-
+        <ImageView
+            android:id="@+id/img_search"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/ic_back_green_rect"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="@dimen/dp7"
+            android:layout_marginEnd="@dimen/dp5"
+            android:layout_marginStart="@dimen/dp8"
+            android:src="@drawable/search_new_white"
+            app:layout_constraintBottom_toBottomOf="@+id/edt_search"
+            app:layout_constraintEnd_toEndOf="@+id/edt_search"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@+id/edt_search" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

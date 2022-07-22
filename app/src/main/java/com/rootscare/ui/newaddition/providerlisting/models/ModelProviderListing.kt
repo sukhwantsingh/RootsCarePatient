@@ -43,9 +43,11 @@ data class ModelProviderListing(
 
         fun getFullName() = provider_name
 
-        fun getForceSpeciality() = speciality
+        fun getForceSpecialityOrHospital() = if(hospital_id.isNullOrBlank()) speciality else speciality
 
         fun getLocationText() =  "$loc_text,  <font color='#0888D1'>$distance</font>".parseAsHtml()
+
+        fun showLocationOrNot() = if(hospital_id.isNullOrBlank()) "show" else null
 
         fun getAvailDays() = "$av_text  <font color='#0888D1'><b>${availability?.joinToString { avd -> avd?.slot_day ?:"" }?.uppercase(Locale.getDefault())}</b></font>".parseAsHtml()
 

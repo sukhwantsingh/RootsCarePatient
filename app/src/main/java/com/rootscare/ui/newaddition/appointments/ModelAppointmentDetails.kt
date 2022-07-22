@@ -23,6 +23,7 @@ data class ModelAppointmentDetails(
         val booking_date: String?,
         val slot_booking_id: String?,
         val distance_fee: String?,
+        val sub_total_price: String?,
         val family_member_id: String?,
         val id: String?,
         val order_id: String?,
