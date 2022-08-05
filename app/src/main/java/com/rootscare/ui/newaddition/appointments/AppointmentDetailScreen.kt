@@ -241,8 +241,8 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
 
                 jsonObject.addProperty("task_type", bookType)
                 val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
-             //   showLoading()
-             //   mViewModel?.apiRescheduleForLab(body,-1)
+                showLoading()
+               mViewModel?.apiRescheduleForLab(body,-1)
             }
             else{
                 val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())

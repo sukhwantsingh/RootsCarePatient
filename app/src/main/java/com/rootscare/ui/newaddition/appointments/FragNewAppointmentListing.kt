@@ -231,11 +231,10 @@ class FragNewAppointmentListing : BaseFragment<FragNewAppointmentListingBinding,
                 mViewModel?.apiRescheduleForDoc(body,-1)
             }
             else if(serviceType.equals(ProviderTypes.LAB.getType(),ignoreCase = true)) {
-
-               //   jsonObject.addProperty("task_type", bookType)
-              //    val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
-                // baseActivity?.showLoading()
-            //     mViewModel?.apiRescheduleForLab(body,-1)
+                  jsonObject.addProperty("task_type", bookType)
+                  val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
+                 baseActivity?.showLoading()
+                 mViewModel?.apiRescheduleForLab(body,-1)
             }
             else {
                 val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
