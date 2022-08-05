@@ -5,15 +5,17 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.lifecycleScope
 import com.google.gson.JsonObject
-import com.rootscare.ApplicationClass
 import com.rootscare.BR
 import com.rootscare.R
 import com.rootscare.databinding.LayoutNewProvidersDetailsBinding
+import com.rootscare.serviceprovider.ui.pricelistss.PackageDetailScreen
+import com.rootscare.serviceprovider.ui.pricelistss.PackageListScreen
 import com.rootscare.ui.base.BaseFragment
 import com.rootscare.ui.home.HomeActivity
 import com.rootscare.ui.newaddition.providerlisting.adapter.AdapterAvailableProviderListing
+import com.rootscare.ui.newaddition.providerlisting.adapter.AdapterAvailablepackageListing
+import com.rootscare.ui.newaddition.providerlisting.adapter.OnAvailablePackageListingCallback
 import com.rootscare.ui.newaddition.providerlisting.adapter.OnProviderAvailableListingCallback
 import com.rootscare.ui.newaddition.providerlisting.models.ModelProviderDetails
 import com.rootscare.utilitycommon.*
@@ -42,6 +44,8 @@ class FragmentProviderListingDetails : BaseFragment<LayoutNewProvidersDetailsBin
         }
 
     var avProvidersAdapter :AdapterAvailableProviderListing? = null
+    var avPackagesAdapter :AdapterAvailablepackageListing? = null
+
      companion object {
         fun newInstance(provderId: String, userType:String ? =""): FragmentProviderListingDetails {
             val args = Bundle()
@@ -63,6 +67,7 @@ class FragmentProviderListingDetails : BaseFragment<LayoutNewProvidersDetailsBin
         super.onCreate(savedInstanceState)
         mViewModel?.navigator = this
         avProvidersAdapter = activity?.let { AdapterAvailableProviderListing(it) }
+        avPackagesAdapter = activity?.let { AdapterAvailablepackageListing(it) }
         providerId = arguments?.getString(PROVIDER_ID) ?: ""
         providerType = arguments?.getString(ARG_PROVIDER_TYPE) ?: ""
       }
@@ -86,12 +91,30 @@ class FragmentProviderListingDetails : BaseFragment<LayoutNewProvidersDetailsBin
                 }
             }
 
-            // online /taskbase booking click
+            rvHealthPacks.adapter = avPackagesAdapter
+            avPackagesAdapter?.mCallback = object : OnAvailablePackageListingCallback {
+                override fun onItemClick(pos: Int, id: String?) {
+                     PackageDetailScreen.packId = id.orEmpty()
+                     PackageListScreen.providerId = providerId
+                    navigate<PackageDetailScreen>()
+                }
+
+                override fun onBookClick(pos: Int, id: String?) {
+                   moveToBookingAppointment(BookingTypes.PACKAGES.get())
+                }
+            }
+
+            // online / task base booking click
             btnBookByTaskbase.setOnClickListener {
                 when {
                     providerType.equals(ProviderTypes.DOCTOR.getType(), ignoreCase = true) -> {
                         moveToBookingAppointment(BookingTypes.ONLINE_CONS.get())
-                    } else -> { moveToBookingAppointment(BookingTypes.TASK_BASED.get()) }
+                    }
+                    providerType.equals(ProviderTypes.LAB.getType(), ignoreCase = true) -> {
+                      moveToBookingAppointment(BookingTypes.TESTS.get())
+                    } else -> {
+                       moveToBookingAppointment(BookingTypes.TASK_BASED.get())
+                    }
                 }
             }
 
@@ -105,6 +128,12 @@ class FragmentProviderListingDetails : BaseFragment<LayoutNewProvidersDetailsBin
             }
 
             tvhProvidersSeeAll.setOnClickListener { (activity as? HomeActivity)?.onBackPressed() }
+
+            tvhHlpackSeeAll.setOnClickListener {
+                PackageListScreen.providerId = providerId
+                navigate<PackageListScreen>()
+            }
+
             tvh3.setOnClickListener {
                 if(howItWorksValue.isBlank().not()) {
                     val mDialog = DialogHowItWorks.newInstance(howItWorksValue)
@@ -119,6 +148,9 @@ class FragmentProviderListingDetails : BaseFragment<LayoutNewProvidersDetailsBin
             providerType.equals(ProviderTypes.DOCTOR.getType(), ignoreCase = true) -> {
                 (activity as? HomeActivity)?.checkInBackstack(FragmentProvderBookingForDoctor.newInstance(providerId,
                     bookType, providerType, onlineBooking, homeVisitBooking))
+            }
+            providerType.equals(ProviderTypes.LAB.getType(), ignoreCase = true) -> {
+              (activity as? HomeActivity)?.checkInBackstack(FragmentProvderBookingForLab.newInstance(providerId, bookType, providerType))
             }
             else -> {
                 (activity as? HomeActivity)?.checkInBackstack(FragmentProvderBooking.newInstance(providerId,
@@ -161,6 +193,10 @@ class FragmentProviderListingDetails : BaseFragment<LayoutNewProvidersDetailsBin
                 if(it.user_type?.trim().equals(ProviderTypes.DOCTOR.getType(), ignoreCase = true)){
                     btnBookByTaskbase.text = getString(R.string.book_online_appoint)
                     btnBookByHourbase.text = getString(R.string.book_home_visit_appoint)
+                } else if(it.user_type?.trim().equals(ProviderTypes.LAB.getType(), ignoreCase = true)){
+                    tvhBank.text = getString(R.string.established)
+                    btnBookByTaskbase.text = getString(R.string.book_lab_tests)
+                    setAvailablePackages(it.available_package)
                 } else {
                     btnBookByTaskbase.text = getString(R.string.book_task_based_appointment)
                     btnBookByHourbase.text = getString(R.string.book_hourly_appointment)
@@ -170,8 +206,8 @@ class FragmentProviderListingDetails : BaseFragment<LayoutNewProvidersDetailsBin
                     tvh1.text = "${HomeActivity.providerName} ${getString(R.string.booking)}"  // yellow heading provider booking
                     tvhProviders.text = "${getString(R.string.available)} ${HomeActivity.providerName}'s"
                 } else {
-                tvh1.text = "${getString(R.string.booking)} ${HomeActivity.providerName}"  // yellow heading provider booking
-                tvhProviders.text = "${HomeActivity.providerName} ${getString(R.string.available)}"
+                    tvh1.text = "${getString(R.string.booking)} ${HomeActivity.providerName}"  // yellow heading provider booking
+                    tvhProviders.text = "${HomeActivity.providerName} ${getString(R.string.available)}"
                 }
 
                 setAvailableProviders(it.available_provider)
@@ -179,6 +215,27 @@ class FragmentProviderListingDetails : BaseFragment<LayoutNewProvidersDetailsBin
             }
         }
 
+    }
+
+    // Set up recycler view for service listing if available
+    private fun setAvailablePackages(arrList: ArrayList<ModelProviderDetails.Result.AvailablePackages?>?) {
+        binding?.run {
+            // clear list to avoid duplicate list
+            avPackagesAdapter?.updatedArrayList?.clear()
+            if (arrList.isNullOrEmpty().not()) {
+                rvHealthPacks.visibility = View.VISIBLE
+                tvhHlpackSeeAll.visibility = View.VISIBLE
+                tvNoFoundHealthPacks.visibility = View.GONE
+
+                avPackagesAdapter?.loadDataIntoList(arrList)
+
+            } else {
+                rvHealthPacks.visibility = View.GONE
+                tvNoFoundHealthPacks.visibility = View.VISIBLE
+                tvhHlpackSeeAll.visibility = View.INVISIBLE
+           }
+
+        }
     }
 
     // Set up recycler view for service listing if available

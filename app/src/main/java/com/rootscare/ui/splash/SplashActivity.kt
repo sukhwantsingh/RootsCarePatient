@@ -1,6 +1,5 @@
 package com.rootscare.ui.splash
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -150,7 +149,16 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>(), S
     }
 
     private fun apiVersionCheck() {
-        if (isNetworkConnected) { splashViewModel?.apiVersionCheck() }
+        if (isNetworkConnected) {
+          //  showLoading()
+//            val jsonObject = JsonObject().apply {
+//                addProperty("divice_lang", splashViewModel?.appSharedPref?.languagePref)
+//            }
+//            val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
+            splashViewModel?.apiVersionCheck(splashViewModel?.appSharedPref?.languagePref)
+        } else {
+            showToast(getString(R.string.check_network_connection))
+        }
     }
 
     private fun showUpdateDialogBeforeLogin(mNode: NetworkAppCheck?) {

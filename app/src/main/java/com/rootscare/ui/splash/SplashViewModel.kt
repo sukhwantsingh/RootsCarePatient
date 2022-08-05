@@ -1,11 +1,12 @@
 package com.rootscare.ui.splash
 
 import com.rootscare.ui.base.BaseViewModel
+import okhttp3.RequestBody
 
 class SplashViewModel : BaseViewModel<SplashNavigator>() {
 
-    fun apiVersionCheck() {
-        val disposable = apiServiceWithGsonFactory.apiVersionCheck()
+    fun apiVersionCheck(reqBody: String?) {
+        val disposable = apiServiceWithGsonFactory.apiVersionCheck(reqBody)
             .subscribeOn(_scheduler_io)
             .observeOn(_scheduler_ui)
             .subscribe({ response ->

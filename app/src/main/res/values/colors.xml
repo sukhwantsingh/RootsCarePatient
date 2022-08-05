@@ -96,5 +96,7 @@
     <color name="view_div_dk">#CCCCCC</color>
     <color name="back_add_button">#D1E9F6</color>
     <color name="video_fab_bg">#515C6F</color>
-
+    <color name="green_off_price">#D1ECC8</color>
+    <color name="green_off_text">#26720B</color>
+    <color name="warm_light">#FFF2D9</color>
 </resources>

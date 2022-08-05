@@ -26,14 +26,14 @@
             android:background="@drawable/square_bg_one_round_yellow"
             android:paddingHorizontal="@dimen/dp8"
             android:paddingVertical="@dimen/dp2"
-            android:visibility="gone"
-            tools:visibility="visible"
             android:text="@string/hospital"
             android:textColor="@color/white"
             android:textSize="@dimen/dp11"
-            app:visibilityWithNullEmptyCheck="@{node.hospital_id}"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibilityWithNullEmptyCheck="@{node.hospital_id}"
+            tools:visibility="visible" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -51,7 +51,8 @@
                 android:layout_height="@dimen/dp77"
                 app:civ_border_color="@color/indicator_color"
                 app:civ_border_width="@dimen/dp1"
-                app:setCircularRemoteImageWithNoImage="@{node.image}" />
+                app:setCircularRemoteImageWithNoImage="@{node.image}"
+                tools:src="@color/yellow_hosp_back" />
 
 
             <LinearLayout
@@ -76,48 +77,104 @@
                     android:textSize="@dimen/dp15"
                     tools:text="Sunidhi Sharma" />
 
-                <TextView
-                    style="@style/AppTheme.TextRegular"
-                    android:layout_marginTop="@dimen/dp2"
-                    android:ellipsize="end"
-                    android:gravity="center_vertical"
-                    android:maxLines="2"
-                    android:text="@{node.getForceSpecialityOrHospital()}"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/indicator_color"
-                    android:textSize="@dimen/dp12"
-                    app:needToShowSpeciality="@{node.user_type}"
-                    tools:text="General Physician" />
-
-                <TextView
-                    style="@style/AppTheme.TextRegular"
-                    android:layout_marginTop="@dimen/dp3"
-                    android:ellipsize="end"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:text="@{node.expAndQualification}"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/colorTxtGrey1"
-                    tools:text="8 Years Exp. | MBBS, MD"
-                    android:textSize="@dimen/dp12" />
-
-                <TextView
-                    android:id="@+id/tvdistance"
-                    style="@style/AppTheme.TextRegular"
+                <LinearLayout
+                    android:id="@+id/rl_lab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp8"
-                    android:background="@drawable/ic_rect_grey_round"
-                    android:drawablePadding="@dimen/dp5"
+                    android:layout_marginBottom="@dimen/dp16"
                     android:gravity="center_vertical"
-                    android:paddingHorizontal="@dimen/dp8"
-                    android:paddingVertical="@dimen/dp4"
-                    android:text="@{node.locationText}"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/txt_color"
-                    app:visibilityWithNullEmptyCheck="@{node.showLocationOrNot()}"
-                    android:textSize="@dimen/dp12"
-                    android:visibility="visible"
-                    app:drawableStartCompat="@drawable/ic_nav_map_pin"
-                    tools:text="Within 10 km" />
+                    android:orientation="horizontal"
+                    app:showForLab="@{node.user_type}"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        style="@style/AppTheme.TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_marginEnd="@dimen/dp3"
+                        android:background="@drawable/round_left_side_plus"
+                        android:src="@drawable/ic_add_"
+                        android:layoutDirection="locale"
+                        android:textColor="@color/txt_color_profile_desc"
+                        android:textSize="@dimen/dp15" />
+
+                    <TextView
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_width="wrap_content"
+                        android:background="@drawable/round_half_right_side_green"
+                        android:gravity="center_vertical"
+                        android:text="@{node.safe_text}"
+                        tools:text="SAFE"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dp9" />
+
+                    <TextView
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/dp12"
+                        android:gravity="center_vertical"
+                        tools:text="ISO Certified"
+                        android:text="@{node.iso_certificate}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/indicator_color"
+                        android:textSize="@dimen/dp13" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_for_other_than_lab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    app:hideForLab="@{node.user_type}"
+                    tools:visibility="visible">
+
+                    <TextView
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_marginTop="@dimen/dp2"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="2"
+                        android:text="@{node.getForceSpecialityOrHospital()}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/indicator_color"
+                        android:textSize="@dimen/dp12"
+                        app:needToShowSpeciality="@{node.user_type}"
+                        tools:text="General Physician" />
+
+                    <TextView
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_marginTop="@dimen/dp3"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="@{node.expAndQualification}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorTxtGrey1"
+                        android:textSize="@dimen/dp12"
+                        tools:text="8 Years Exp. | MBBS, MD" />
+
+                    <TextView
+                        android:id="@+id/tvdistance"
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_marginTop="@dimen/dp8"
+                        android:background="@drawable/ic_rect_grey_round"
+                        android:drawablePadding="@dimen/dp5"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/dp8"
+                        android:paddingVertical="@dimen/dp4"
+                        android:text="@{node.locationText}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/txt_color"
+                        android:textSize="@dimen/dp12"
+                        android:visibility="visible"
+                        app:drawableStartCompat="@drawable/ic_nav_map_pin"
+                        app:visibilityWithNullEmptyCheck="@{node.showLocationOrNot()}"
+                        tools:text="Within 10 km" />
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/tvh_availablity"
@@ -130,7 +187,7 @@
                     android:textColor="@color/txt_color"
                     android:textSize="@dimen/dp11"
                     app:drawableStartCompat="@drawable/ic_clock_grey"
-                    app:goneWith10="@{node.provider_available}"
+                    app:invisibleWith10="@{node.provider_available}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/vl1" />
 
@@ -143,6 +200,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/ll_em_phone"
+                android:layout_marginTop="@dimen/dp8"
                 android:paddingTop="@dimen/dp4">
 
                 <TextView
@@ -155,7 +213,6 @@
                     android:drawablePadding="@dimen/dp4"
                     android:gravity="center_vertical"
                     android:paddingStart="@dimen/dp2"
-                    android:layout_marginTop="@dimen/dp8"
                     android:text="0"
                     android:textColor="@color/white"
                     android:textSize="@dimen/dp11"
@@ -189,7 +246,7 @@
 
                 <TextView
                     android:id="@+id/tv_amount_"
-                    style="@style/AppTheme.TextMedium"
+                    style="@style/AppTheme.TextRegular"
                     android:text="@{node.bavi_text}"
                     android:textAlignment="viewStart"
                     android:textSize="@dimen/dp12"

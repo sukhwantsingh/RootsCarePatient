@@ -38,11 +38,7 @@ class BSReschedule : DialogFragment() {
     private var dateSelected = ""
   //  private var isLoadedFirst = true
 
-    val mHourlyBaseSlotList = ArrayList<String?>()
-    val mTaskBaseSlotList = ArrayList<String?>()
-
-    val mOnlineBaseSlotList = ArrayList<String?>()
-    val mHomeVisitBaseSlotList = ArrayList<String?>()
+    val mTimeSlotList = ArrayList<String?>()
 
     companion object {
         var mData: ModelRescheduleDetail.Result? = null
@@ -79,38 +75,32 @@ class BSReschedule : DialogFragment() {
             setDateSlotsListRecycle()
             mData?.let {
             dateSelected = getCurrentAppDate() // it.app_date?:""
+
+            if(mData?.task_time.isNullOrBlank()) { mTimeSlotList.clear() }
+            else { mData?.task_time?.split(",")?.map { it1 -> it1.trim()}?.let { it2-> mTimeSlotList.addAll(it2) } }
+
             tvhSlotType.text =  when(it.slot_booking_id) {
-
-            SlotBookingId.TASK_BOOKING.get()  -> {
-              if(mData?.task_time.isNullOrBlank()) { mTaskBaseSlotList.clear() }
-              else { mData?.task_time?.split(",")?.map { it1 -> it1.trim()}?.let { it2 -> mTaskBaseSlotList.addAll(it2) } }
-
-           //   mTaskBaseSlotList.add(mData?.app_time?.uppercase())
-              setTasksListRecycle(it.task_details)
-              BookingTypes.TASK_BASED.getDisplayHeading()
+            SlotBookingId.TESTS_BOOKING.get()  -> {
+                setTasksListRecycle(it.task_details)
+                BookingTypes.TESTS.getDisplayHeading()
             }
-
+            SlotBookingId.PACKAGE_BOOKING.get() -> {
+                setTasksListRecycle(it.task_details)
+                BookingTypes.PACKAGES.getDisplayHeading()
+            }
+            SlotBookingId.TASK_BOOKING.get()  -> {
+                setTasksListRecycle(it.task_details)
+                BookingTypes.TASK_BASED.getDisplayHeading()
+            }
             SlotBookingId.HOURLY_BOOKING.get() -> {
-            if(mData?.task_time.isNullOrBlank()) { mHourlyBaseSlotList.clear() }
-            else { mData?.task_time?.split(",")?.map { it1 -> it1.trim()}?.let { it2-> mHourlyBaseSlotList.addAll(it2) } }
-
              setupHourlyTask(it.task_details)
              BookingTypes.HOURLY_BASED.getDisplayHeading()
             }
-
-            // need to do yet
             SlotBookingId.ONLINE_BOOKING.get()  -> {
-            if(mData?.task_time.isNullOrBlank()) { mOnlineBaseSlotList.clear() }
-            else { mData?.task_time?.split(",")?.map { it1 -> it1.trim()}?.let { it2-> mOnlineBaseSlotList.addAll(it2) } }
-
              setTasksListRecycle(it.task_details)
              BookingTypes.ONLINE_CONS.getDisplayHeading()
              }
-
             SlotBookingId.HOMEVISIT_BOOKING.get() -> {
-            if(mData?.task_time.isNullOrBlank()) { mHomeVisitBaseSlotList.clear() }
-            else { mData?.task_time?.split(",")?.map { it1 -> it1.trim()}?.let { it2-> mHomeVisitBaseSlotList.addAll(it2) } }
-
              setTasksListRecycle(it.task_details)
              BookingTypes.HOME_VISIT.getDisplayHeading()
             }
@@ -118,7 +108,6 @@ class BSReschedule : DialogFragment() {
             else -> "Unknown"
             }
 
-            // tvSelSlot.text = "${getString(R.string.slots_for)} <font><b>${it.slot_time}</b></font> )".parseAsHtml()
             tvSelectDate.text = it.app_date
             tvOrderId.text = it.order_id
             updateTimeSlots()
@@ -225,23 +214,8 @@ class BSReschedule : DialogFragment() {
     }
 
 
-    fun updateTimeSlots() {
-        when(mData?.slot_booking_id) {
-            SlotBookingId.TASK_BOOKING.get() -> {
-                setTimeSlotsListRecycle(mTaskBaseSlotList)
-            }
-            SlotBookingId.HOURLY_BOOKING.get() -> {
-                setTimeSlotsListRecycle(mHourlyBaseSlotList)
-            }
-           SlotBookingId.ONLINE_BOOKING.get() -> {
-                setTimeSlotsListRecycle(mOnlineBaseSlotList)
-            }
-           SlotBookingId.HOMEVISIT_BOOKING.get()  -> {
-                setTimeSlotsListRecycle(mHomeVisitBaseSlotList)
-            }
-            else -> Unit
-        }
-    }
+    fun updateTimeSlots() = setTimeSlotsListRecycle(mTimeSlotList)
+
     private fun setTimeSlotsListRecycle(mList: ArrayList<String?>?) {
         binding.run {
             if (mList.isNullOrEmpty().not()) {

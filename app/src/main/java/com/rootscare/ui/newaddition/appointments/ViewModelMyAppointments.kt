@@ -9,6 +9,27 @@ import okhttp3.RequestBody
 
 class ViewModelMyAppointments : BaseViewModel<AppointmentNavigator>() {
 
+    fun apiBookingTimeSlotsForLab(reqBody: RequestBody) {
+        val disposable = apiServiceWithGsonFactory.apiBookingTimeSlotsForLab(reqBody)
+            .subscribeOn(_scheduler_io)
+            .observeOn(_scheduler_ui)
+            .subscribe({ response ->
+                if (response != null) {
+                    // Store last login time
+                    Log.d("check_response", ": " + Gson().toJson(response))
+                    navigator.onSuccessBookingTimeSlots(response)
+                } else {
+                    Log.d("check_response", ": null response")
+                }
+            }, { throwable ->
+                run {
+                    navigator.errorInApi(throwable)
+                    Log.d("check_response_error", ": " + throwable.message)
+                }
+            })
+
+        compositeDisposable.add(disposable)
+    }
 
     fun apiBookingTimeSlots(reqBody: RequestBody) {
         val disposable = apiServiceWithGsonFactory.apiBookingTimeSlots(reqBody)
@@ -155,6 +176,22 @@ class ViewModelMyAppointments : BaseViewModel<AppointmentNavigator>() {
         compositeDisposable.add(disposable)
     }
 
+    fun apiRescheduleForLab(reqBody: RequestBody, position: Int) {
+        val disposable = apiServiceWithGsonFactory.apiRescheduleForLab(reqBody)
+            .subscribeOn(_scheduler_io)
+            .observeOn(_scheduler_ui)
+            .subscribe({ response ->
+                if (response != null) {
+                    navigator.onRescheduleDetails(response, position)
+                }
+            }, { throwable ->
+                run {
+                    navigator.errorInRecheduleApi(throwable)
+                }
+            })
+        compositeDisposable.add(disposable)
+    }
+
     fun apiUpdateReschedule(reqBody: RequestBody) {
         val disposable = apiServiceWithGsonFactory.apiUpdateReschedule(reqBody)
             .subscribeOn(_scheduler_io)
@@ -187,6 +224,22 @@ class ViewModelMyAppointments : BaseViewModel<AppointmentNavigator>() {
                 run {
                     navigator.errorInRecheduleApi(throwable)
                     Log.d("check_response_error", ": " + throwable.message)
+                }
+            })
+        compositeDisposable.add(disposable)
+    }
+
+    fun apiUpdateRescheduleForLab(reqBody: RequestBody) {
+        val disposable = apiServiceWithGsonFactory.apiUpdateRescheduleForLab(reqBody)
+            .subscribeOn(_scheduler_io)
+            .observeOn(_scheduler_ui)
+            .subscribe({ response ->
+                if (response != null) {
+                    navigator.onUpdateReschedule(response)
+                }
+            }, { throwable ->
+                run {
+                    navigator.errorInRecheduleApi(throwable)
                 }
             })
         compositeDisposable.add(disposable)

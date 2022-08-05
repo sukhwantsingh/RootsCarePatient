@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="node"
+            type="com.rootscare.ui.newaddition.providerlisting.models.ModelProviderDetails.Result.AvailablePackages" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/crd_root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp6"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/white"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="2dp"
+        app:cardCornerRadius="@dimen/dp5"
+        app:cardElevation="@dimen/dp2">
+
+
+        <RelativeLayout
+            android:layout_width="140dp"
+            android:padding="@dimen/dp8"
+            android:background="@drawable/round_gray_white_bg"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvhname"
+                style="@style/AppTheme.TextMedium"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{node.name}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/txt_color_profile_desc"
+                android:textSize="@dimen/dp12"
+                tools:text="Good Health Gold packages" />
+
+            <TextView
+                android:id="@+id/tv_rate"
+                style="@style/AppTheme.TextRegular"
+                android:layout_width="42dp"
+                android:layout_height="@dimen/dp18"
+                android:layout_below="@+id/tvhname"
+                android:layout_gravity="bottom|start"
+                android:layout_marginTop="@dimen/dp12"
+                android:background="@drawable/ic_back_green_rect"
+                android:drawablePadding="@dimen/dp3"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/dp2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp10"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ico_star_white"
+                tools:text="0.0" />
+
+            <TextView
+                android:id="@+id/tvh_certlabs"
+                style="@style/AppTheme.TextRegular"
+                android:layout_below="@+id/tvhname"
+                android:layout_marginTop="@dimen/dp8"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                tools:text="@{node.iso_certificate}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorTxtGrey"
+                android:textSize="@dimen/dp10"
+                android:text="ISO certified lab" />
+
+            <View
+                android:id="@+id/vl1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/tvh_certlabs"
+                android:layout_marginTop="@dimen/dp8"
+                android:background="@color/divider_support_more"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vl1"
+                android:layout_marginTop="@dimen/dp8"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvh1"
+                    style="@style/AppTheme.TextRegular"
+                    android:singleLine="true"
+                    android:text="@{node.dis_off}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/green_paid"
+                    android:textSize="@dimen/dp10"
+                    tools:text="30% off" />
+
+                <TextView
+                    android:id="@+id/tvsh1"
+                    style="@style/AppTheme.TextRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/dp2"
+                    android:singleLine="true"
+                    android:text="@{node.maxprice}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/txt_color_profile_desc"
+                    android:textSize="@dimen/dp10"
+                    app:strikeThrough="@{true}"
+                    tools:text="4200 SAR" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvsh2"
+                        style="@style/AppTheme.TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_alignTop="@+id/tvh_book"
+                        android:layout_alignBottom="@+id/tvh_book"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="@{node.price}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/txt_color_profile_desc"
+                        android:textSize="@dimen/dp13"
+                        tools:text="1000 SAR" />
+
+                    <TextView
+                        android:id="@+id/tvh_book"
+                        style="@style/AppTheme.TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/dp2"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/dp5"
+                        android:singleLine="true"
+                        android:text="@string/book"
+                        android:textAlignment="viewStart"
+                        android:textAllCaps="true"
+                        android:textColor="@color/indicator_color"
+                        android:textSize="@dimen/dp14"
+                        tools:text="BOOk" />
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

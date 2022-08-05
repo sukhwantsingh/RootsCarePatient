@@ -165,6 +165,27 @@ class ProviderListingViewModel : BaseViewModel<ProviderListingNavigator>() {
         compositeDisposable.add(disposable)
     }
 
+    fun apiBookingInitialDetailsForLab(reqBody: RequestBody?) {
+        val disposable = apiServiceWithGsonFactory.apiBookingInitialDataForLab(reqBody)
+            .subscribeOn(_scheduler_io)
+            .observeOn(_scheduler_ui)
+            .subscribe({ response ->
+                if (response != null) {
+                    navigator.onSuccessInitialData(response)
+
+                } else {
+                    Log.d("check_response", ": null response")
+                }
+            }, { throwable ->
+                run {
+                    navigator.errorInAPi(throwable)
+                    Log.d("check_response_error", ": " + throwable.message)
+                }
+            })
+
+        compositeDisposable.add(disposable)
+    }
+
     fun apiBookingInitialDetailsForDoc(reqBody: RequestBody?) {
         val disposable = apiServiceWithGsonFactory.apiBookingInitialDataForDoctor(reqBody)
             .subscribeOn(_scheduler_io)
@@ -210,6 +231,28 @@ class ProviderListingViewModel : BaseViewModel<ProviderListingNavigator>() {
 
     fun apiBookingTimeSlots(reqBody: RequestBody) {
         val disposable = apiServiceWithGsonFactory.apiBookingTimeSlots(reqBody)
+            .subscribeOn(_scheduler_io)
+            .observeOn(_scheduler_ui)
+            .subscribe({ response ->
+                if (response != null) {
+                    // Store last login time
+                    Log.d("check_response", ": " + Gson().toJson(response))
+                    navigator.onSuccessBookingTimeSlots(response)
+                } else {
+                    Log.d("check_response", ": null response")
+                }
+            }, { throwable ->
+                run {
+                    navigator.errorInAPi(throwable)
+                    Log.d("check_response_error", ": " + throwable.message)
+                }
+            })
+
+        compositeDisposable.add(disposable)
+    }
+
+    fun apiBookingTimeSlotsForLab(reqBody: RequestBody) {
+        val disposable = apiServiceWithGsonFactory.apiBookingTimeSlotsForLab(reqBody)
             .subscribeOn(_scheduler_io)
             .observeOn(_scheduler_ui)
             .subscribe({ response ->

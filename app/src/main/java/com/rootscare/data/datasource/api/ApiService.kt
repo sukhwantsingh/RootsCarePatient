@@ -47,6 +47,8 @@ import com.rootscare.ui.newaddition.appointments.ModelAppointmentDetails
 import com.rootscare.ui.newaddition.appointments.ModelAppointmentsListing
 import com.rootscare.ui.newaddition.appointments.models.ModelRescheduleDetail
 import com.rootscare.ui.newaddition.providerlisting.models.*
+import com.rootscare.ui.newaddition.providerlisting.packages.models.ModelPackageDetails
+import com.rootscare.ui.newaddition.providerlisting.packages.models.ModelPackages
 import com.rootscare.ui.notification.models.ModelNotificationResponse
 import com.rootscare.ui.notification.models.ModelUpdateRead
 import com.rootscare.ui.splash.model.NetworkAppCheck
@@ -210,9 +212,11 @@ interface ApiService {
     @POST("api-patient-past-appointment")
     fun apiAppointmentPast(@Body reqBody: RequestBody): Single<ModelAppointmentsListing>
 
-
     @POST("api-patient-reschedule-appointment")
     fun apiReschedule(@Body reqBody: RequestBody): Single<ModelRescheduleDetail>
+
+    @POST("api-patient-lab-reschedule-appointment")
+    fun apiRescheduleForLab(@Body reqBody: RequestBody): Single<ModelRescheduleDetail>
 
     @POST("api-patient-update-reschedule-appointment")
     fun apiUpdateReschedule(@Body reqBody: RequestBody): Single<ModelRescheduleDetail>
@@ -223,6 +227,9 @@ interface ApiService {
 
     @POST("api-patient-update-doctor-reschedule-appointment")
     fun apiUpdateRescheduleForDoc(@Body reqBody: RequestBody): Single<ModelRescheduleDetail>
+
+    @POST("api-patient-update-lab-reschedule-appointment")
+    fun apiUpdateRescheduleForLab(@Body reqBody: RequestBody): Single<ModelRescheduleDetail>
 
 
     @POST("api-patient-appointment-details")
@@ -240,11 +247,17 @@ interface ApiService {
     @POST("api-patient-booking-init-details")
     fun apiBookingInitialData(@Body reqBody: RequestBody?): Single<ModelBookingInitialData>
 
+    @POST("api-patient-lab-booking-init-details")
+    fun apiBookingInitialDataForLab(@Body reqBody: RequestBody?): Single<ModelBookingInitialLabData>
+
     @POST("api-patient-doctor-booking-init-details")
     fun apiBookingInitialDataForDoctor(@Body reqBody: RequestBody?): Single<ModelBookingIntialForDoctor>
 
     @POST("api-patient-next-date-time")
     fun apiBookingTimeSlots(@Body reqBody: RequestBody?): Single<ModelNetworkTimeSlots>
+
+    @POST("api-patient-lab-next-date-time")
+    fun apiBookingTimeSlotsForLab(@Body reqBody: RequestBody?): Single<ModelNetworkTimeSlots>
 
     @POST("api-patient-doctor-next-date-time")
     fun apiBookingTimeSlotsForDoctor(@Body reqBody: RequestBody?): Single<ModelTImeSlotsForDoctor>
@@ -295,8 +308,13 @@ interface ApiService {
     ): Single<CommonResponse>
 
     @GET("api-android-patient-update")
-    fun apiVersionCheck(): Single<NetworkAppCheck>
+    fun apiVersionCheck(@Query("divice_lang") deviceLang: String?): Single<NetworkAppCheck>
 
+    @POST("api-lab-package-list")
+    fun getLabPackagesApi(@Body requestBody: RequestBody?): Single<ModelPackages>
+
+    @POST("api-get-package-details")
+    fun getLabPackagesDetails(@Body requestBody: RequestBody?): Single<ModelPackageDetails>
 
 
 }

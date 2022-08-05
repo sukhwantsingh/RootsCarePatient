@@ -10,6 +10,7 @@ interface ProviderListingNavigator {
     fun onSuccessProviderListing(response: ModelProviderListing?){}
     fun onSuccessProviderListing(response: NetworkHospitalListing?){}
     fun onSuccessInitialData(response: ModelBookingInitialData?){}
+    fun onSuccessInitialData(response: ModelBookingInitialLabData?){}
     fun onSuccessInitialData(response: ModelBookingIntialForDoctor?){}
     fun onSuccessBookingTimeSlots(response: ModelNetworkTimeSlots?){}
     fun onSuccessBookingTimeSlots(response: ModelTImeSlotsForDoctor?){}

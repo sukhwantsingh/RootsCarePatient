@@ -14,6 +14,9 @@ data class ModelProviderDetails(
     data class Result(
         val availability: ArrayList<ModelProviderListing.Result.Availability?>?,
         val available_provider: ArrayList<AvailableProviders?>?,
+        val available_package: ArrayList<AvailablePackages?>?,
+        val available_test: String,
+        val iso_text: String?,
         val avg_rating: String?,
         val booking_count: String?,
         val description: String?,
@@ -47,6 +50,8 @@ data class ModelProviderDetails(
         fun getExp() = if (experience.isNullOrBlank().not()) "$experience" else "-"
         fun getAvailableDays()= availability?.joinToString { avlt -> avlt?.slot_day ?:"" }
 
+        fun showDescription() = if(user_type.equals(ProviderTypes.LAB.getType(),ignoreCase = true)) available_test else description
+
         @Keep
         data class Availability(val slot_day: String?)
 
@@ -59,5 +64,13 @@ data class ModelProviderDetails(
             val speciality: String?,
             val user_id: String?
         )
+        @Keep
+        data class AvailablePackages(
+            val pid: String?,
+            val name: String?,
+            val maxprice: String?,
+            val iso_certificate: String?,
+            val dis_off: String?,
+            val price: String?)
     }
 }

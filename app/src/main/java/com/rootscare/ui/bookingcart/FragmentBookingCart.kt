@@ -2,6 +2,7 @@ package com.rootscare.ui.bookingcart
 
 import android.app.ProgressDialog
 import android.content.SharedPreferences
+import android.graphics.Color.red
 import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
@@ -152,8 +153,9 @@ class FragmentBookingCart: BaseFragment<LayoutNewCartScreenBinding, FragmentBook
     private fun setUpNotificationRecyclerview(cartItemList: ArrayList<ModelPatientCartNew.Result?>?) {
     //    adapterBookingCartRecyclerview = AdapterBookingCartRecyclerview(cartItemList, requireContext())
         fragmentBookingCartBinding?.recyclerViewRootscareBookingcart?.adapter = adapterBookingCartRecyclerview
-        adapterBookingCartRecyclerview?.updatedArrayList?.clear()
-        adapterBookingCartRecyclerview?.loadDataIntoList(cartItemList)
+
+         adapterBookingCartRecyclerview?.updatedArrayList?.clear()
+         adapterBookingCartRecyclerview?.loadDataIntoList(cartItemList)
         adapterBookingCartRecyclerview?.mCallback = object : OnClickOfCartItem {
             override fun onFirstItemClick(id: Int) {
                 CommonDialog.showDialog(requireActivity(), object : DialogClickCallback {
@@ -356,7 +358,6 @@ class FragmentBookingCart: BaseFragment<LayoutNewCartScreenBinding, FragmentBook
      * Required step.
      * Configure SDK with your Secret API key and App Bundle name registered with tap company.
      */
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private fun configureApp() {
 //        GoSellSDK.init(
 //            activity,

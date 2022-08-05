@@ -12,6 +12,7 @@ import com.rootscare.BR
 import com.rootscare.R
 import com.rootscare.databinding.LayoutItemNewProvidersBinding
 import com.rootscare.ui.newaddition.providerlisting.models.ModelProviderListing
+import com.rootscare.utilitycommon.ProviderTypes
 
 interface OnProviderListingCallback {
     fun onItemClick(pos: Int, id: String?, usType: String) {}
@@ -70,11 +71,7 @@ class AdapterProviderListing(internal var context: Context) :
                 tvUsername.setOnClickListener { imgProfile.performClick() }
                 imgProfile.setOnClickListener {
                     val mNode = getItem(absoluteAdapterPosition)
-                    mCallback.onItemClick(
-                        absoluteAdapterPosition,
-                        mNode?.user_id ?: "",
-                        mNode?.user_type ?: ""
-                    )
+                    mCallback.onItemClick(absoluteAdapterPosition,mNode?.user_id ?: "",mNode?.user_type ?: "")
                 }
 
                 btnBookAppointment.setOnClickListener {
@@ -87,6 +84,8 @@ class AdapterProviderListing(internal var context: Context) :
         fun onBindView(item: ModelProviderListing.Result?) {
             binding.run {
                 setVariable(BR.node, item)
+                binding.btnBookAppointment.text = if(item?.user_type.equals(ProviderTypes.LAB.getType(), ignoreCase = true)){
+                context.getString(R.string.book_tests) } else context.getString(R.string.book_appointment)
                 executePendingBindings()
             }
         }

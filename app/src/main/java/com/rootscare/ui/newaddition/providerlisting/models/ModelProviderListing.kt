@@ -29,11 +29,14 @@ data class ModelProviderListing(
         val hospital_name: String?,
         val experience: String?,
         val provider_address: String?,
+        val package_base_enable: String?,  // 0- true 1- false
         val task_base_enable: String?,  // 0- true 1- false
         val hour_base_enable: String?, // 0- true 1- false
         val online_enable: String?, // 0- true 1- false
         val home_visit_enable: String?, // 0- true 1- false
 
+        val iso_certificate: String?,
+        val safe_text: String?,
         val provider_available: String?,
         val provider_name: String?,
         val speciality: String?,

@@ -3,7 +3,6 @@ package com.rootscare.utilitycommon
 import androidx.annotation.Keep
 import com.rootscare.ApplicationClass
 import com.rootscare.R
-import com.rootscare.ui.newaddition.providerlisting.models.ModelTaskListWithPrice
 import java.util.*
 
 @Keep
@@ -13,9 +12,9 @@ enum class ProviderTypes(private val tp: String, private val dn: String, private
     BABYSITTER("babysitter", "Babysitter","جليسة أطفال"),
     PHYSIOTHERAPY("physiotherapy", "Physiotherapist","اخصائي العلاج الطبيعي"),
     DOCTOR("doctor", "Doctor","طبيب"),
-    HOSPITAL_DOCTOR("hospital_doctor", "Hospital Doctor","طبيب مستشفى"),
+    HOSPITAL_DOCTOR("hospital_doctor", "Doctor","طبيب مستشفى"),
     HOSPITAL("hospital", "Hospital","مستشفى"),
-    LAB_TECHNICIAN("lab-technician", "Lab-Technician","فني مختبر"),
+    LAB("lab", "Lab","فني مختبر"),
     PATHOLOGY("pathology", "Pathology","علم الأمراض"),
     ALL("all", "All","الجميع");
 
@@ -44,7 +43,9 @@ enum class BookingTypes(private val slotTp: String, private val n: String, priva
     HOURLY_BASED("HOURLY_BOOKING","Hourly Booking","hour_base","حجز بالساعة"),
     ONLINE_CONS("ONLINE","Online Cons","online_task","استشارة عن بُعد"),
     ONLINE_CONSULTATION("ONLINE","Online Consultation","online_task","استشارة عن بُعد"),
-    HOME_VISIT("HOME_VISIT","Home Visit","home_visit","زيارة منزلية");
+    HOME_VISIT("HOME_VISIT","Home Visit","home_visit","زيارة منزلية"),
+    TESTS("TESTS","Tests","task_base","Tests"),
+    PACKAGES("PACKAGES","Health Packages","package_base","Health Packages");
 
     fun get() = this.n
     fun getSlotType() = this.slotTp
@@ -72,7 +73,7 @@ fun getProvderFromType(mType: String? = "") = when (mType?.trim()) {
     ProviderTypes.CAREGIVER.getType() -> ProviderTypes.CAREGIVER.getDisplayName()
     ProviderTypes.BABYSITTER.getType() -> ProviderTypes.BABYSITTER.getDisplayName()
     ProviderTypes.PHYSIOTHERAPY.getType() -> ProviderTypes.PHYSIOTHERAPY.getDisplayName()
-    ProviderTypes.LAB_TECHNICIAN.getType() -> ProviderTypes.LAB_TECHNICIAN.getDisplayName()
+    ProviderTypes.LAB.getType() -> ProviderTypes.LAB.getDisplayName()
     ProviderTypes.PATHOLOGY.getType() -> ProviderTypes.PATHOLOGY.getDisplayName()
     else -> "Unknown"
 }
@@ -82,7 +83,7 @@ fun getProvderEmojiFromType(mType: String? = "") = when (mType?.trim()) {
     ProviderTypes.BABYSITTER.getType() -> R.drawable.img_home_babysitter
     ProviderTypes.PHYSIOTHERAPY.getType() -> R.drawable.img_home_phy
     ProviderTypes.PATHOLOGY.getType() -> R.drawable.img_home_lab
-    ProviderTypes.LAB_TECHNICIAN.getType() -> R.drawable.img_home_lab
+    ProviderTypes.LAB.getType() -> R.drawable.img_home_lab
     ProviderTypes.HOSPITAL.getType() -> R.drawable.img_home_lab
     ProviderTypes.HOSPITAL_DOCTOR.getType() -> R.drawable.img_hosp_doc
     ProviderTypes.DOCTOR.getType() -> R.drawable.img_home_doc
@@ -132,7 +133,9 @@ enum class SlotBookingId(private val gn: String) {
     TASK_BOOKING("TASK_BOOKING"),
     HOURLY_BOOKING("HOURLY_BOOKING"),
     ONLINE_BOOKING("ONLINE_BOOKING"),
-    HOMEVISIT_BOOKING("HOMEVISIT_BOOKING");
+    HOMEVISIT_BOOKING("HOMEVISIT_BOOKING"),
+    TESTS_BOOKING("TESTS_BOOKING"),
+    PACKAGE_BOOKING("PACKAGE_BOOKING");
 
     fun get() = this.gn
 }
@@ -169,18 +172,18 @@ enum class TransactionStatus(private val ts: String, private val clr: String) {
     fun getColor() = this.clr
 }
 
-// appointment providers type
 fun appointmentsPrefLs(): ArrayList<String?> = arrayListOf(ProviderTypes.ALL.getDisplayHeading(),
         ProviderTypes.NURSE.getDisplayHeading(),
         ProviderTypes.CAREGIVER.getDisplayHeading(),
         ProviderTypes.BABYSITTER.getDisplayHeading(),
         ProviderTypes.PHYSIOTHERAPY.getDisplayHeading(),
-        ProviderTypes.DOCTOR.getDisplayHeading()
+        ProviderTypes.DOCTOR.getDisplayHeading(),
+        ProviderTypes.LAB.getDisplayHeading()
         /*,"Hospital"*/)
-  //  arrayListOf("All","Nurse","Nurse Assistant","Babysitter","Physiotherapy" /*, "Doctor","Hospital"*/)
 
 // Life style listing static data
 fun yesNoLs(): ArrayList<String?> = arrayListOf("Yes", "No")
+
 fun bloodGroupsLs(): ArrayList<String?> =
     arrayListOf("A+", "O+", "B+", "AB+", "A-", "O-", "B-", "AB-")
 

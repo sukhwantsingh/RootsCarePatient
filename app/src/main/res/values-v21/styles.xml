@@ -8,7 +8,6 @@
 
         <!-- Change the status bar background color  -->
         <item name="android:statusBarColor">@color/white</item>
-
     </style>
 
     <!-- this theme will be used as the app theme when we reach api level 21 -->
@@ -18,7 +17,5 @@
         <!-- Change the status bar background color  -->
         <item name="android:statusBarColor">@color/white</item>
     </style>
-
-
 
 </resources>

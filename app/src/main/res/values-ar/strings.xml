@@ -54,7 +54,7 @@
     <string name="heading_video_call">استشارة عبر الفيديو</string>
     <string name="thank_you">شكرا لك</string>
     <string name="successful">ناجح</string>
-    <string name="congratulations_submission_text">.تهانينا، تم تقديم خدمة روتس كير بنجاح</string>
+    <string name="congratulations_submission_text">شكرا لك، تم فتح التذكرة بنجاح</string>
     <string name="congratulations_transaction_text">تهانينا، تمت العملية بنجاح</string>
     <string name="support_amp_more">الدعم &amp; المزيد</string>
     <string name="best_company_for_medical_home_healthcare">أفضل شركة\nللخدمات الطبية\n &amp; الرعاية الصحية المنزلية</string>
@@ -327,15 +327,26 @@
     <string name="using_gps_of_your_device">استخدام نظام تحديد المواقع بجهازك</string>
     <string name="video_consultation">استشارة عبر الفيديو</string>
     <string name="login_mobile_note">يجب أن يبدأ رقم الجوال المكون من 12 رقمًا برمز البلد. لا تقم بتضمين أي علامات (- + أو #)</string>
+    <string name="update">تحديث</string>
     <string name="search_by_order_id">Search by Order ID</string>
     <string name="where_you_want_service">Where do you want the Medical service?</string>
     <string name="use_mobile_number_note">Please enter valid mobile number</string>
     <string name="required_service_area">Provide required service area</string>
-    <string name="update">Update</string>
     <string name="doc_under_hospital">Doctors Under Hospital</string>
     <string name="find_speciality_amp_doctors">Find Speciality &amp; Doctors</string>
     <string name="book_consultation">Book Consultation</string>
     <string name="search_by_name">Search by name</string>
     <string name="select_speciality">Select Speciality</string>
     <string name="sub_total">Sub Total</string>
+    <string name="book_tests">Book Tests</string>
+    <string name="book_lab_tests">Book lab tests</string>
+    <string name="established">Established</string>
+    <string name="health_packages">Health Packages</string>
+    <string name="available_tests">Available Tests</string>
+    <string name="book">Book</string>
+    <string name="change_lab">Change Lab</string>
+    <string name="lab_booking">Lab Booking</string>
+    <string name="package_detail">Package detail</string>
+    <string name="packages_not_available">Packages not available</string>
+
 </resources>

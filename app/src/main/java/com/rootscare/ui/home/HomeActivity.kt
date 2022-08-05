@@ -14,6 +14,8 @@ import android.os.Looper
 import android.util.Log
 import android.view.Menu
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -37,29 +39,29 @@ import com.rootscare.R
 import com.rootscare.data.model.api.request.appointmentrequest.AppointmentRequest
 import com.rootscare.data.model.api.response.CommonResponse
 import com.rootscare.data.model.api.response.NotificationCountResponse
+import com.rootscare.databinding.ActivityHomeBinding
 import com.rootscare.ui.base.BaseActivity
 import com.rootscare.ui.bookingcart.FragmentBookingCart
 import com.rootscare.ui.home.model.ModelUpdateCurrentLocation
 import com.rootscare.ui.home.subfragment.HomeFragment
 import com.rootscare.ui.login.LoginActivity
 import com.rootscare.ui.newaddition.appointments.FragNewAppointmentListing
+import com.rootscare.ui.newaddition.providerlisting.*
+import com.rootscare.ui.newaddition.providerlisting.patientaddition.FragmentAddPatient
 import com.rootscare.ui.notification.FragmentNotification
 import com.rootscare.ui.profile.FragmentProfile
 import com.rootscare.ui.supportmore.FragmentSupportMore
 import com.rootscare.ui.supportmore.SupportAndMore
 import com.rootscare.utilitycommon.*
-import com.rootscare.databinding.ActivityHomeBinding
-import com.rootscare.ui.newaddition.providerlisting.*
-import com.rootscare.ui.newaddition.providerlisting.patientaddition.FragmentAddPatient
 import com.rootscare.utils.firebase.Config
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.common_toolbar.*
 import mumayank.com.airlocationlibrary.AirLocation
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
-import java.lang.Exception
 import java.net.SocketException
 import java.util.*
+
 
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(), HomeActivityNavigator {
     private var activityHomeBinding: ActivityHomeBinding? = null
@@ -89,7 +91,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
         get() = BR.viewModel
 
     override val layoutId: Int
-        get() = R.layout.activity_home
+        get() = com.rootscare.R.layout.activity_home
 
     override val viewModel: HomeActivityViewModel
         get() {
@@ -231,7 +233,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
         if (commonResponse?.code.equals(SUCCESS_CODE,ignoreCase = true)) {
             isUnreadNotficationAvailable.value = if(commonResponse?.result != null && commonResponse.result != 0) {
                 activityHomeBinding?.appBarHomepage?.toolbarLayout?.
-                toolbarNotification?.startAnimation(doAnimation(R.anim.shake))
+                toolbarNotification?.startAnimation(doAnimation(com.rootscare.R.anim.shake))
                 true } else false
         }
     }
@@ -246,20 +248,23 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
     }
 
     private fun drawerNavigationMenu() {
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(com.rootscare.R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setHomeButtonEnabled(false)
 
    //   val constraintLayout = findViewById<ConstraintLayout>(R.id.parent_layout)
-        val actionBarDrawerToggle = object : ActionBarDrawerToggle(this, activityHomeBinding!!.drawerLayout, toolbar, R.string.app_name, R.string.app_name) {
+        val actionBarDrawerToggle = object : ActionBarDrawerToggle(this, activityHomeBinding?.drawerLayout, toolbar, R.string.app_name, R.string.app_name) {
             override fun onDrawerClosed(drawerView: View) {
+              //  changeTopScolor("W")
                 super.onDrawerClosed(drawerView)
                 hideKeyboard()
             }
 
             override fun onDrawerOpened(drawerView: View) {
+             //   changeTopScolor("B")
                 super.onDrawerOpened(drawerView)
                      hideKeyboard()
+
             }
 
         }
@@ -284,14 +289,21 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
 
     }
 
+    private fun changeTopScolor(col:String){
+        val window: Window = window
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = ContextCompat.getColor(this, if(col.equals("B",ignoreCase = true)) R.color.color_tab_text_selected else R.color.white)
+    }
+
     private fun setDataAndSelectOptionInDrawerNavigation() {
         activityHomeBinding?.inclLayoutNavDrawer?.run {
             // appointment
             cnsAppointUpcoming.setOnClickListener {
-                moveToAppointment(getString(R.string.upcoming_appointment),AppointmentTypes.UPCOMING.get())
+                moveToAppointment(getString(com.rootscare.R.string.upcoming_appointment),AppointmentTypes.UPCOMING.get())
             }
             cnsAppointOngoing.setOnClickListener {
-                moveToAppointment(getString(R.string.ongoing_appointment),AppointmentTypes.ONGOING.get())
+                moveToAppointment(getString(com.rootscare.R.string.ongoing_appointment),AppointmentTypes.ONGOING.get())
             }
             cnsAppointPast.setOnClickListener {
                 moveToAppointment(getString(R.string.past_appointment),AppointmentTypes.PAST.get())
@@ -354,6 +366,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
 
     fun openCartFromBottom(){
         checkInBackstack(FragmentBookingCart.newInstance())
+        Handler(Looper.getMainLooper()).postDelayed({ showSelectionOfBottomNavigationItem() }, 100)
+    }
+
+    fun openProviderListingForLab(titleName:String, provType:String,  docEnableFor: String = ""){
+        providerName = titleName
+        checkInBackstack(FragmentProviderListing.newInstance(provType, docEnableFor))
         Handler(Looper.getMainLooper()).postDelayed({ showSelectionOfBottomNavigationItem() }, 100)
     }
 
@@ -422,6 +440,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
             is HomeFragment -> {
                 menu.findItem(R.id.navigation_home).isChecked = true
             }
+            is FragmentProviderListing -> {
+                menu.findItem(R.id.navigation_home).isChecked = true
+            }
             is FragNewAppointmentListing -> {
                 menu.findItem(R.id.navigation_appointment).isChecked = true
             }
@@ -477,6 +498,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
                 toolbar_back?.visibility = View.VISIBLE
                 toolbar_menu?.visibility = View.GONE
             }
+             is FragmentProvderBookingForLab -> {
+                tootbar_text.text = getString(R.string.lab_booking)
+                tootlebar_notification?.visibility = View.VISIBLE
+                toolbar_back?.visibility = View.VISIBLE
+                toolbar_menu?.visibility = View.GONE
+            }
+
             is FragmentProvderBookingForDoctor -> {
                 tootbar_text.text = getString(R.string.booking)
                 tootlebar_notification?.visibility = View.VISIBLE
@@ -533,7 +561,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
                 //   drawerAdapter!!.selectItem(3)
                 tootbar_text.text = getString(R.string.add_patient)
 
-
                 tootlebar_notification?.visibility = View.VISIBLE
                 toolbar_back?.visibility = View.VISIBLE
                 toolbar_menu?.visibility = View.GONE
@@ -551,15 +578,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
             is FragmentNotification -> {
                 tootbar_text.text = getString(R.string.notification)
 
-
                 tootlebar_notification?.visibility = View.GONE
                 toolbar_back?.visibility = View.VISIBLE
                 toolbar_menu?.visibility = View.GONE
 
             }
-
-
-
         }
 
     }
@@ -570,7 +593,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
         val fragmentPopped = manager.popBackStackImmediate(nameFragmentInBackstack, 0)
         val ft = manager.beginTransaction()
 
-        if (!fragmentPopped && manager.findFragmentByTag(nameFragmentInBackstack) == null) { //fragment not in back stack, create it.
+        if (!fragmentPopped && manager.findFragmentByTag(nameFragmentInBackstack) == null) {  // fragment not in back stack, create it.
             ft.replace(activityHomeBinding?.appBarHomepage?.layoutContainer?.id!!, fragment, nameFragmentInBackstack)
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             ft.addToBackStack(nameFragmentInBackstack)
@@ -582,7 +605,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
             ft.addToBackStack(nameFragmentInBackstack)
             ft.commit()
         }
-        showTextInToolbarRelativeToFragment(fragment)
+
+           showTextInToolbarRelativeToFragment(fragment)
     }
 
     override fun onBackPressed() {
@@ -596,16 +620,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>(),
                 checkForClose = true
                 showToast(getString(R.string.click_again_to_exit))
                 Handler(Looper.getMainLooper()).postDelayed({ checkForClose = false }, 2000)
+            } else if (supportFragmentManager.findFragmentById(R.id.layout_container) is FragmentProviderListing) {
+               checkInBackstack(HomeFragment.newInstance())
             } else if (supportFragmentManager.findFragmentById(R.id.layout_container) is FragNewAppointmentListing) {
                 cartToHome()
             }
-            /* else if (supportFragmentManager.findFragmentById(R.id.layout_container) is FragmentProvderBooking) {
-                CommonDialog.showDialog(this@HomeActivity, object : DialogClickCallback {
-                    override fun onConfirm() {
-                        supportFragmentManager.popBackStack()
-                    }
-                }, getString(R.string.warning_), getString(R.string.data_will_lost_on_back),getString(R.string.go_back))
-            }*/
             else {
                 super.onBackPressed()
                 showSelectionOfBottomNavigationItem()

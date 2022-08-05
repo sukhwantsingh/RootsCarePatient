@@ -2,9 +2,11 @@ package com.rootscare.utilitycommon
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.graphics.Paint
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.text.parseAsHtml
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
@@ -12,7 +14,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.customview.MyEditTextView
 import com.rootscare.R
 import de.hdodenhof.circleimageview.CircleImageView
-import java.util.*
 
 
 @BindingAdapter("visibilityWithNullEmptyCheck")
@@ -23,6 +24,16 @@ fun View.visibilityWithNullEmptyCheck(vl: Any?) {
         }
         is Boolean -> View.VISIBLE
         else -> View.GONE
+    }
+    this.visibility = mVisi
+}
+
+@BindingAdapter("invisibleWithNullEmptyCheck")
+fun View.invisibleWithNullEmptyCheck(vl: Any?) {
+    val mVisi = when (vl) {
+        is String -> { if (vl.isNotBlank()) View.VISIBLE else View.INVISIBLE }
+        is Boolean ->{ if (vl) View.VISIBLE else View.INVISIBLE }
+        else -> View.INVISIBLE
     }
     this.visibility = mVisi
 }
@@ -47,35 +58,36 @@ fun View.invisibleWith10(vl: String?) {
 
 @BindingAdapter("enableDisableGreenWith01")
 fun TextView.enableDisableGreenWith01(vl: String?) {
-  when (vl) {
-      "0" -> {
-      this.setBackgroundResource(R.drawable.square_bg_green)
-      this.isEnabled = true
-      }
-      else -> {
-      this.setBackgroundResource(R.drawable.square_bg_grey)
-      this.isEnabled = false
-      }
-  }
+    when (vl) {
+        "0" -> {
+            this.setBackgroundResource(R.drawable.square_bg_green)
+            this.isEnabled = true
+        }
+        else -> {
+            this.setBackgroundResource(R.drawable.square_bg_grey)
+            this.isEnabled = false
+        }
+    }
 }
+
 @BindingAdapter("enableDisableBlueWith01")
 fun TextView.enableDisableBlueWith01(vl: String?) {
-  when (vl) {
-      "0" -> {
-      this.setBackgroundResource(R.drawable.square_bg)
-      this.isEnabled = true
-      }
-      else -> {
-      this.setBackgroundResource(R.drawable.square_bg_grey)
-      this.isEnabled = false
-      }
-  }
+    when (vl) {
+        "0" -> {
+            this.setBackgroundResource(R.drawable.square_bg)
+            this.isEnabled = true
+        }
+        else -> {
+            this.setBackgroundResource(R.drawable.square_bg_grey)
+            this.isEnabled = false
+        }
+    }
 }
 
 @BindingAdapter("changeColorWithAvailability")
 fun TextView.changeColorWithAvailability(checkVl: String?) {
     // 0 is for available 1 is for not available
-    if(checkVl.equals("0",ignoreCase = true)){
+    if (checkVl.equals("0", ignoreCase = true)) {
         this.setTextColor(Color.parseColor("#4FB82A"))
     } else {
         this.setTextColor(Color.parseColor("#8F98A7"))
@@ -94,13 +106,19 @@ fun View.visibleWithTF(vl: Boolean?) {
     this.visibility = mVisi
 }
 
-@BindingAdapter(value = ["avText","status"], requireAll = true)
-fun TextView.setAvailabilityHeadText(text: String?, status:String?) {
-  val visiText =  when (status) {
+@BindingAdapter(value = ["avText", "status"], requireAll = true)
+fun TextView.setAvailabilityHeadText(text: String?, status: String?) {
+    val visiText = when (status) {
         "1" -> {}
-        "0" ->{}
+        "0" -> {}
         else -> {}
     }
+
+}
+
+@BindingAdapter("underlineTextView")
+fun TextView.underlineTextView(checkStatus: Boolean? = false) {
+    checkStatus?.let { this.paint?.isUnderlineText = it }
 
 }
 
@@ -115,33 +133,34 @@ fun TextView.changeColorWithCheck(checkStatus: Boolean? = false) {
 
 @BindingAdapter("setAmount")
 fun TextView.setAmount(amt: String?) {
-  //  this@setAmount.text = amt?.let { "$amt ${SarTyps.SAR.getSar()}" } ?: ""
+    //  this@setAmount.text = amt?.let { "$amt ${SarTyps.SAR.getSar()}" } ?: ""
     this@setAmount.text = amt?.let { "$amt" } ?: ""
 }
 
 @BindingAdapter("setAmount")
 fun TextView.setAmount(amt: Int?) {
- //   this@setAmount.text = amt?.let { "$amt ${SarTyps.SAR.getSar()}" } ?: ""
+    //   this@setAmount.text = amt?.let { "$amt ${SarTyps.SAR.getSar()}" } ?: ""
     this@setAmount.text = amt?.let { "$amt" } ?: ""
 }
+
 @BindingAdapter("setAmount")
 fun TextView.setAmount(amt: Double?) {
-  //  this@setAmount.text = amt?.let { "$amt ${SarTyps.SAR.getSar()}" } ?: ""
+    //  this@setAmount.text = amt?.let { "$amt ${SarTyps.SAR.getSar()}" } ?: ""
     this@setAmount.text = amt?.let { "$amt" } ?: ""
 }
 
 @SuppressLint("SetTextI18n")
-@BindingAdapter(value = ["amount", "currencyIf"] , requireAll = true)
+@BindingAdapter(value = ["amount", "currencyIf"], requireAll = true)
 fun TextView.setAmountWithCurrency(amt: Any?, currency: String?) {
-  amt?.let {
-      when(it){
-          is String ->  this@setAmountWithCurrency.text ="$it ${currency?: "SAR"}"
-          is Int ->  this@setAmountWithCurrency.text = "$it ${currency?: "SAR"}"
-          is Float ->  this@setAmountWithCurrency.text = "$it ${currency?: "SAR"}"
-          is Double ->  this@setAmountWithCurrency.text = "$it ${currency?: "SAR"}"
-          else -> this@setAmountWithCurrency.text = "$it"
-      }
-  }
+    amt?.let {
+        when (it) {
+            is String -> this@setAmountWithCurrency.text = "$it ${currency ?: "SAR"}"
+            is Int -> this@setAmountWithCurrency.text = "$it ${currency ?: "SAR"}"
+            is Float -> this@setAmountWithCurrency.text = "$it ${currency ?: "SAR"}"
+            is Double -> this@setAmountWithCurrency.text = "$it ${currency ?: "SAR"}"
+            else -> this@setAmountWithCurrency.text = "$it"
+        }
+    }
 
 
 }
@@ -155,9 +174,12 @@ fun TextView.setAvgRating(rating: String?) {
 @BindingAdapter("setCircularRemoteImageWithNoImage")
 fun CircleImageView.setCircularRemoteImageWithNoImage(url_: String?) {
     try {
-        if(url_.isNullOrBlank()){ this.borderWidth =0} else this.borderWidth =1
+        if (url_.isNullOrBlank()) {
+            this.borderWidth = 0
+        } else this.borderWidth = 1
 
-        val options: RequestOptions = RequestOptions().placeholder(R.drawable.no_img_logo).priority(Priority.HIGH)
+        val options: RequestOptions =
+            RequestOptions().placeholder(R.drawable.no_img_logo).priority(Priority.HIGH)
         this.let {
             Glide.with(this.context).load("${BaseMediaUrls.USERIMAGE.url}${url_?.trim()}")
                 .apply(options).into(it)
@@ -250,7 +272,7 @@ fun TextView.setDisplayUserType(mType: String? = "") {
         ProviderTypes.CAREGIVER.getType() -> ProviderTypes.CAREGIVER.getDisplayName()
         ProviderTypes.BABYSITTER.getType() -> ProviderTypes.BABYSITTER.getDisplayName()
         ProviderTypes.PHYSIOTHERAPY.getType() -> ProviderTypes.PHYSIOTHERAPY.getDisplayName()
-        ProviderTypes.LAB_TECHNICIAN.getType() -> ProviderTypes.LAB_TECHNICIAN.getDisplayName()
+        ProviderTypes.LAB.getType() -> ProviderTypes.LAB.getDisplayName()
         ProviderTypes.PATHOLOGY.getType() -> ProviderTypes.PATHOLOGY.getDisplayName()
         else -> "Unknown"
     }
@@ -260,15 +282,61 @@ fun TextView.setDisplayUserType(mType: String? = "") {
 @BindingAdapter("needToShowSpeciality")
 fun TextView.needToShowSpeciality(mType: String? = "") {
     this.visibility = when (mType?.trim()) {
-        ProviderTypes.CAREGIVER.getType(), ProviderTypes.BABYSITTER.getType() -> View.GONE
+        ProviderTypes.LAB.getType(), ProviderTypes.CAREGIVER.getType(), ProviderTypes.BABYSITTER.getType() -> View.GONE
         else -> View.VISIBLE
     }
 
 }
 
+@BindingAdapter("showForLab")
+fun View.showForLab(mType: String? = "") {
+    this.visibility = when (mType?.trim()) {
+        ProviderTypes.LAB.getType() -> View.VISIBLE
+        else -> View.GONE
+    }
+}
 
+@BindingAdapter(value = ["labVisibility","proAvailability"])
+fun View.showForLabWithAvailable(mLab: String? = "", mAvailability: String? = "") {
+    this.visibility = when (mLab?.trim()) {
+        ProviderTypes.LAB.getType() -> {
+            if(mAvailability.equals("0" ,ignoreCase = true)) View.VISIBLE else View.GONE
+        }
+        else -> View.GONE
+    }
+}
 
+@BindingAdapter("hideForLab")
+fun View.hideForLab(mType: String? = "") {
+    this.visibility = when (mType?.trim()) {
+        ProviderTypes.LAB.getType() -> View.GONE
+        else -> View.VISIBLE
+    }
+}
 
+@BindingAdapter("changeColorWithProvider")
+fun TextView.changeColorWithProvider(mType: String? = "") {
+    this.setTextColor(
+        when (mType?.trim()) {
+            ProviderTypes.LAB.getType() -> Color.parseColor("#0888D1")
+            else -> Color.parseColor("#354052")
+        }
+    )
+
+}
+@BindingAdapter("strikeThrough")
+fun TextView.strikeThrough(strikeThrough: Boolean) {
+    if (strikeThrough) {
+        this.paintFlags = this.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+    } else {
+        this.paintFlags = this.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+    }
+}
+
+@BindingAdapter("setHtmlContent")
+fun TextView.setHtmlContent(txt: String?) {
+    this@setHtmlContent.text = txt?.let { it.parseAsHtml() } ?: ""
+}
 
 
 

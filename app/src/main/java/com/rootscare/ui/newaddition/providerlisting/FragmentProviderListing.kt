@@ -92,16 +92,32 @@ class FragmentProviderListing : BaseFragment<FragmentProviderListingBinding, Pro
                         node.user_id.orEmpty(), getBookingTypeForDoctor(node), node.user_type.orEmpty(),
                         node.online_enable ?: "1",node.home_visit_enable ?: "1"))
                 }
+                node?.user_type?.equals(ProviderTypes.LAB.getType(), ignoreCase = true) == true -> {
+                 (activity as? HomeActivity)?.checkInBackstack(FragmentProvderBookingForLab.newInstance(node.user_id.orEmpty(), BookingTypes.TESTS.get(), node.user_type.orEmpty()))
+                }
                 else -> {
+                    // For Nurse, Babysitter, Nurse Assistant, Physiotherapy
                     (activity as? HomeActivity)?.checkInBackstack(FragmentProvderBooking.newInstance(node?.user_id.orEmpty(), getBookingType(node),
                         node?.user_type.orEmpty(),node?.task_base_enable ?: "1",node?.hour_base_enable ?: "1"))
                 }
             }
         }
-       override fun onItemClick(pos: Int, id: String?,usType:String) {
-            (activity as? HomeActivity)?.checkInBackstack(FragmentProviderListingDetails.newInstance(id ?: "", usType.trim()))
+
+        override fun onItemClick(pos: Int, id: String?, usType:String) {
+            when {
+                usType.equals(ProviderTypes.LAB.getType(), ignoreCase = true) -> {
+                    //    (activity as? HomeActivity)?.checkInBackstack(FragmentProvderBooking.newInstance(
+                    //       node.user_id.orEmpty(), BookingTypes.TESTS.get(), node.user_type.orEmpty(),node.task_base_enable ?: "1","1"))
+                    (activity as? HomeActivity)?.checkInBackstack(FragmentProviderListingDetails.newInstance(id ?: "", usType.trim()))
+                }
+                else -> {
+                    (activity as? HomeActivity)?.checkInBackstack(FragmentProviderListingDetails.newInstance(id ?: "", usType.trim()))
+                }
+            }
+
        }
-       override fun onLoadMore(pos: Int, lastuserId: String) {
+
+        override fun onLoadMore(pos: Int, lastuserId: String) {
                 if(eof.not()) {
                   binding?.tvBottomLoadMore?.visibility = View.VISIBLE
                   pageCount++
@@ -180,11 +196,11 @@ class FragmentProviderListing : BaseFragment<FragmentProviderListingBinding, Pro
                 addProperty("docEnableFor", docEnableFor)
                 addProperty("work_area",  mViewModel?.appSharedPref?.workArea)
             }
-
             val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
              baseActivity?.hideKeyboard()
-             if(showLoading) baseActivity?.showLoading()
-             mViewModel?.apiProviderList(body)
+
+            if(showLoading) baseActivity?.showLoading()
+            mViewModel?.apiProviderList(body)
         } else {
             noData(getString(R.string.check_network_connection))
         }

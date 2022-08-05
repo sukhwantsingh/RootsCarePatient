@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.dialog.CommonDialog
+import com.facebook.all.All
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.JsonObject
 import com.interfaces.DialogClickCallback
@@ -20,6 +21,7 @@ import com.rootscare.databinding.FragNewAppointmentListingBinding
 import com.rootscare.twilio.VideoCallActivity
 import com.rootscare.ui.base.BaseFragment
 import com.rootscare.ui.home.HomeActivity
+import com.rootscare.ui.newaddition.appointments.FragNewAppointmentListing.Companion.reDate
 import com.rootscare.ui.newaddition.appointments.adapter.AdapterAppointmentListingCommon
 import com.rootscare.ui.newaddition.appointments.adapter.OnAppointmentListingCallback
 import com.rootscare.ui.newaddition.appointments.models.ModelRescheduleDetail
@@ -127,15 +129,16 @@ class FragNewAppointmentListing : BaseFragment<FragNewAppointmentListingBinding,
         mAppointAdapter?.mCallback = object : OnAppointmentListingCallback {
             override fun onItemClick(pos: Int, node: ModelAppointmentsListing.Result?) {
                   lastPosition = pos
-                  AppointmentDetailScreen.appointmentId = node?.id?:""
-                  AppointmentDetailScreen.serviceType = node?.provider_type?:""
-                  AppointmentDetailScreen.providerId = node?.provider_id?:""
+                  AppointmentDetailScreen.appointmentId = node?.id.orEmpty()
+                  AppointmentDetailScreen.serviceType = node?.provider_type.orEmpty()
+                  AppointmentDetailScreen.providerId = node?.provider_id.orEmpty()
+                  AppointmentDetailScreen.bookType = node?.booking_type.orEmpty()
                   navigate<AppointmentDetailScreen>()
             }
 
             override fun onReschedule(pos: Int, node: ModelAppointmentsListing.Result?) {
              lastPosition = pos
-             apiReschedule(node?.id?:"",node?.provider_type?:"")
+             apiReschedule(node?.id.orEmpty(), node?.provider_type.orEmpty(), node?.booking_type.orEmpty())
             }
 
             override fun onLoadMore(pos: Int, lastuserId: String) {
@@ -212,19 +215,33 @@ class FragNewAppointmentListing : BaseFragment<FragNewAppointmentListingBinding,
     }
 
 
-    private fun apiReschedule(id: String, serviceType: String) {
+    private fun apiReschedule(id: String, serviceType: String,bookType:String = "") {
         if (isNetworkConnected) {
-            baseActivity?.showLoading()
+
             val jsonObject = JsonObject().apply {
                 addProperty("service_type", serviceType)
                 addProperty("order_id", id)
                 addProperty("login_user_id", mViewModel?.appSharedPref?.userId)
             }
 
-            val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
+
             if(serviceType.equals(ProviderTypes.DOCTOR.getType(),ignoreCase = true)) {
-                   mViewModel?.apiRescheduleForDoc(body,-1)
-            } else mViewModel?.apiReschedule(body,-1)
+                val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
+                baseActivity?.showLoading()
+                mViewModel?.apiRescheduleForDoc(body,-1)
+            }
+            else if(serviceType.equals(ProviderTypes.LAB.getType(),ignoreCase = true)) {
+
+               //   jsonObject.addProperty("task_type", bookType)
+              //    val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
+                // baseActivity?.showLoading()
+            //     mViewModel?.apiRescheduleForLab(body,-1)
+            }
+            else {
+                val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
+                baseActivity?.showLoading()
+                mViewModel?.apiReschedule(body,-1)
+            }
         } else {
             showToast(getString(R.string.check_network_connection))
         }
@@ -270,8 +287,12 @@ class FragNewAppointmentListing : BaseFragment<FragNewAppointmentListingBinding,
             val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
             if(serviceType.equals(ProviderTypes.DOCTOR.getType(),ignoreCase = true)) {
                 mViewModel?.apiUpdateRescheduleForDoc(body)
-            } else mViewModel?.apiUpdateReschedule(body)
-            //    mViewModel?.apiMarkAs((mViewModel?.appSharedPref?.loginUserType?:"").asReqBody(),id.asReqBody(), action.asReqBody(),-12)
+            }
+            else if(serviceType.equals(ProviderTypes.LAB.getType(),ignoreCase = true)) {
+                mViewModel?.apiUpdateRescheduleForLab(body)
+            }
+            else mViewModel?.apiUpdateReschedule(body)
+
         } else {
             showToast(getString(R.string.check_network_connection))
         }
@@ -288,8 +309,13 @@ class FragNewAppointmentListing : BaseFragment<FragNewAppointmentListingBinding,
 
             if(proType.equals(ProviderTypes.DOCTOR.getType(),ignoreCase = true)) {
             val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
-            mViewModel?.apiBookingTimeSlotsForDoc(body)
-            } else {
+              mViewModel?.apiBookingTimeSlotsForDoc(body)
+            }
+            else if(proType.equals(ProviderTypes.LAB.getType(),ignoreCase = true)) {
+             val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
+               mViewModel?.apiBookingTimeSlotsForLab(body)
+            }
+            else {
              jsonObject.apply {
              addProperty("appid", orderId)
              addProperty("task_type", taskTyp)
@@ -298,6 +324,9 @@ class FragNewAppointmentListing : BaseFragment<FragNewAppointmentListingBinding,
             val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
              mViewModel?.apiBookingTimeSlots(body)
             }
+
+
+
         } else {
             showToast(getString(R.string.check_network_connection))
         }
@@ -307,16 +336,15 @@ class FragNewAppointmentListing : BaseFragment<FragNewAppointmentListingBinding,
         baseActivity?.hideLoading()
         if (response?.code.equals(SUCCESS_CODE, ignoreCase = true)) {
             if (response?.result != null) {
-                mRecheduleBS?.mOnlineBaseSlotList?.clear()
-                mRecheduleBS?.mHomeVisitBaseSlotList?.clear()
+                mRecheduleBS?.mTimeSlotList?.clear()
 
                 response.result.online_task_time?.let { tTime ->
-                    if(tTime.isBlank()) {  mRecheduleBS?.mOnlineBaseSlotList?.clear() } else {
-                        mRecheduleBS?.mOnlineBaseSlotList?.addAll(tTime.split(",").map { it1 -> it1.trim() })}
+                    if(tTime.isBlank()) {  mRecheduleBS?.mTimeSlotList?.clear() } else {
+                        mRecheduleBS?.mTimeSlotList?.addAll(tTime.split(",").map { it1 -> it1.trim() })}
                 }
                 response.result.home_visit_time?.let { hTime ->
-                    if(hTime.isBlank()) { mRecheduleBS?.mHomeVisitBaseSlotList?.clear() }
-                    else { mRecheduleBS?.mHomeVisitBaseSlotList?.addAll(hTime.split(",").map { it1 -> it1.trim()})}
+                    if(hTime.isBlank()) { mRecheduleBS?.mTimeSlotList?.clear() }
+                    else { mRecheduleBS?.mTimeSlotList?.addAll(hTime.split(",").map { it1 -> it1.trim()})}
                 }
                 mRecheduleBS?.updateTimeSlots()
             } else showToast(response?.message?:getString(R.string.something_went_wrong))
@@ -328,16 +356,15 @@ class FragNewAppointmentListing : BaseFragment<FragNewAppointmentListingBinding,
         baseActivity?.hideLoading()
         if (response?.code.equals(SUCCESS_CODE, ignoreCase = true)) {
             if (response?.result != null) {
-                mRecheduleBS?.mHourlyBaseSlotList?.clear()
-                mRecheduleBS?.mTaskBaseSlotList?.clear()
+                mRecheduleBS?.mTimeSlotList?.clear()
 
                 response.result.task_time?.let { tTime ->
-                 if(tTime.isBlank()) {  mRecheduleBS?.mTaskBaseSlotList?.clear() } else {
-                     mRecheduleBS?.mTaskBaseSlotList?.addAll(tTime.split(",").map { it1 -> it1.trim() })}
+                 if(tTime.isBlank()) {  mRecheduleBS?.mTimeSlotList?.clear() } else {
+                     mRecheduleBS?.mTimeSlotList?.addAll(tTime.split(",").map { it1 -> it1.trim() })}
                 }
                 response.result.hourly_time?.let { hTime ->
-                 if(hTime.isBlank()) { mRecheduleBS?.mHourlyBaseSlotList?.clear() }
-                 else { mRecheduleBS?.mHourlyBaseSlotList?.addAll(hTime.split(",").map { it1 -> it1.trim()})}
+                 if(hTime.isBlank()) { mRecheduleBS?.mTimeSlotList?.clear() }
+                 else { mRecheduleBS?.mTimeSlotList?.addAll(hTime.split(",").map { it1 -> it1.trim()})}
                 }
               mRecheduleBS?.updateTimeSlots()
             } else showToast(response?.message?:getString(R.string.something_went_wrong))
@@ -355,30 +382,18 @@ class FragNewAppointmentListing : BaseFragment<FragNewAppointmentListingBinding,
         binding?.tablayout?.setTabTextColors(ContextCompat.getColor(requireActivity(), R.color.transparent_white), ContextCompat.getColor(requireActivity(), R.color.background_white))
         binding?.tablayout?.addOnTabSelectedListener(object : AppTabListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
-             when (tab.position) {
-                    0 -> {
-                        // All
-                        fetchAppointments(ProviderTypes.ALL.getType())
-                    }
-                    1 -> {
-                        // Nurse
-                        fetchAppointments(ProviderTypes.NURSE.getType())
-                    }
-                    2 -> {
-                        // Nurse assistant (Caregiver)
-                        fetchAppointments(ProviderTypes.CAREGIVER.getType())
-                    }
-                    3 -> {
-                        // baby sitter
-                        fetchAppointments(ProviderTypes.BABYSITTER.getType())
-                    }
-                    4 -> {
-                        // physiotheray
-                        fetchAppointments(ProviderTypes.PHYSIOTHERAPY.getType())
-                    }
-                    5 -> { fetchAppointments(ProviderTypes.DOCTOR.getType()) }
+                fetchAppointments(when (tab.position) {
+                    0 -> ProviderTypes.ALL.getType()
+                    1 -> ProviderTypes.NURSE.getType()
+                    2 -> ProviderTypes.CAREGIVER.getType()
+                    3 -> ProviderTypes.BABYSITTER.getType()
+                    4 -> ProviderTypes.PHYSIOTHERAPY.getType()
+                    5 -> ProviderTypes.DOCTOR.getType()
+                    6 -> ProviderTypes.LAB.getType()
+                    else -> ProviderTypes.LAB.getType()
 
-                }
+                } )
+
             }
         })
 
@@ -449,8 +464,9 @@ class FragNewAppointmentListing : BaseFragment<FragNewAppointmentListingBinding,
                             tvNoDate.visibility = View.GONE
                             rvAppointments.visibility = View.VISIBLE
                         }
+
                         mAppointAdapter?.updatedArrayList?.clear()
-                        mAppointAdapter?.loadDataIntoList(it)
+                       mAppointAdapter?.loadDataIntoList(it)
                     } else noData(response.message)
                 } ?: run { noData(response?.message) }
             } else noData(response?.message)

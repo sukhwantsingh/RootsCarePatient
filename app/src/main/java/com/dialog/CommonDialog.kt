@@ -3,6 +3,8 @@ package com.dialog
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
+import android.text.Spanned
+import android.view.Gravity
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.text.parseAsHtml
@@ -35,6 +37,30 @@ object CommonDialog {
                 dialogInterface.dismiss()
             }
             setNegativeButton(R.string.no) { dialog, _ ->
+                dialogClickCallback.onDismiss()
+                dialog.dismiss()
+            }
+            show()
+        }
+
+
+    }
+
+    fun showTwoButtonDialog(
+        activity: Context, dialogClickCallback: DialogClickCallback, dialog_title: Spanned,
+        dialog_message: Spanned, pBtnText:String?, nBtnText: String?
+    ) {
+     AlertDialog.Builder(activity).apply {
+            setTitle(dialog_title)
+            setMessage(dialog_message)
+            setIcon(R.drawable.app_icon)
+
+            setCancelable(true)
+            setPositiveButton(pBtnText) { dialogInterface, _ ->
+                dialogClickCallback.onConfirm()
+                dialogInterface.dismiss()
+            }
+            setNegativeButton(nBtnText) { dialog, _ ->
                 dialogClickCallback.onDismiss()
                 dialog.dismiss()
             }
@@ -88,35 +114,7 @@ object CommonDialog {
         dialog.show()
     }
 
-
-    fun showDialogForRowItemDropDownList(context: Context,  title: String, ddList: ArrayList<RowItem?>?,
-        dialogClickCallback: DropdownRowItemItemClickOnConfirm
-    ) {
-        val dialog = Dialog(context)
-        dialog.setContentView(R.layout.dialog_dropdown)
-        dialog.setCanceledOnTouchOutside(true)
-        dialog.setCancelable(true)
-        val recyclerView_dropdown_list =
-            dialog.findViewById<RecyclerView>(R.id.recyclerView_dropdown_list)
-        val tv_title = dialog.findViewById<TextView>(R.id.txt_header_title)
-        tv_title?.text = title
-
-        val gridLayoutManager = GridLayoutManager(context, 1, GridLayoutManager.VERTICAL, false)
-        recyclerView_dropdown_list.layoutManager = gridLayoutManager
-        val dropdownListAdapter = AdapterRowItemListDropdown(ddList, context)
-        recyclerView_dropdown_list.adapter = dropdownListAdapter
-        dropdownListAdapter.recyclerViewItemClick = object : OnRowItemDropdownItemClick {
-            override fun onConfirm(title_name: String, title_id: String) {
-                dialogClickCallback.onConfirm(title_name, title_id)
-                dialog.dismiss()
-            }
-        }
-        dialog.show()
-    }
-
-    fun showDialogWithSingleButton(
-        activity: Context, dClb: DialogClickCallback, dialog_title: String?,
-        dialog_message: String) {
+    fun showDialogWithSingleButton(activity: Context, dClb: DialogClickCallback, dialog_title: String?,  dialog_message: String) {
         val adB = AlertDialog.Builder(activity)
         if(dialog_title.isNullOrBlank().not()) adB.setTitle(dialog_title)
         adB.setMessage(dialog_message)

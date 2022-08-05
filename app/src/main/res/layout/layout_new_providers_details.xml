@@ -28,6 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
                 app:cardElevation="0dp">
+
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -35,16 +36,15 @@
                     <TextView
                         android:id="@+id/tv_doc_hosp_banner_yellow"
                         style="@style/AppTheme.TextMedium"
+                        android:layout_gravity="end"
                         android:background="@drawable/square_bg_one_round_yellow"
                         android:paddingHorizontal="@dimen/dp8"
                         android:paddingVertical="@dimen/dp2"
-                        tools:visibility="visible"
                         android:text="@string/hospital"
                         android:textColor="@color/white"
-                        app:visibilityWithNullEmptyCheck="@{data.hospital_id}"
                         android:textSize="@dimen/dp11"
-                        android:layout_gravity="end"
-                       />
+                        app:visibilityWithNullEmptyCheck="@{data.hospital_id}"
+                        tools:visibility="visible" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -55,9 +55,9 @@
                             android:id="@+id/img_profile"
                             android:layout_width="@dimen/dp77"
                             android:layout_height="@dimen/dp77"
-                            app:setCircularRemoteImageWithNoImage="@{data.image}"
                             app:civ_border_color="@color/indicator_color"
-                            app:civ_border_width="@dimen/dp1" />
+                            app:civ_border_width="@dimen/dp1"
+                            app:setCircularRemoteImageWithNoImage="@{data.image}" />
 
                         <TextView
                             android:id="@+id/tv_username"
@@ -80,20 +80,35 @@
                             android:ellipsize="end"
                             android:singleLine="true"
                             android:text="@{data.hospital_name}"
-                            app:visibilityWithNullEmptyCheck="@{data.hospital_id}"
                             android:textColor="@color/indicator_color"
                             android:textSize="@dimen/dp13"
+                            app:visibilityWithNullEmptyCheck="@{data.hospital_id}"
                             tools:text="Chauhan Medicity" />
 
                         <TextView
-                            android:id="@+id/tvh_qualification"
+                            android:id="@+id/tvh_iso_header"
                             style="@style/AppTheme.TextRegular"
                             android:layout_below="@+id/tvh_hosp_name_header"
                             android:layout_alignStart="@+id/tv_username"
                             android:layout_marginTop="@dimen/dp3"
                             android:ellipsize="end"
                             android:singleLine="true"
+                            android:text="@{data.iso_text}"
+                            android:textColor="@color/indicator_color"
+                            android:textSize="@dimen/dp13"
+                            app:showForLab="@{data.user_type}"
+                            tools:text="General Physician" />
+
+                        <TextView
+                            android:id="@+id/tvh_qualification"
+                            style="@style/AppTheme.TextRegular"
+                            android:layout_below="@+id/tvh_iso_header"
+                            android:layout_alignStart="@+id/tv_username"
+                            android:layout_marginTop="@dimen/dp3"
+                            android:ellipsize="end"
+                            android:singleLine="true"
                             android:text="@{data.qualification}"
+                            app:hideForLab="@{data.user_type}"
                             android:textColor="@color/colorTxtGrey1"
                             android:textSize="@dimen/dp13"
                             tools:text="MBBS" />
@@ -107,9 +122,9 @@
                             android:ellipsize="end"
                             android:singleLine="true"
                             android:text="@{data.speciality}"
-                            app:visibilityWithNullEmptyCheck="@{data.showSpecialityOrNot()}"
                             android:textColor="@color/indicator_color"
                             android:textSize="@dimen/dp13"
+                            app:visibilityWithNullEmptyCheck="@{data.showSpecialityOrNot()}"
                             tools:text="General Physician" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -125,9 +140,9 @@
                                 style="@style/AppTheme.TextRegular"
                                 android:layout_marginTop="@dimen/dp12"
                                 android:text="@string/experience"
+                                android:textAlignment="viewStart"
                                 android:textColor="@color/colorTxtGrey1"
                                 android:textSize="@dimen/dp12"
-                                android:textAlignment="viewStart"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -135,9 +150,9 @@
                                 android:id="@+id/tvh_acname"
                                 style="@style/AppTheme.TextRegular"
                                 android:text="@string/bookings"
+                                android:textAlignment="viewStart"
                                 android:textColor="@color/colorTxtGrey1"
                                 android:textSize="@dimen/dp12"
-                                android:textAlignment="viewStart"
                                 app:layout_constraintEnd_toStartOf="@+id/tvh_acnum"
                                 app:layout_constraintStart_toEndOf="@+id/tvh_bank"
                                 app:layout_constraintTop_toTopOf="@+id/tvh_bank" />
@@ -146,9 +161,9 @@
                                 android:id="@+id/tvh_acnum"
                                 style="@style/AppTheme.TextRegular"
                                 android:text="@string/ratings"
+                                android:textAlignment="viewStart"
                                 android:textColor="@color/colorTxtGrey1"
                                 android:textSize="@dimen/dp12"
-                                android:textAlignment="viewStart"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/tvh_acname"
                                 app:layout_constraintTop_toTopOf="@+id/tvh_acname" />
@@ -158,10 +173,10 @@
                                 style="@style/AppTheme.TextMedium"
                                 android:layout_width="@dimen/dimen_0dp"
                                 android:layout_marginTop="@dimen/dp2"
-                                android:textColor="@color/txt_color_profile_desc"
-                                android:textSize="@dimen/dp15"
                                 android:text="@{data.exp}"
                                 android:textAlignment="viewStart"
+                                android:textColor="@color/txt_color_profile_desc"
+                                android:textSize="@dimen/dp15"
                                 app:layout_constraintBottom_toBottomOf="@+id/tv_bookings_"
                                 app:layout_constraintEnd_toStartOf="@+id/tv_bookings_"
                                 app:layout_constraintStart_toStartOf="@+id/tvh_bank"
@@ -174,10 +189,10 @@
                                 android:layout_width="@dimen/dimen_0dp"
                                 android:layout_marginTop="@dimen/dp2"
                                 android:gravity="center_vertical"
+                                android:text="@{data.booking_count}"
+                                android:textAlignment="viewStart"
                                 android:textColor="@color/txt_color_profile_desc"
                                 android:textSize="@dimen/dp15"
-                                android:textAlignment="viewStart"
-                                android:text="@{data.booking_count}"
                                 app:layout_constraintBottom_toBottomOf="@+id/tv_avg_rating_"
                                 app:layout_constraintEnd_toStartOf="@+id/tv_avg_rating_"
                                 app:layout_constraintStart_toStartOf="@+id/tvh_acname"
@@ -194,11 +209,11 @@
                                 android:gravity="bottom"
                                 android:textColor="@color/txt_color_profile_desc"
                                 android:textSize="@dimen/dp15"
-                                app:setAvgRating="@{data.avg_rating}"
                                 app:drawableStartCompat="@drawable/ico_star"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="@+id/tvh_acnum"
                                 app:layout_constraintTop_toBottomOf="@+id/tvh_acnum"
+                                app:setAvgRating="@{data.avg_rating}"
                                 tools:text="0.0" />
 
                             <View
@@ -212,17 +227,32 @@
                                 app:layout_constraintTop_toBottomOf="@+id/tv_bookings_" />
 
                             <TextView
+                                android:id="@+id/tvh_avail_tests_"
+                                style="@style/AppTheme.TextRegular"
+                                android:layout_width="@dimen/dimen_0dp"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:gravity="center_vertical"
+                                android:text="@string/available_tests"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/dp14"
+                                app:layout_constraintStart_toStartOf="@+id/vsep"
+                                app:layout_constraintTop_toBottomOf="@+id/vsep"
+                                app:showForLab="@{data.user_type}" />
+
+                            <TextView
                                 android:id="@+id/tv_description"
                                 style="@style/AppTheme.TextRegular"
                                 android:layout_width="@dimen/dimen_0dp"
                                 android:layout_marginTop="@dimen/dp14"
+                                android:text="@{data.showDescription}"
+                                app:changeColorWithProvider="@{data.user_type}"
+                                android:textAlignment="viewStart"
                                 android:textColor="@color/txt_color_profile_desc"
                                 android:textSize="@dimen/dp12"
-                                android:textAlignment="viewStart"
-                                android:text="@{data.description}"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="@+id/vsep"
-                                app:layout_constraintTop_toBottomOf="@+id/vsep"
+                                app:layout_constraintTop_toBottomOf="@+id/tvh_avail_tests_"
                                 tools:text="Growth in Hypothyroidism presented at Asia Pacific Conference in Australia, 1992 Attended training program in Diabetic Nephropathy in USA, 2000 Attended Lilli Update in Bangkok, 2002 Attended Diabetic Update in Amsterdam, 2003 Attended Novo Update in Paris," />
 
                             <androidx.constraintlayout.widget.ConstraintLayout
@@ -243,19 +273,20 @@
 
                                 <androidx.constraintlayout.widget.Group
                                     android:layout_width="wrap_content"
-                                    app:goneWith10="@{data.provider_available}"
+                                    android:layout_height="wrap_content"
                                     app:constraint_referenced_ids="vw1,tvh_availablity,tv_availablity"
-                                    android:layout_height="wrap_content"/>
+                                    app:goneWith10="@{data.provider_available}" />
+
                                 <TextView
                                     android:id="@+id/tvh_availablity"
                                     style="@style/AppTheme.TextRegular"
                                     android:layout_width="@dimen/dimen_0dp"
                                     android:layout_marginTop="@dimen/dp10"
                                     android:drawablePadding="@dimen/dp8"
+                                    android:text="@{data.bavi_text}"
+                                    android:textAlignment="viewStart"
                                     android:textColor="@color/txt_color"
                                     android:textSize="@dimen/dp14"
-                                    android:textAlignment="viewStart"
-                                    android:text="@{data.bavi_text}"
                                     app:drawableStartCompat="@drawable/ic_clock_grey"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/vl1" />
@@ -265,12 +296,12 @@
                                     style="@style/AppTheme.TextMedium"
                                     android:layout_width="wrap_content"
                                     android:gravity="end|center_vertical"
+                                    android:text="@{data.availableDays}"
+                                    android:textAlignment="viewStart"
                                     android:textColor="@color/indicator_color"
                                     android:textSize="@dimen/dp13"
-                                    android:textAlignment="viewStart"
-                                    android:text="@{data.availableDays}"
-                                    app:layout_constraintHorizontal_bias="1"
                                     app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="1"
                                     app:layout_constraintStart_toEndOf="@+id/tvh_availablity"
                                     app:layout_constraintTop_toTopOf="@+id/tvh_availablity"
                                     tools:text="MON, FRI" />
@@ -290,17 +321,17 @@
                                     style="@style/AppTheme.TextMedium"
                                     android:layout_width="match_parent"
                                     android:layout_marginTop="@dimen/dp20"
+                                    android:background="@drawable/square_bg_green"
                                     android:clickable="true"
                                     android:foreground="?attr/selectableItemBackground"
                                     android:gravity="center"
-                                    app:goneWith10="@{data.taskEnability}"
                                     android:paddingHorizontal="@dimen/dp10"
                                     android:paddingVertical="@dimen/dp10"
                                     android:text="@string/book_task_based_appointment"
                                     android:textAllCaps="true"
-                                    android:background="@drawable/square_bg_green"
                                     android:textColor="@color/white"
                                     android:textSize="@dimen/dp13"
+                                    app:goneWith10="@{data.taskEnability}"
                                     app:layout_constraintStart_toStartOf="@+id/vw1"
                                     app:layout_constraintTop_toBottomOf="@+id/vw1" />
 
@@ -316,23 +347,88 @@
                                     android:gravity="center"
                                     android:paddingHorizontal="@dimen/dp10"
                                     android:paddingVertical="@dimen/dp10"
-                                    app:goneWith10="@{data.hourEnability}"
                                     android:text="@string/book_hourly_appointment"
                                     android:textAllCaps="true"
                                     android:textColor="@color/white"
                                     android:textSize="@dimen/dp13"
+                                    app:goneWith10="@{data.hourEnability}"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintStart_toStartOf="@+id/btn_book_by_taskbase"
                                     app:layout_constraintTop_toBottomOf="@+id/btn_book_by_taskbase" />
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.constraintlayout.widget.ConstraintLayout>
+
                     </RelativeLayout>
 
                 </FrameLayout>
 
             </androidx.cardview.widget.CardView>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/divider_support_more"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:labVisibility="@{data.user_type}"
+                proAvailability="@{data.provider_available}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/dp16"
+                app:labVisibility="@{data.user_type}"
+                proAvailability="@{data.provider_available}"
+                android:background="@color/white"
+                android:paddingVertical="@dimen/dp10">
+
+                <TextView
+                    android:id="@+id/tvh_hlpack_"
+                    style="@style/AppTheme.TextRegular"
+                    android:text="@string/health_packages"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/txt_color_profile_desc"
+                    android:textSize="@dimen/dp15"/>
+
+                <TextView
+                    android:id="@+id/tvh_hlpack_see_all"
+                    style="@style/AppTheme.TextMedium"
+                    android:layout_alignParentEnd="true"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="@dimen/dp5"
+                    android:text="@string/see_all"
+                    android:textColor="@color/indicator_color"
+                    android:textSize="@dimen/dp13" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_health_packs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvh_hlpack_see_all"
+                    android:layout_marginTop="@dimen/dp2"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/ln_row_item_health_packs_available" />
+
+                <TextView
+                    android:id="@+id/tv_no_found_health_packs"
+                    style="@style/AppTheme.TextRegular"
+                    android:layout_below="@+id/rv_health_packs"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/dp24"
+                    android:layout_marginTop="@dimen/dp24"
+                    android:text="@string/packages_not_available"
+                    android:textColor="@color/indicator_color"
+                    android:textSize="@dimen/dp16"
+                    android:visibility="gone" />
+            </RelativeLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cns_bottom_yellow_header"
@@ -355,9 +451,9 @@
                     android:id="@+id/tvh_1"
                     style="@style/AppTheme.TextMedium"
                     android:layout_marginStart="@dimen/dp8"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/white"
                     android:textSize="@dimen/dp12"
-                    android:textAlignment="viewStart"
                     app:layout_constraintBottom_toBottomOf="@+id/img_ico_"
                     app:layout_constraintStart_toEndOf="@+id/img_ico_"
                     app:layout_constraintTop_toTopOf="@+id/img_ico_" />
@@ -406,7 +502,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp16"
                 android:layout_marginBottom="@dimen/dp20"
-                app:cardElevation="@dimen/dp2">
+                app:cardElevation="@dimen/dp2"
+                app:hideForLab="@{data.user_type}">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -417,10 +514,10 @@
                     <TextView
                         android:id="@+id/tvh_providers_"
                         style="@style/AppTheme.TextMedium"
-                        tools:text="Available Nurse\'s"
                         android:textAlignment="viewStart"
                         android:textColor="@color/txt_color_profile_desc"
-                        android:textSize="@dimen/dp15" />
+                        android:textSize="@dimen/dp15"
+                        tools:text="Available Nurse\'s" />
 
                     <TextView
                         android:id="@+id/tvh_providers_see_all"

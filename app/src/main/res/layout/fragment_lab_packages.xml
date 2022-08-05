@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:id="@+id/ll_mainlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/crd_lab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp8"
+                android:visibility="visible">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/dp8"
+                    android:paddingHorizontal="@dimen/dp16">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_profile"
+                        android:layout_width="@dimen/dp77"
+                        android:layout_height="@dimen/dp77"
+                        android:src="@drawable/no_img_logo"
+                        app:civ_border_color="@color/indicator_color"
+                        app:civ_border_width="@dimen/dp1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_username"
+                        style="@style/AppTheme.TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_alignTop="@+id/img_profile"
+                        android:layout_marginStart="@dimen/dp16"
+                        android:layout_toEndOf="@+id/img_profile"
+                        android:singleLine="true"
+                        android:textColor="@color/txt_color"
+                        android:textSize="@dimen/dp15"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        app:layout_constraintBottom_toTopOf="@+id/tvh_iso_certificate"
+                        app:layout_constraintStart_toEndOf="@+id/img_profile"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginBottom="@dimen/dp3"
+                        tools:text="Maya Grey" />
+
+                    <TextView
+                        android:id="@+id/tvh_iso_certificate"
+                        style="@style/AppTheme.TextRegular"
+                        android:layout_below="@+id/tv_username"
+                        android:layout_alignStart="@+id/tv_username"
+                        android:layout_marginTop="@dimen/dp3"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textColor="@color/indicator_color"
+                        android:textSize="@dimen/dp13"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tv_username"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_username"
+                        tools:text="Nurse - 8YR Exp." />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_packages"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:layout_marginTop="@dimen/dp2"
+                android:layout_below="@+id/crd_lab"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/_10sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="2"
+                tools:listitem="@layout/layout_new_item_packages" />
+
+            <TextView
+                android:id="@+id/tv_no_date"
+                style="@style/AppTheme.TextRegular"
+                android:layout_centerInParent="true"
+                android:layout_margin="@dimen/dp3"
+                android:gravity="center"
+                android:text="@string/no_data"
+                android:textSize="@dimen/dp15"
+                android:textColor="@color/colorPrimary"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -43,6 +43,7 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
         var appointmentId: String? = null
         var serviceType: String? = null
         var providerId = ""
+        var bookType = ""
     }
 
     override val bindingVariable: Int
@@ -157,7 +158,11 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
             if(proType.equals(ProviderTypes.DOCTOR.getType(),ignoreCase = true)) {
                 val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
                 mViewModel?.apiBookingTimeSlotsForDoc(body)
-            } else {
+            }  else if(proType.equals(ProviderTypes.LAB.getType(),ignoreCase = true)) {
+                val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
+                mViewModel?.apiBookingTimeSlotsForLab(body)
+            }
+            else {
                 jsonObject.apply {
                 addProperty("appid", orderId)
                 addProperty("task_type", taskTyp)
@@ -175,16 +180,15 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
         hideLoading()
         if (response?.code.equals(SUCCESS_CODE, ignoreCase = true)) {
             if (response?.result != null) {
-                mRecheduleBS?.mOnlineBaseSlotList?.clear()
-                mRecheduleBS?.mHomeVisitBaseSlotList?.clear()
+                mRecheduleBS?.mTimeSlotList?.clear()
 
                 response.result.online_task_time?.let { tTime ->
-                    if(tTime.isBlank()) {  mRecheduleBS?.mOnlineBaseSlotList?.clear() } else {
-                        mRecheduleBS?.mOnlineBaseSlotList?.addAll(tTime.split(",").map { it1 -> it1.trim() })}
+                    if(tTime.isBlank()) {  mRecheduleBS?.mTimeSlotList?.clear() } else {
+                        mRecheduleBS?.mTimeSlotList?.addAll(tTime.split(",").map { it1 -> it1.trim() })}
                 }
                 response.result.home_visit_time?.let { hTime ->
-                    if(hTime.isBlank()) { mRecheduleBS?.mHomeVisitBaseSlotList?.clear() }
-                    else { mRecheduleBS?.mHomeVisitBaseSlotList?.addAll(hTime.split(",").map { it1 -> it1.trim()})}
+                    if(hTime.isBlank()) { mRecheduleBS?.mTimeSlotList?.clear() }
+                    else { mRecheduleBS?.mTimeSlotList?.addAll(hTime.split(",").map { it1 -> it1.trim()})}
                 }
                 mRecheduleBS?.updateTimeSlots()
             } else showToast(response?.message?:getString(R.string.something_went_wrong))
@@ -196,16 +200,15 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
         hideLoading()
         if (response?.code.equals(SUCCESS_CODE, ignoreCase = true)) {
             if (response?.result != null) {
-                mRecheduleBS?.mHourlyBaseSlotList?.clear()
-                mRecheduleBS?.mTaskBaseSlotList?.clear()
+                mRecheduleBS?.mTimeSlotList?.clear()
 
                 response.result.task_time?.let { tTime ->
-                    if(tTime.isBlank()) {  mRecheduleBS?.mTaskBaseSlotList?.clear() } else {
-                        mRecheduleBS?.mTaskBaseSlotList?.addAll(tTime.split(",").map { it1 -> it1.trim() })}
+                    if(tTime.isBlank()) {  mRecheduleBS?.mTimeSlotList?.clear() } else {
+                        mRecheduleBS?.mTimeSlotList?.addAll(tTime.split(",").map { it1 -> it1.trim() })}
                 }
                 response.result.hourly_time?.let { hTime ->
-                    if(hTime.isBlank()) { mRecheduleBS?.mHourlyBaseSlotList?.clear() }
-                    else { mRecheduleBS?.mHourlyBaseSlotList?.addAll(hTime.split(",").map { it1 -> it1.trim()})}
+                    if(hTime.isBlank()) { mRecheduleBS?.mTimeSlotList?.clear() }
+                    else { mRecheduleBS?.mTimeSlotList?.addAll(hTime.split(",").map { it1 -> it1.trim()})}
                 }
                 mRecheduleBS?.updateTimeSlots()
             } else showToast(response?.message?:getString(R.string.something_went_wrong))
@@ -222,18 +225,30 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
 
     private fun apiReschedule(id: String, serviceType: String) {
         if (isNetworkConnected) {
-             showLoading()
+
             val jsonObject = JsonObject().apply {
                 addProperty("service_type", serviceType)
                 addProperty("order_id", id)
                 addProperty("login_user_id", mViewModel?.appSharedPref?.userId)
             }
 
-            val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
-
             if(serviceType.equals(ProviderTypes.DOCTOR.getType(),ignoreCase = true)) {
+
+                val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
+                showLoading()
                 mViewModel?.apiRescheduleForDoc(body, -1)
-            } else mViewModel?.apiReschedule(body, -1)
+            } else if(serviceType.equals(ProviderTypes.LAB.getType(),ignoreCase = true)) {
+
+                jsonObject.addProperty("task_type", bookType)
+                val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
+             //   showLoading()
+             //   mViewModel?.apiRescheduleForLab(body,-1)
+            }
+            else{
+                val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
+                showLoading()
+                mViewModel?.apiReschedule(body, -1)
+            }
 
         } else {
             showToast(getString(R.string.check_network_connection))
@@ -277,6 +292,8 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
             val body = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
             if(serviceType.equals(ProviderTypes.DOCTOR.getType(),ignoreCase = true)) {
                  mViewModel?.apiUpdateRescheduleForDoc(body)
+            }  else if(serviceType.equals(ProviderTypes.LAB.getType(),ignoreCase = true)) {
+                mViewModel?.apiUpdateRescheduleForLab(body)
             } else mViewModel?.apiUpdateReschedule(body)
         } else {
             showToast(getString(R.string.check_network_connection))
@@ -320,7 +337,7 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
                            btnVideoCall.visibility = View.GONE
                            when {
                                 it.acceptance_status.equals(TransactionStatus.ACCEPTED.get(),ignoreCase = true)
-                                && it.slot_booking_id.equals("ONLINE_BOOKING",ignoreCase = true) -> {
+                                && it.slot_booking_id.equals(SlotBookingId.ONLINE_BOOKING.get(),ignoreCase = true) -> {
                                //     btnVideoCall.visibility = View.VISIBLE
                                  needToShowVideoCall(it.app_date, it.from_time, btnVideoCall)
                                  btnVideoCall.setOnClickListener { hitVideoCall() }
@@ -346,7 +363,47 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
                            }
                        }
                    }
-                } else {
+                }
+                else if(serviceType.equals(ProviderTypes.LAB.getType(),ignoreCase = true)) {
+                   detailModel = it
+                   grpPresc.visibility = if(it.provider_prescription.isNullOrBlank().not()) {
+                       tvPrescDowonload.setOnClickListener { _ ->
+                           initializeDownloadManager()
+                           downloadFile(it.provider_prescription.orEmpty())
+                       }
+                       View.VISIBLE } else View.GONE
+                   when {
+                       it.acceptance_status.equals(TransactionStatus.PENDING.get(),ignoreCase = true) -> {
+                           btnReschedule.visibility = View.VISIBLE
+                       }
+                       else -> {
+                           // for refund detail
+                           grpRefund.visibility = if(it.rf_text.isNullOrBlank().not()) View.VISIBLE else View.GONE
+                           tvRefundedNote.text = (it.rf_text ?: "").parseAsHtml()
+                           btnReschedule.visibility = View.GONE
+                           when {
+                               it.acceptance_status.equals(TransactionStatus.COMPLETED.get(),ignoreCase = true) -> {
+                                   showRatingOrNot(it)
+
+                                   // show the rating accordingly
+                                   if(it.avg_rating.isNullOrBlank().not() && it.avg_rating?.toInt() != 0){
+                                       ratBar.visibility = View.VISIBLE
+                                       tvhRated.visibility = View.VISIBLE
+                                       btnRateAppointment.visibility = View.GONE
+                                       ratBar.rating = it.avg_rating?.toFloat() ?: 0.0f
+                                       tvhRated.text = getString(R.string.rated)
+                                   } else {
+                                       ratBar.visibility = View.GONE
+                                       tvhRated.visibility = View.GONE
+                                       btnRateAppointment.visibility = View.VISIBLE
+                                   }
+
+                               }
+                           }
+                       }
+                   }
+                }
+                else {
                    when {
                        it.acceptance_status.equals(TransactionStatus.PENDING.get(), ignoreCase = true) -> {
                            btnReschedule.visibility = View.VISIBLE
@@ -361,6 +418,7 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
                                it.acceptance_status.equals( TransactionStatus.CANCELLED.get(), ignoreCase = true ) -> {
                                    grpEnterOtp.visibility = View.GONE
                                }
+
                                it.acceptance_status.equals(TransactionStatus.ACCEPTED.get(), ignoreCase = true) -> {
                                    grpEnterOtp.visibility = View.VISIBLE
                                    tvhOtpSuccfully.text = getString(R.string.provide_otp_at_the_end_of_service)
@@ -394,6 +452,8 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
                        }
                    }
                }
+
+
               // set the recyclerview
                if(it.task_details.isNullOrEmpty().not()){
                    relPayment.visibility = View.VISIBLE

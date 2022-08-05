@@ -699,7 +699,7 @@
                                 android:id="@+id/tv_lab_sh1"
                                 style="@style/AppTheme.TextRegular"
                                 android:layout_width="match_parent"
-                                android:layout_marginTop="@dimen/dp4"
+                                android:layout_marginTop="@dimen/dp2"
                                 android:singleLine="true"
                                 android:text="@string/get_the_sample_collected_today"
                                 android:textColor="@color/txt_color"

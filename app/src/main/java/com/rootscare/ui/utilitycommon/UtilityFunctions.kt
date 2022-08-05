@@ -54,7 +54,7 @@ import java.io.File
 
 
 
-const val IS_PRODUCTION = true
+const val IS_PRODUCTION = false
 
 val PAYMENT_KEY_: String by lazy { if(IS_PRODUCTION) "sk_live_6GPzSurWAK9ng1C7yUq8wOeh" else "sk_test_KOfdbVzDXW7JreslyPL2g1nN" }
 val API_BASE_URL: String by lazy { if(IS_PRODUCTION) "https://rootscare.net/application/" else "https://teq-dev-var19.co.in/rootscare/" }
