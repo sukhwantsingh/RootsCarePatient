@@ -15,7 +15,7 @@ import com.rootscare.ui.newaddition.providerlisting.models.ModelProviderListing
 import com.rootscare.utilitycommon.ProviderTypes
 
 interface OnProviderListingCallback {
-    fun onItemClick(pos: Int, id: String?, usType: String) {}
+    fun onItemClick(pos: Int, id: String?, usType: String,hospitalId: String?) {}
     fun onBookAppointment(pos: Int, node: ModelProviderListing.Result?) {}
     fun onLoadMore(pos: Int, lastuserId: String) {}
 }
@@ -71,7 +71,7 @@ class AdapterProviderListing(internal var context: Context) :
                 tvUsername.setOnClickListener { imgProfile.performClick() }
                 imgProfile.setOnClickListener {
                     val mNode = getItem(absoluteAdapterPosition)
-                    mCallback.onItemClick(absoluteAdapterPosition,mNode?.user_id ?: "",mNode?.user_type ?: "")
+                    mCallback.onItemClick(absoluteAdapterPosition,mNode?.user_id ?: "",mNode?.user_type ?: "", mNode.hospital_id.orEmpty())
                 }
 
                 btnBookAppointment.setOnClickListener {

@@ -366,12 +366,13 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
                 }
                 else if(serviceType.equals(ProviderTypes.LAB.getType(),ignoreCase = true)) {
                    detailModel = it
-                   grpPresc.visibility = if(it.provider_prescription.isNullOrBlank().not()) {
-                       tvPrescDowonload.setOnClickListener { _ ->
-                           initializeDownloadManager()
-                           downloadFile(it.provider_prescription.orEmpty())
-                       }
-                       View.VISIBLE } else View.GONE
+                   // Todo: uncomment after work done in Provider
+//                   grpPresc.visibility = if(it.provider_prescription.isNullOrBlank().not()) {
+//                       tvPrescDowonload.setOnClickListener { _ ->
+//                           initializeDownloadManager()
+//                           downloadFile(it.provider_prescription.orEmpty())
+//                       }
+//                       View.VISIBLE } else View.GONE
                    when {
                        it.acceptance_status.equals(TransactionStatus.PENDING.get(),ignoreCase = true) -> {
                            btnReschedule.visibility = View.VISIBLE

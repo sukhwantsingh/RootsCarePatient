@@ -13,7 +13,7 @@ data class ModelBookingInitialData(
     @Keep
     data class Result(
         val dispaly_provider_type: String?,
-        val distance_fare: Int?,
+        val distance_fare: Double?,
         val distance_fare_text: String?,
         val experience: String?,
         val hour_base_enable: String?,

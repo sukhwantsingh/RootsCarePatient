@@ -92,9 +92,13 @@ class FragmentProviderListing : BaseFragment<FragmentProviderListingBinding, Pro
                         node.user_id.orEmpty(), getBookingTypeForDoctor(node), node.user_type.orEmpty(),
                         node.online_enable ?: "1",node.home_visit_enable ?: "1"))
                 }
-                node?.user_type?.equals(ProviderTypes.LAB.getType(), ignoreCase = true) == true -> {
-                 (activity as? HomeActivity)?.checkInBackstack(FragmentProvderBookingForLab.newInstance(node.user_id.orEmpty(), BookingTypes.TESTS.get(), node.user_type.orEmpty()))
-                }
+               node?.user_type?.equals(ProviderTypes.LAB.getType(), ignoreCase = true) == true -> {
+                   if(node.hospital_id.isNullOrBlank().not()){
+                       showToast("Under working");
+                   }
+                   else {
+                       (activity as? HomeActivity)?.checkInBackstack(FragmentProvderBookingForLab.newInstance(node.user_id.orEmpty(), BookingTypes.TESTS.get(), node.user_type.orEmpty())) }
+                    }
                 else -> {
                     // For Nurse, Babysitter, Nurse Assistant, Physiotherapy
                     (activity as? HomeActivity)?.checkInBackstack(FragmentProvderBooking.newInstance(node?.user_id.orEmpty(), getBookingType(node),
@@ -103,15 +107,17 @@ class FragmentProviderListing : BaseFragment<FragmentProviderListingBinding, Pro
             }
         }
 
-        override fun onItemClick(pos: Int, id: String?, usType:String) {
+        override fun onItemClick(pos: Int, id: String?, usType:String, hospitalId: String?) {
             when {
-                usType.equals(ProviderTypes.LAB.getType(), ignoreCase = true) -> {
-                    //    (activity as? HomeActivity)?.checkInBackstack(FragmentProvderBooking.newInstance(
-                    //       node.user_id.orEmpty(), BookingTypes.TESTS.get(), node.user_type.orEmpty(),node.task_base_enable ?: "1","1"))
-                    (activity as? HomeActivity)?.checkInBackstack(FragmentProviderListingDetails.newInstance(id ?: "", usType.trim()))
+               usType.equals(ProviderTypes.LAB.getType(), ignoreCase = true) -> {
+                    if(hospitalId.isNullOrBlank().not()) {
+                        showToast("Under working");
+                    }else{
+                        (activity as? HomeActivity)?.checkInBackstack(FragmentProviderListingDetails.newInstance(id ?: "", usType.trim()))
+                    }
                 }
                 else -> {
-                    (activity as? HomeActivity)?.checkInBackstack(FragmentProviderListingDetails.newInstance(id ?: "", usType.trim()))
+                    (activity as? HomeActivity)?.checkInBackstack(FragmentProviderListingDetails.newInstance(id.orEmpty(), usType.trim()))
                 }
             }
 

@@ -124,7 +124,7 @@ class FragmentHospitalDoctorsListing : BaseFragment<FragmentHospitalDoctorsListi
                   node?.online_enable ?: "1","1"))
         }
 
-       override fun onItemClick(pos: Int, id: String?,usType:String) {
+       override fun onItemClick(pos: Int, id: String?,usType:String, hospitalId: String?) {
             (activity as? HomeActivity)?.checkInBackstack(FragmentProviderListingDetails.newInstance(id ?: "", usType.trim()))
        }
 
