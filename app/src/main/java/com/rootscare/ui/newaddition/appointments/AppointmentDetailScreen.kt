@@ -31,7 +31,8 @@ import android.os.Environment
 import com.rootscare.data.model.api.request.videoPushRequest.VideoPushRequest
 import com.rootscare.data.model.api.response.videoPushResponse.VideoPushResponse
 import com.rootscare.twilio.VideoCallActivity
-
+import com.rootscare.ui.newaddition.appointments.adapter.AdapterReportUploadeds
+import com.rootscare.ui.newaddition.appointments.adapter.OnLabReportsCallback
 
 
 class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding, ViewModelMyAppointments>(),
@@ -56,7 +57,7 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
             return mViewModel as ViewModelMyAppointments
         }
     private val mAdapterPayment: AdapterPaymentSplitting by lazy { AdapterPaymentSplitting()  }
-
+    private val adapterReports: AdapterReportUploadeds by lazy { AdapterReportUploadeds() }
 
     private var orderId = ""
     var mRecheduleBS : BSReschedule? = null
@@ -64,6 +65,7 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
     private var downloadManager: DownloadManager? = null
     private var downLoadId: Long? = null
     private var mHospId = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewModel?.navigator = this
@@ -76,6 +78,13 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
             topToolbar.tvHeader.text = getString(R.string.appointment_details)
             topToolbar.btnBack.setOnClickListener { finish() }
             rvPayments.adapter = mAdapterPayment
+            rvReports.adapter = adapterReports
+               adapterReports.mCallback = object: OnLabReportsCallback {
+                   override fun onDownloads(mFileName: String) {
+                       initializeDownloadManager()
+                       downloadFile(mFileName)
+                   }
+               }
       //      tvhCall.setOnClickListener { openDialer(patientContact) }
           //  tvhOpenGmap.setOnClickListener { openGoogleMap(mPatientLat,mPatientLng) }
 
@@ -84,9 +93,14 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
               mDialog.show(supportFragmentManager, "RatingDilaogBox")
 
            }
-           btnReschedule.setOnClickListener {
-           apiReschedule(appointmentId?:"", serviceType ?: "")
-           }
+           btnReschedule.setOnClickListener {  apiReschedule(appointmentId.orEmpty(), serviceType.orEmpty()) }
+           imgPatientArrowDown.setOnClickListener {
+                   imgPatientArrowDown.rotation = if(grpPatientDetails.isShown){
+                       grpPatientDetails.visibility = View.GONE; 0f
+                   } else {
+                       grpPatientDetails.visibility = View.VISIBLE; 180f
+                   }
+               }
 
             fetchTasksDetailApi()
         }
@@ -366,13 +380,6 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
                 }
                 else if(serviceType.equals(ProviderTypes.LAB.getType(),ignoreCase = true)) {
                    detailModel = it
-                   // Todo: uncomment after work done in Provider
-//                   grpPresc.visibility = if(it.provider_prescription.isNullOrBlank().not()) {
-//                       tvPrescDowonload.setOnClickListener { _ ->
-//                           initializeDownloadManager()
-//                           downloadFile(it.provider_prescription.orEmpty())
-//                       }
-//                       View.VISIBLE } else View.GONE
                    when {
                        it.acceptance_status.equals(TransactionStatus.PENDING.get(),ignoreCase = true) -> {
                            btnReschedule.visibility = View.VISIBLE
@@ -380,12 +387,16 @@ class AppointmentDetailScreen : BaseActivity<LayoutNewAppointmentDetailsBinding,
                        else -> {
                            // for refund detail
                            grpRefund.visibility = if(it.rf_text.isNullOrBlank().not()) View.VISIBLE else View.GONE
-                           tvRefundedNote.text = (it.rf_text ?: "").parseAsHtml()
+                           tvRefundedNote.text = (it.rf_text.orEmpty()).parseAsHtml()
                            btnReschedule.visibility = View.GONE
                            when {
                                it.acceptance_status.equals(TransactionStatus.COMPLETED.get(),ignoreCase = true) -> {
                                    showRatingOrNot(it)
-
+                                   rvReports.visibility = if(it.report.isNullOrEmpty()) View.GONE else {
+                                       adapterReports.submitList(it.report)
+                                       relLabReportSection.visibility = View.VISIBLE
+                                       View.VISIBLE
+                                   }
                                    // show the rating accordingly
                                    if(it.avg_rating.isNullOrBlank().not() && it.avg_rating?.toInt() != 0){
                                        ratBar.visibility = View.VISIBLE

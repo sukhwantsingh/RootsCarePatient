@@ -347,5 +347,7 @@
     <string name="lab_booking">Lab Booking</string>
     <string name="package_detail">Package detail</string>
     <string name="packages_not_available">Packages not available</string>
+    <string name="report_attachment">Report Attachment</string>
+    <string name="upload">Upload</string>
 
 </resources>

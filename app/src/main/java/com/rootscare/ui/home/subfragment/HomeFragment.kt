@@ -87,7 +87,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>(),
 
             // Hospital Doc
             crdDocHosp.setOnClickListener {
-                moveToProviderHospitalListing(ProviderTypes.HOSPITAL.getDisplayName(), ProviderTypes.HOSPITAL.getType(), needToMove = false, docEnableFor = DoctorEnabledFor.ONLINE.get())
+                moveToProviderHospitalListing(ProviderTypes.HOSPITAL.getDisplayName(), ProviderTypes.HOSPITAL.getType(), needToMove = true, docEnableFor = DoctorEnabledFor.ONLINE.get())
             }
 
            // Lab
